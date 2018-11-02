@@ -1,7 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -80,17 +76,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -102,14 +87,24 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#powerline
 if [ -f `which powerline-daemon` ]; then
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
 fi
 if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
 export TERM=xterm-256color
 
+alias sn='sudo nano'
+alias ag='sudo apt-get'
+alias diskusage='sudo du -sh * | sort -hf'
+alias sv='sudo vim'
+alias v='vim'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias gitpta='git remote | xargs -L1 git push --all'
