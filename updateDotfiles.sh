@@ -3,6 +3,11 @@ for D in `find . -name ".*" -not -path "./.git" `
 do
     echo $D
 done
-cp ./.tmux.conf ~/.tmux.conf
 
+mv ~/.tmux.conf ~/.tmux.conf.old
+mv ~/.vimrc ~/.vimrc.old
+mv ~/.bashrc ~/.bashrc.old
 
+printf "so $HOME/dotfiles/vimrc" > ~/.vimrc
+printf "source-file $HOME/dotfiles/tmux.conf" > ~/.tmux.conf
+printf "source $HOME/dotfiles/bashrc" > ~/.bashrc
