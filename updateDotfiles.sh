@@ -11,3 +11,5 @@ mv ~/.bashrc ~/.bashrc.old
 printf "so $HOME/dotfiles/vimrc" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux.conf" > ~/.tmux.conf
 printf "source $HOME/dotfiles/bashrc" > ~/.bashrc
+ln -s dotfiles/.vim/ .vim
+

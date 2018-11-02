@@ -3,10 +3,10 @@ set laststatus=2
 set t_Co=256
 
 syntax on
-set relativenumber!
+"set relativenumber!
 "call plug#begin('~/.vim/plugged')
 
 "call plug#end()
 
 
-colorscheme desert
+colorscheme abstract 
