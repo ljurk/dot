@@ -9,4 +9,5 @@ syntax on
 "call plug#end()
 
 
-colorscheme abstract 
+colorscheme abstract
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
