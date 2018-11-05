@@ -6,9 +6,9 @@ syntax on
 filetype plugin on
 set nocompatible
 set number
-"call plug#begin('~/.vim/plugged')
-
-"call plug#end()
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/scrooloose/nerdtree.git'
+call plug#end()
 
 
 colorscheme abstract
