@@ -6,14 +6,27 @@ syntax on
 filetype plugin on
 set nocompatible
 set number
+
+"vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/scrooloose/nerdtree.git'
+    Plug 'https://github.com/scrooloose/nerdtree.git'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
+if &term =~ '256color'
+      " disable Background Color Erase (BCE) so that color schemes
+      "   " render properly when inside 256-color tmux and GNU screen.
+    set t_ut=
+endif
 
-colorscheme abstract
+color dracula
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
 
+"swtich between tabs
+nnoremap H gT
+nnoremap L gt
+
+nnoremap N :NERDTree<Enter>
 " Navigating with guides
     inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
     vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
