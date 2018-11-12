@@ -70,7 +70,7 @@
 "attr": [] },
 		"cwd": { "fg": "brightpurple", "bg": "gray4", "attr": [] 
 },
-		"cwd:current_folder": { "fg": "mediumpurple", "bg": 
+		"cwd:current_folder": { "fg": "khaki1", "bg": 
 "gray4", "attr": ["bold"] },
 		"cwd:divider": { "fg": "yellow", "bg": "gray4", 
 "attr": [] },

@@ -17,7 +17,7 @@
 			"theme": "default"
 		},
 		"shell": {
-			"colorscheme": "epsi",
+			"colorscheme": "epic",
 			"theme": "default_leftonly",
 			"local_themes": {
 				"continuation": "continuation",
