@@ -1,0 +1,2 @@
+screenfetch
+source ~/.bashrc
