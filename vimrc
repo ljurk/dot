@@ -6,7 +6,7 @@ syntax on
 filetype plugin on
 set nocompatible
 set number
-
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
 "vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
@@ -26,7 +26,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 nnoremap H gT
 nnoremap L gt
 
-nnoremap N :NERDTree<Enter>
+nnoremap <F1> :NERDTreeToggle<Enter>
+nnoremap <F2> :set list!<Enter>
+nnoremap <F3> :set relativenumber!<Enter>
 " Navigating with guides
     inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
     vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
