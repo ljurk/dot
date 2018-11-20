@@ -21,7 +21,10 @@ endif
 
 color dracula
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
-
+" cursor in center
+set so=999
+"highlight cursor line
+set cursorline
 "swtich between tabs
 nnoremap H gT
 nnoremap L gt
