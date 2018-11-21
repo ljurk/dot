@@ -9,6 +9,9 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+#set environment variables
+export PATH=$PATH:$HOME/.scripts/
+
 #powerline
 if [ -f `which powerline-daemon` ]; then
     powerline-daemon -q
