@@ -7,20 +7,16 @@ then
     mv ~/.bashrc ~/.bashrc.old
     mv ~/.vim ~/.vim.old
     mv ~/.config ~/.config.old
+else
+    rm -f ~/.tmux.conf
+    rm -f ~/.vimrc
+    rm -f ~/.bashrc
+    rm -f ~/.bash_profile
+    rm -rf ~/.vim
+    rm -rf ~/.config/powerline
 fi
 
-if [ $1 == "deleteold" ]
-then
-    rm -f ~/.tmux.conf.old
-    rm -f ~/.vimrc.old
-    rm -f ~/.bashrc.old
-    rm -f ~/.vim.old
-    rm -f ~/.config.old
-fi
 
-
-    rm -f ~/.vim
-    rm -f ~/.config
 #link to new files
 printf "so /home/ljurk/dotfiles/vimrc" > ~/.vimrc
 printf "source-file /home/ljurk/dotfiles/tmux.conf" > ~/.tmux.conf
@@ -28,4 +24,4 @@ printf "source /home/ljurk/dotfiles/bashrc" > ~/.bashrc
 printf "source /home/ljurk/dotfiles/bash_profile" > ~/.bash_profile
 
 ln -s /home/ljurk/dotfiles/.vim/ ~/.vim
-ln -s /home/ljurk/dotfiles/.config ~/.config
+ln -s /home/ljurk/dotfiles/.config/powerline ~/.config/powerline
