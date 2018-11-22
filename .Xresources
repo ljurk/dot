@@ -1,3 +1,12 @@
+#for other applications
+*background:                      #222D31
+*foreground:                      #d8d8d8
+*fading:                          8
+*fadeColor:                       black
+*cursorColor:                     #1ABB9B
+*pointerColorBackground:          #2B2C2B
+*pointerColorForeground:          #16A085
+
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
