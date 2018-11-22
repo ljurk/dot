@@ -1,0 +1,48 @@
+separator_block_width=14
+
+[memory]
+label=Mem:
+command=/usr/lib/i3blocks/memory
+separator=false
+interval=30
+
+[disk-root]
+label=/:
+command=/usr/lib/i3blocks/disk /
+interval=30
+color=#1793D1
+
+[iface]
+command=/usr/lib/i3blocks/iface
+color=#00FF00
+interval=10
+
+[strength]
+command=echo "$(iw dev wlo1 link | grep signal | cut -d " " -f 2-)"
+interval=10
+color=#cb4b16
+
+[cpu]
+label=CPU
+command=/usr/lib/i3blocks/cpu_usage
+interval=10
+min_width=CPU: 100.00%
+separator=false
+
+[volume]
+label=
+command=/usr/lib/i3blocks/volume
+interval=2
+signal=10
+color=#d70a53
+
+
+[time]
+#command-date " %a %m-%d-%y %l:%M:%S %p"
+label=
+command=date '+%a %m-%d-%y %l:%M:%S %p'
+interval=5
+color=#50C878
+
+
+
