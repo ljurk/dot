@@ -12,6 +12,7 @@ shopt -s checkwinsize
 #set environment variables
 export PATH=$PATH:$HOME/.scripts/
 
+export PATH=$PATH:$HOME/.local/bin
 #powerline
 if [ -f `which powerline-daemon` ]; then
     powerline-daemon -q
