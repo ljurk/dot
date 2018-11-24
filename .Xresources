@@ -1,4 +1,4 @@
-#for other applications
+! for other applications
 *background:                      #222D31
 *foreground:                      #d8d8d8
 *fading:                          8
@@ -10,13 +10,8 @@
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-! URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 URxvt.font:     xft:DejaVu Sans Mono for Powerline:size=16:antialias=true
 URxvt.boldfont:     xft:DejaVu Sans Mono Bold for Powerline:size=16:antialias=true
-! alternative font settings with 'terminus':
-! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-!! terminus names see end of file!
 
 URxvt.depth:                      32
 URxvt.background:                 [100]#222D31
@@ -45,3 +40,9 @@ URxvt.keysym.Control-Up:          \033[1;5A
 URxvt.keysym.Shift-Control-Up:    \033[1;6A
 URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
+
+URxvt.color3:           DarkGoldenrod
+URxvt.color4:           RoyalBlue
+URxvt.color11:          LightGoldenrod
+URxvt.color12:          LightSteelBlue
+URxvt.color7:           gray75
