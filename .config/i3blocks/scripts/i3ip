@@ -1,0 +1,15 @@
+#actualy dont work with wlan
+vpn="$( ~/.config/i3blocks/scripts/netCheck vpn0)"
+eth="$( ~/.config/i3blocks/scripts/netCheck enp4s0f2)"
+wifi="$( ~/.config/i3blocks/scripts/netCheck wlp3s0)"
+if [ $vpn == "1" ]
+then
+   ip addr show vpn0 | grep -Po 'inet \K[\d.]+'
+else
+    if [ $eth == "1" ]
+    then
+        echo "$(ip addr show enp4s0f2 | grep -Po 'inet \K[\d.]+')"
+    else
+        echo "$(ip addr show  wlp3s0| grep -Po 'inet \K[\d.]+')"
+    fi
+fi

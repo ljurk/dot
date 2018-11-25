@@ -1,17 +1,11 @@
 down='<span foreground="#FF0000">VPN</span>'
 up='<span foreground="#00FF00">VPN</span>'
-string="$(/usr/bin/ip link)"
-if [[ $string == *"vpn0"* ]]; then
-    string="$(/usr/bin/ip link | grep vpn0)"
-    if [[ $string == *"UP"* ]]; then
-        #UP
-        echo $up
-    else
-        #DOWN
-        echo $down
-    fi
+state="$(~/.config/i3blocks/scripts/netCheck vpn0)"
+
+if [ $state == '1' ]
+then
+    echo $up
 else
-    #DOWN
     echo $down
 fi
 

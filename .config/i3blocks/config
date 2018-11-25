@@ -13,7 +13,7 @@ interval=30
 color=#1793D1
 
 [iface]
-command=/usr/lib/i3blocks/iface
+command=~/.config/i3blocks/scripts/i3ip
 color=#00FF00
 interval=10
 

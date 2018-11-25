@@ -1,0 +1,29 @@
+if [ $# != 0 ]
+then
+    string="$(/usr/bin/ip link)"
+    if [[ $string == *"$1"* ]]
+    then
+        string="$(/usr/bin/ip link | grep $1)"
+        if [[ $string == *"UP"* ]]
+        then
+            #UP
+            if [ $# == 0 ]
+            then
+                echo $up
+            else
+                echo '1'
+            fi
+        else
+            #DOWN
+            if [ $# == 0 ]
+            then
+                echo $down
+            else
+                echo '0'
+            fi
+        fi
+    else
+        #DOWN
+        echo $down
+    fi
+fi
