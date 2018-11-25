@@ -1,0 +1,14 @@
+string="$(/usr/bin/ip link)"
+if [[ $string == *"vpn0"* ]]; then
+    string="$(/usr/bin/ip link | grep vpn0)"
+    if [[ $string == *"UP"* ]]; then
+        #UP
+        echo "VPN"
+    else
+        #DOWN
+        echo "VPN"
+    fi
+else
+    #DOWN
+    echo "VPN"
+fi

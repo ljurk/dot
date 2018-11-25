@@ -34,14 +34,14 @@ label=
 command=/usr/lib/i3blocks/volume
 interval=2
 signal=10
-color=#d70a53
+#color=#d70a53
 
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
 interval=30
 
 [vpn]
-command=/usr/lib/i3blocks/openvpn
+command=~/.config/i3blocks/scripts/i3vpn
 interval=30
 
 [time]
