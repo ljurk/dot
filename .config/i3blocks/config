@@ -42,7 +42,8 @@ interval=30
 
 [vpn]
 command=~/.config/i3blocks/scripts/i3vpn
-interval=30
+interval=5
+markup=pango
 
 [time]
 #command-date " %a %m-%d-%y %l:%M:%S %p"

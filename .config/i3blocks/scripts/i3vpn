@@ -1,14 +1,17 @@
+down='<span foreground="#FF0000">VPN</span>'
+up='<span foreground="#00FF00">VPN</span>'
 string="$(/usr/bin/ip link)"
 if [[ $string == *"vpn0"* ]]; then
     string="$(/usr/bin/ip link | grep vpn0)"
     if [[ $string == *"UP"* ]]; then
         #UP
-        echo "VPN"
+        echo $up
     else
         #DOWN
-        echo "VPN"
+        echo $down
     fi
 else
     #DOWN
-    echo "VPN"
+    echo $down
 fi
+
