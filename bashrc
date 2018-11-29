@@ -19,8 +19,13 @@ if [ -f `which powerline-daemon` ]; then
     POWERLINE_BASH_CONTINUATION=1
     POWERLINE_BASH_SELECT=1
 fi
+#3.7
 if [ -f /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
     source /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+fi
+#2.7
+if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
 #color
@@ -32,7 +37,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias sn='sudo nano'
-#alias ag='sudo apt-get'
+alias ag='sudo apt-get'
 alias sp='sudo pacman -Syu'
 alias diskusage='sudo du -sh * | sort -hf'
 alias sv='sudo vim'
