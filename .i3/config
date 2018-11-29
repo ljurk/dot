@@ -422,7 +422,7 @@ mode "$mode_gaps_outer" {
 }
 
 #bindsym $mod+Shift+x exec i3lock -c "#222D31"
-bindsym $mod+Shift+x exec "$HOME/.i3/scripts/lock.sh"
+bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 # select entry using dmenu, then send password to keyboard
 bindsym $mod+p exec "$HOME/.local/bin/ph type dmenu"
 # select entry using dmenu, then send username + password to keyboard
