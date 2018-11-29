@@ -47,6 +47,8 @@ alias la='ls -A'
 alias l='ls -CF'
 alias gpta='git remote | xargs -L1 git push --all'
 alias tbase='tmux a -t base || tmux new -s base'
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection c -o'
 #Adminstuff
 alias a2res='sudo service apache2 restart'
 alias a2rel='sudo service apache2 reload'
