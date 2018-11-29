@@ -39,6 +39,7 @@ signal=10
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
 interval=30
+markup=pango
 
 [vpn]
 command=~/.config/i3blocks/scripts/i3vpn
