@@ -20,6 +20,7 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+let g:dracula_colorterm = 0
 color dracula
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
 " cursor in center
