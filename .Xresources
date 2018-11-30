@@ -14,7 +14,7 @@ URxvt.font:         xft:DejaVu Sans Mono for Powerline:size=16:antialias=true
 URxvt.boldfont:     xft:DejaVu Sans Mono Bold for Powerline:size=16:antialias=true
 
 URxvt.depth:                      32
-URxvt.background:                 [80]#222D31
+URxvt.background:                 [85]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true

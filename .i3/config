@@ -427,3 +427,4 @@ bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 bindsym $mod+p exec "$HOME/.local/bin/ph type dmenu"
 # select entry using dmenu, then send username + password to keyboard
 bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type dmenu --tabbed"
+exec_always feh --bg-scale $HOME/Pictures/wall.jpg
