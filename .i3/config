@@ -285,7 +285,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -427,4 +427,3 @@ bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 bindsym $mod+p exec "$HOME/.local/bin/ph type dmenu"
 # select entry using dmenu, then send username + password to keyboard
 bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type dmenu --tabbed"
-exec_always feh --bg-scale $HOME/Pictures/wall.jpg
