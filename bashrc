@@ -31,6 +31,8 @@ fi
 #color
 export TERM=xterm-256color
 
+#swap escape with caps
+#xmodmap /home/ljurk/dotfiles/.Xmodmap
 #aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
