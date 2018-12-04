@@ -12,6 +12,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
 call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 if &term =~ '256color'
@@ -34,6 +35,12 @@ nnoremap L gt
 nnoremap <F1> :NERDTreeToggle<Enter>
 nnoremap <F2> :set list!<Enter>
 nnoremap <F3> :set relativenumber!<Enter>
+
+" Enable autocompletion:
+set wildmode=longest,list,full
+" filetypes for vimwiki
+let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown', 'txt' : '.txt'}
+
 " Navigating with guides
     inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
     vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
