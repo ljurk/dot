@@ -16,35 +16,46 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 if &term =~ '256color'
-      " disable Background Color Erase (BCE) so that color schemes
-      "   " render properly when inside 256-color tmux and GNU screen.
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
     set t_ut=
 endif
 
-let g:dracula_colorterm = 0
-color dracula
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
+" color it up
+    let g:dracula_colorterm = 0
+    color dracula
+" tab settings
+    set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
 " cursor in center
-set so=999
+    set so=999
 "highlight cursor line
-set cursorline
+    set cursorline
 "swtich between tabs
-nnoremap H gT
-nnoremap L gt
+    nnoremap H gT
+    nnoremap L gt
 
-nnoremap <F1> :NERDTreeToggle<Enter>
-nnoremap <F2> :set list!<Enter>
-nnoremap <F3> :set relativenumber!<Enter>
+    nnoremap <F1> :NERDTreeToggle<Enter>
+    nnoremap <F2> :set list!<Enter>
+    nnoremap <F3> :set relativenumber!<Enter>
+
+"move text to 0,0+4 Spaces,0+8Spaces
+    nnoremap mt0 ^d0j
+    nnoremap mt1 ^d0I    j
+    nnoremap mt2 ^d0I        j
+
+" macros for markdown
+    nnoremap mdt ggi---title: <++>---
 
 " Enable autocompletion:
-set wildmode=longest,list,full
+    set wildmode=longest,list,full
+
 " filetypes for vimwiki
-let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown', 'txt' : '.txt'}
+    let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown', 'txt' : '.txt'}
 
 " Navigating with guides
-    inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-    vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-    map <Space><Tab> <Esc>/<++><Enter>"_c4l
+    inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+    vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+    map <Space><Space> <Esc>/<++><Enter>"_c4l
 
 """PHP/HTML
     autocmd FileType php,html inoremap ,b <b></b><Space><++><Esc>FbT>i
@@ -68,4 +79,4 @@ let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markd
     autocmd FileType php,html inoremap ,yl <font color="yellow"></font><Esc>F>a
     autocmd FileType php,html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
     autocmd FileType php,html inoremap ,dl <dl><Enter><Enter></dl><enter><enter><++><esc>3kcc
-autocmd FileType php,html inoremap &<space> &amp;<space>
+    autocmd FileType php,html inoremap &<space> &amp;<space>
