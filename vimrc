@@ -23,7 +23,7 @@ endif
 
 " color it up
     let g:dracula_colorterm = 0
-    color dracula
+    color abstract
 " tab settings
     set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
 " cursor in center
@@ -42,9 +42,10 @@ endif
     nnoremap mt0 ^d0j
     nnoremap mt1 ^d0I    j
     nnoremap mt2 ^d0I        j
-
+"remove trailing whitespaces
+    nnoremap mrm :%s/\s\+$//e
 " macros for markdown
-    nnoremap mdt ggi---title: <++>---
+    nnoremap mdt ggi---title: <a href="https://303.ddns.net"><img src="smile.png" alt="drawing" width="100"/></a><++>---
 
 " Enable autocompletion:
     set wildmode=longest,list,full
