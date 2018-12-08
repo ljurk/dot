@@ -23,9 +23,9 @@ endif
 
 " color it up
     let g:dracula_colorterm = 0
-    color abstract
+    color nachtleben
 " tab settings
-    set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
+    set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " cursor in center
     set so=999
 "highlight cursor line
@@ -54,7 +54,6 @@ endif
     let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown', 'txt' : '.txt'}
 
 " Navigating with guides
-    inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
     vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
     map <Space><Space> <Esc>/<++><Enter>"_c4l
 
