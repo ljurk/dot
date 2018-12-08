@@ -1,11 +1,13 @@
+#!/bin/bash
+
 down='<span foreground="#FF0000">VPN</span>'
 up='<span foreground="#00FF00">VPN</span>'
 state="$(~/.config/i3blocks/scripts/netCheck vpn0)"
 
-if [ $state == '1' ]
+if [ "$state" == '1' ]
 then
-    echo $up
+    echo "$up"
 else
-    echo $down
+    echo "$down"
 fi
 

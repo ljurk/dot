@@ -1,29 +1,20 @@
-if [ $# != 0 ]
+#!/bin/bash
+if [ "$#" != 0 ]
 then
     string="$(/usr/bin/ip link)"
-    if [[ $string == *"$1"* ]]
+    if [[ "$string" == *"$1"* ]]
     then
-        string="$(/usr/bin/ip link | grep $1)"
-        if [[ $string == *"UP"* ]]
+        string="$(/usr/bin/ip link | grep "$1")"
+        if [[ "$string" == *"UP"* ]]
         then
             #UP
-            if [ $# == 0 ]
-            then
-                echo $up
-            else
-                echo '1'
-            fi
+            echo '1'
         else
             #DOWN
-            if [ $# == 0 ]
-            then
-                echo $down
-            else
-                echo '0'
-            fi
+            echo '0'
         fi
     else
         #DOWN
-        echo $down
+        echo '0'
     fi
 fi
