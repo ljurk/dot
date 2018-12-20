@@ -3,11 +3,18 @@
 down='<span foreground="#FF0000">VPN</span>'
 up='<span foreground="#00FF00">VPN</span>'
 state="$(~/.config/i3blocks/scripts/netCheck vpn0)"
+vpn="TUD"
 
 if [ "$state" == '1' ]
 then
     echo "$up"
+    rightclick="nmcli con down id $vpn"
 else
     echo "$down"
+    rightclick="nmcli con up id $vpn"
 fi
 
+case $BLOCK_BUTTON in
+    3) $rightclick;;
+    *) ;;
+esac
