@@ -8,10 +8,10 @@ filetype plugin on
 set nocompatible
 set number
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
+
 "vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
-    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'vimwiki/vimwiki'
 call plug#end()
 
@@ -22,7 +22,6 @@ if &term =~ '256color'
 endif
 
 " color it up
-    let g:dracula_colorterm = 0
     color nachtleben
 " tab settings
     set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -33,11 +32,14 @@ endif
 "swtich between tabs
     nnoremap H gT
     nnoremap L gt
-
+" page up/down
+    let g:BASH_Ctrl_j = 'off'
+    nnoremap <C-j> <C-d>
+    nnoremap <C-k> <C-u>
+" some usefull functions
     nnoremap <F1> :NERDTreeToggle<Enter>
     nnoremap <F2> :set list!<Enter>
     nnoremap <F3> :set relativenumber!<Enter>
-
 "move text to 0,0+4 Spaces,0+8Spaces
     nnoremap mt0 ^d0j
     nnoremap mt1 ^d0I    j
