@@ -27,6 +27,10 @@ endif
     set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " cursor in center
     set so=999
+" folding, only works if the opening bracket of a funtions is the only char on
+" the line
+    nnoremap <F4> ?\/\*\\|^{<ENTER>zf%
+    nnoremap <F7> :%g/^{\\|\/\*/normal! zf%<ENTER>
 "highlight cursor line
     set cursorline
 "swtich between tabs
@@ -40,7 +44,7 @@ endif
     nnoremap <F1> :NERDTreeToggle<Enter>
     nnoremap <F2> :set list!<Enter>
     nnoremap <F3> :set relativenumber!<Enter>
-    nnoremap <F4> :make clean<ENTER>
+    nnoremap <F6> :make clean<ENTER>
     nnoremap <F5> :w<ENTER>:make<ENTER>
 "move text to 0,0+4 Spaces,0+8Spaces
     nnoremap mt0 ^d0j
