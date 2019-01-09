@@ -9,10 +9,11 @@ set nocompatible
 set number
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
 
-"vim-plug
+" vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
     Plug 'vimwiki/vimwiki'
+    Plug 'tmhedberg/SimpylFold'
 call plug#end()
 
 if &term =~ '256color'
@@ -31,26 +32,29 @@ endif
 " the line
     nnoremap <F4> ?\/\*\\|^{<ENTER>zf%
     nnoremap <F7> :%g/^{\\|\/\*/normal! zf%<ENTER>
-"highlight cursor line
+" highlight cursor line
     set cursorline
-"swtich between tabs
+" swtich between tabs
     nnoremap H gT
     nnoremap L gt
 " page up/down
     let g:BASH_Ctrl_j = 'off'
     nnoremap <C-j> <C-d>
     nnoremap <C-k> <C-u>
+" folds
+    nnoremap <SPACE> za
+    let g:SimpylFold_docstring_preview = 0
 " some usefull functions
     nnoremap <F1> :NERDTreeToggle<Enter>
     nnoremap <F2> :set list!<Enter>
     nnoremap <F3> :set relativenumber!<Enter>
     nnoremap <F6> :make clean<ENTER>
     nnoremap <F5> :w<ENTER>:make<ENTER>
-"move text to 0,0+4 Spaces,0+8Spaces
+" move text to 0,0+4 Spaces,0+8Spaces
     nnoremap mt0 ^d0j
     nnoremap mt1 ^d0I    j
     nnoremap mt2 ^d0I        j
-"remove trailing whitespaces
+" remove trailing whitespaces
     nnoremap mrm :%s/\s\+$//e
 " macros for markdown
     nnoremap mdt ggi---title: <a href="https://303.ddns.net"><img src="smile.png" alt="drawing" width="100"/></a><++>---
@@ -62,9 +66,7 @@ endif
     let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown', 'txt' : '.txt'}
 
 " Navigating with guides
-    vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-    map <Space><Space> <Esc>/<++><Enter>"_c4l
-
+    inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 """PHP/HTML
     autocmd FileType php,html inoremap ,b <b></b><Space><++><Esc>FbT>i
     autocmd FileType php,html inoremap ,it <em></em><Space><++><Esc>FeT>i
