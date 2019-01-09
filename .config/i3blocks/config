@@ -31,7 +31,7 @@ separator=false
 
 [volume]
 label=
-command=/usr/lib/i3blocks/volume
+command=~/.config/i3blocks/scripts/volume
 interval=2
 signal=10
 #color=#d70a53
