@@ -52,6 +52,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
+bindsym $mod+Ctrl+f exec --no-startup-id $HOME/.scripts/dmenumount
+bindsym $mod+Ctrl+d exec --no-startup-id $HOME/.scripts/displayselect
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
@@ -426,6 +428,6 @@ mode "$mode_gaps_outer" {
 #bindsym $mod+Shift+x exec i3lock -c "#222D31"
 bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 # select entry using dmenu, then send password to keyboard
-bindsym $mod+p exec "$HOME/.local/bin/ph type dmenu"
+bindsym $mod+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme"
 # select entry using dmenu, then send username + password to keyboard
-bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type dmenu --tabbed"
+bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme"
