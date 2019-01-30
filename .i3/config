@@ -52,8 +52,10 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+f exec --no-startup-id $HOME/.scripts/dmenumount
-bindsym $mod+Ctrl+d exec --no-startup-id $HOME/.scripts/displayselect
+bindsym $mod+Shift+m exec --no-startup-id /home/ljurk/.scripts/dmenumount
+bindsym $mod+Shift+d exec --no-startup-id /home/ljurk/.scripts/displayselect
+bindsym $mod+Shift+f exec /home/ljurk/.scripts/dbrowse
+bindsym $mod+Shift+t exec --no-startup-id /home/ljurk/.scripts/todo
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
@@ -62,7 +64,7 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
