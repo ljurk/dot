@@ -56,13 +56,14 @@ bindsym $mod+Shift+m exec --no-startup-id /home/ljurk/.scripts/dmenumount
 bindsym $mod+Shift+d exec --no-startup-id /home/ljurk/.scripts/displayselect
 bindsym $mod+Shift+f exec /home/ljurk/.scripts/dbrowse
 bindsym $mod+Shift+t exec --no-startup-id /home/ljurk/.scripts/todo
+bindsym $mod+t exec $HOME/.local/bin/dmenutrello
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
+#bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 #bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
@@ -432,4 +433,4 @@ bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 # select entry using dmenu, then send password to keyboard
 bindsym $mod+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme"
 # select entry using dmenu, then send username + password to keyboard
-bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme"
+bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme --tabbed"
