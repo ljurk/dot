@@ -27,5 +27,5 @@ printf "source /home/ljurk/dotfiles/bash_profile" > ~/.bash_profile
 
 ln -s /home/ljurk/dotfiles/.vim/ ~/.vim
 ln -s /home/ljurk/dotfiles/.config/powerline ~/.config/powerline
-ln -s /home/ljurk/dotfiles/.i3/ ~./.i3
+ln -s /home/ljurk/dotfiles/.i3/ ~/.i3
 ln -s /home/ljurk/dotfiles/.config/i3blocks/ ~/.config/i3blocks
