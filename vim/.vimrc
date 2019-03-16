@@ -1,5 +1,5 @@
 "set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-set rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
+set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 
