@@ -1,11 +1,19 @@
-#set environment variables
-export PATH=$PATH:$HOME/.scripts/
+# set environment variables
+export PATH=$HOME/.scripts/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
-export PATH=$PATH:$HOME/.local/bin
+# history settings
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# key bindings
+bindkey "\e[7~" beginning-of-line       #HOME
+bindkey "\e[8~" end-of-line             #END
+bindkey "\e[3~" delete-char             #DEL
+bindkey '^o' autosuggest-accept
 
+# use antigen
 source $HOME/.antigen/antigen.zsh
 
 # POWERLEVEL 9K Theme
@@ -16,11 +24,13 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 # color for autosuggestions should be red
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=9"
 
+# bundles
 antigen bundle git
 antigen bundle pip
-
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+# apply antigen bundles & theme
 antigen apply
 
 # Preferred editor for local and remote sessions
@@ -30,11 +40,8 @@ antigen apply
    export EDITOR='vim'
  fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 #swap escape with caps
 #xmodmap /home/ljurk/dotfiles/.Xmodmap
@@ -71,4 +78,3 @@ alias a2rel='sudo service apache2 reload'
 alias ncocc='sudo -u www-data php /var/www/nc/occ maintenance:mode'
 alias ppsql='sudo -u postgres psql'
 alias sserv='sudo service'
-
