@@ -71,6 +71,10 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
+#bindsym $mod+Shift+x exec i3lock -c "#222D31"
+bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
+bindsym $mod+p exec "$HOME/.local/bin/keepmenu"
+
 focus_follows_mouse no
 
 # change focus
@@ -429,9 +433,3 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-#bindsym $mod+Shift+x exec i3lock -c "#222D31"
-bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
-# select entry using dmenu, then send password to keyboard
-bindsym $mod+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme"
-# select entry using dmenu, then send username + password to keyboard
-bindsym $mod+Shift+p exec "$HOME/.local/bin/ph type $HOME/.scripts/dme --tabbed"
