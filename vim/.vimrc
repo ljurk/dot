@@ -44,6 +44,11 @@ endif
 " folds
     nnoremap <SPACE> za
     let g:SimpylFold_docstring_preview = 0
+" navigate in splits
+	nnoremap <C-J> <C-W><C-J>
+	nnoremap <C-K> <C-W><C-K>
+	nnoremap <C-L> <C-W><C-L>
+	nnoremap <C-H> <C-W><C-H>
 " some usefull functions
     nnoremap <F1> :NERDTreeToggle<Enter>
     nnoremap <F2> :set list!<Enter>
