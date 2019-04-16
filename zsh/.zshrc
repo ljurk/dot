@@ -1,5 +1,6 @@
 # set environment variables
 export PATH=$HOME/.scripts/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
 # history settings
 HISTFILE=~/.zsh_history
