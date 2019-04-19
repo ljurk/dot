@@ -68,7 +68,7 @@ endif
     set wildmode=longest,list,full
 
 " filetypes for vimwiki
-    let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown', 'txt' : '.txt'}
+    let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 " Navigating with guides
     inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
