@@ -30,7 +30,7 @@ bindsym $mod+Return exec terminal
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#191919' -nf '#2aa198' -sb '#2aa198' -sf '#191919' -fn 'DejaVu Sans Mono for Powerline-14'
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -74,6 +74,8 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 #bindsym $mod+Shift+x exec i3lock -c "#222D31"
 bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 bindsym $mod+p exec "$HOME/.local/bin/keepmenu"
+bindsym $mod+Shift+n exec networkmanager_dmenu -nb '#191919' -nf '#2aa198' -sb '#2aa198' -sf '#191919' -fn 'DejaVu Sans Mono for Powerline-14'
+
 
 focus_follows_mouse no
 
