@@ -28,6 +28,9 @@ endif
     set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " cursor in center
     set so=999
+" disable ex mode
+    map q: <Nop>
+    nnoremap Q <nop>
 " folding, only works if the opening bracket of a funtions is the only char on
 " the line
     nnoremap <F4> ?\/\*\\|^{<ENTER>zf%
