@@ -1,7 +1,7 @@
 #!/bin/bash
 
-down='<span foreground="#FF0000">VPN</span>'
-up='<span foreground="#00FF00">VPN</span>'
+down='<span foreground="#FF0000"></span>'
+up='<span foreground="#00FF00"></span>'
 state="$(~/.config/i3blocks/scripts/netCheck vpn0)"
 vpn="TUD"
 
