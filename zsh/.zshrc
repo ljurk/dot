@@ -1,7 +1,8 @@
 # set environment variables
 export PATH=$HOME/.scripts/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
-
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 # history settings
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
