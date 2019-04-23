@@ -8,7 +8,7 @@
     notification_height = 0
     separator_height = 2
     padding = 0
-    horizontal_padding = 8
+    horizontal_padding = 80
     frame_width = 3
     frame_color = "#282828"
 
@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 14
+    font = FontAwesome 16
     line_height = 0
     markup = full
 
