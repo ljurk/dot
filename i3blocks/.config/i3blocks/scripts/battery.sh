@@ -14,15 +14,15 @@ if [ "$NOBAT" -eq 1 ]
 then
     BAT="∞"
     BATTEXT="wall power.."
-else
-    BATTEXT="$BAT%"
 fi
 
 if [ "${BAT%?}" -eq 00 ]
 then
     BAT="100%"
+    BATTEXT="$BAT%"
 fi
-# Full and short texts
+
+#green ~ charging; orange ~ discharging
 if [ "$BATSTAT" -eq 1 ]
 then
     COLOR="$CHARGE"
@@ -30,21 +30,26 @@ else
     COLOR="$DISCHARGE"
 fi
 
-if [ "${BAT%?}" -lt 30 ]
+# show diffrent icon dependent on the battery charge
+if [ "${BAT%?}" -le 25 ]
 then
     BATTEXT=""
     COLOR="$DISCHARGELOW"
-fi
-if [ "${BAT%?}" -gt 50 ]
+elif [ "${BAT%?}" -le 25 ]
+then
+    BATTEXT=""
+elif [ "${BAT%?}" -le 50 ]
 then
     BATTEXT=""
-fi
-if [ "${BAT%?}" -gt 75 ]
+elif [ "${BAT%?}" -le 75 ]
+then
+    BATTEXT=""
+elif [ "${BAT%?}" -le 90 ]
 then
     BATTEXT=""
 fi
 
-
+#print it
 OUT='<span foreground="'
 OUT+="$COLOR"
 OUT+='">'
@@ -52,10 +57,8 @@ OUT+=" $BATTEXT$BAT"
 OUT+="</span>"
 echo $OUT
 
-# Set urgent flag below 5%
-#[ ${BAT%?} -le 5 ] && exit 33
-
-rightclick="notify-send $BATTEXT"
+#sends a notification if i click on the block
+rightclick="notify-send $BATTEXT$BAT"
 
 case $BLOCK_BUTTON in
     3) $rightclick;;
