@@ -5,10 +5,18 @@ BATSTAT=$(echo "$BAT0" | grep -c -E 'Charging|Full')
 # No Battery, so its wallpower
 NOBAT=$(echo "$BAT0" | grep -c  'rate information unavailable')
 
-COLOR="#00F00"
-CHARGE="#00FF00"
-DISCHARGE="#FF8000"
-DISCHARGELOW="#FF0000"
+COLOR="#00F00" #green
+CHARGE="#00FF00" #green
+DISCHARGE="#FF8000" #orange
+DISCHARGELOW="#FF0000" #red
+
+if [ "$NOBAT" -eq 1 ]
+then
+    BAT="∞"
+    BATTEXT="wall power.."
+else
+    BATTEXT="$BAT%"
+fi
 
 if [ "${BAT%?}" -eq 00 ]
 then
@@ -17,29 +25,40 @@ fi
 # Full and short texts
 if [ "$BATSTAT" -eq 1 ]
 then
-   COLOR="$CHARGE"
+    COLOR="$CHARGE"
 else
-    if [ "${BAT%?}" -le 30 ]
-    then
-        COLOR="$DISCHARGELOW"
-    else
-        COLOR="$DISCHARGE"
-    fi
+    COLOR="$DISCHARGE"
 fi
 
-if [ "$NOBAT" -eq 1 ]
+if [ "${BAT%?}" -lt 30 ]
 then
-    BAT="∞"
+    BATTEXT=""
+    COLOR="$DISCHARGELOW"
 fi
+if [ "${BAT%?}" -gt 50 ]
+then
+    BATTEXT=""
+fi
+if [ "${BAT%?}" -gt 75 ]
+then
+    BATTEXT=""
+fi
+
 
 OUT='<span foreground="'
 OUT+="$COLOR"
 OUT+='">'
-OUT+=" $BAT"
+OUT+=" $BATTEXT$BAT"
 OUT+="</span>"
 echo $OUT
 
 # Set urgent flag below 5%
 #[ ${BAT%?} -le 5 ] && exit 33
 
-exit 0
+rightclick="notify-send $BATTEXT"
+
+case $BLOCK_BUTTON in
+    3) $rightclick;;
+    *) ;;
+esac
+
