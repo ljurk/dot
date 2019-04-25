@@ -19,7 +19,7 @@ fi
 if [ "${BAT%?}" -eq 00 ]
 then
     BAT="100%"
-    BATTEXT="$BAT%"
+    BATTEXT=""
 fi
 
 #green ~ charging; orange ~ discharging
