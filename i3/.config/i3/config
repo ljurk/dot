@@ -30,7 +30,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#191919' -nf '#2aa198' -sb '#2aa198' -sf '#191919' -fn 'DejaVu Sans Mono for Powerline-14'
+bindsym $mod+d exec --no-startup-id "/$HOME/.scripts/dmenu_recency
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -48,20 +48,21 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Shift+m exec --no-startup-id /home/ljurk/.scripts/dmenumount
-bindsym $mod+Shift+d exec --no-startup-id /home/ljurk/.scripts/displayselect
-bindsym $mod+Shift+f exec /home/ljurk/.scripts/dbrowse
-bindsym $mod+Shift+t exec --no-startup-id /home/ljurk/.scripts/todo
-bindsym $mod+t exec $HOME/.local/bin/dmenutrello
+bindsym $mod+Shift+m exec --no-startup-id "/$HOME/.scripts/dmenumount"
+bindsym $mod+Shift+d exec --no-startup-id "$HOME/.scripts/displayselect"
+bindsym $mod+Shift+f exec "/$HOME/.scripts/dbrowse"
+bindsym $mod+Shift+t exec --no-startup-id "/$HOME/.scripts/todo"
+bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
+bindsym $mod+F4 exec pavucontrol
+bindsym $mod+Shift+F4 exec cadence
 bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -76,16 +77,9 @@ bindsym $mod+Shift+x exec blurlock #"$HOME/.i3/scripts/lock.sh"
 bindsym $mod+p exec "$HOME/.local/bin/keepmenu"
 bindsym $mod+Shift+n exec networkmanager_dmenu -nb '#191919' -nf '#2aa198' -sb '#2aa198' -sf '#191919' -fn 'DejaVu Sans Mono for Powerline-14'
 
-
 focus_follows_mouse no
 
 # change focus
-#default
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
-
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
