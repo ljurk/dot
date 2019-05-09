@@ -293,6 +293,8 @@ exec --no-startup-id clipit
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 60 -locker blurlock
 exec --no-startup-id jack_control start
+exec --no-startup-id dropbox start
+exec --no-startup-id autorandr --change --default mobile
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
