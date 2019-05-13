@@ -13,7 +13,7 @@ DISCHARGELOW="#FF0000" #red
 if [ "$NOBAT" -eq 1 ]
 then
     BAT="∞"
-    BATTEXT="wall power.."
+    BATTEXT=""
 fi
 
 if [ "${BAT%?}" -eq 00 ]
