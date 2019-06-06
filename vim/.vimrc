@@ -22,6 +22,7 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+let mapleader = ","
 " color it up
     color nachtleben
 " tab settings
@@ -98,3 +99,17 @@ endif
     autocmd FileType php,html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
     autocmd FileType php,html inoremap ,dl <dl><Enter><Enter></dl><enter><enter><++><esc>3kcc
     autocmd FileType php,html inoremap &<space> &amp;<space>
+"markdown
+function! UnderlineHeading(level)
+  if a:level == 1
+    normal! yypVr=
+  elseif a:level == 2
+    normal! yypVr-
+  else
+    normal! I###<space>
+  endif
+endfunction
+
+nnoremap <leader>u1 :call UnderlineHeading(1);<Enter>
+nnoremap <leader>u2 :call UnderlineHeading(2);<Enter>
+nnoremap <leader>u3 :call UnderlineHeading(3);<Enter>
