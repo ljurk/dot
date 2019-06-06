@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
     Plug 'vimwiki/vimwiki'
     Plug 'tmhedberg/SimpylFold'
+    Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 if &term =~ '256color'
@@ -23,6 +24,9 @@ if &term =~ '256color'
 endif
 
 let mapleader = ","
+" recommandations from https://realpython.com/vim-and-python-a-match-made-in-heaven/
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " color it up
     color nachtleben
 " tab settings
