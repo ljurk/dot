@@ -1,5 +1,10 @@
 separator_block_width=14
 
+[timer]
+label=timer
+command=~/.config/i3blocks/scripts/timerBlock ~/.config/i3blocks/scripts/.timerfile
+interval=1
+
 [memory]
 label=
 command=/usr/lib/i3blocks/memory
@@ -49,7 +54,7 @@ markup=pango
 [time]
 label=
 command=date '+%a %m-%d-%y %l:%M:%S %p'
-interval=5
+interval=1
 color=#50C878
 
 

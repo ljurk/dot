@@ -1,0 +1,22 @@
+#!/bin/bash
+file="$1"
+number=0
+
+while IFS= read -r line; do
+    re='^[0-9]+$'
+    if ! [[ $line =~ $re ]] ; then
+       echo "error: Not a number" >&2; exit 1
+       exit
+    else
+        echo "$line"
+        number=$line
+    fi
+done < "$file"
+
+echo "$number"
+out=$((number-1))
+echo "$out" > "$file"
+if [[ "$out" -eq 0 ]] ; then
+    notify-send "time end"
+fi
+
