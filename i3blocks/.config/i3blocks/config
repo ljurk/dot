@@ -1,9 +1,10 @@
 separator_block_width=14
 
 [timer]
-label=timer
+label=
 command=~/.config/i3blocks/scripts/timerBlock ~/.config/i3blocks/scripts/.timerfile
 interval=1
+markup=pango
 
 [memory]
 label=

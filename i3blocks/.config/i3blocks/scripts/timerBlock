@@ -1,22 +1,58 @@
 #!/bin/bash
 file="$1"
-number=0
+sec=0
+color="#FF8000" #orange
+red="#FF0000" #red
+
+function timerizeNumber() {
+    if [[ "$1" -lt 10 ]] ; then
+        return="0$1"
+    else
+        return="$1"
+    fi
+}
+if ! [ -f "$file" ]; then
+    echo "$file does not exist"
+    exit 1
+fi
 
 while IFS= read -r line; do
     re='^[0-9]+$'
     if ! [[ $line =~ $re ]] ; then
-       echo "error: Not a number" >&2; exit 1
-       exit
+       echo "error: Not a sec" >&2;
+       exit 1
     else
-        echo "$line"
-        number=$line
+        sec=$line
     fi
 done < "$file"
 
-echo "$number"
-out=$((number-1))
-echo "$out" > "$file"
-if [[ "$out" -eq 0 ]] ; then
-    notify-send "time end"
+
+if [[ "$sec" -lt 10 ]] ; then
+        color=$red
 fi
 
+if [[ "$sec" -eq 0 ]] ; then
+    #send notification and delete file
+    notify-send "time end"
+    rm "$file"
+else
+    #write filecontent-1 back to file
+    out=$((sec-1))
+    echo "$out" > "$file"
+fi
+
+#add a 0 to one char numbers
+timerizeNumber $((sec/3600))
+hours=$return
+timerizeNumber $((sec/60))
+min=$return
+timerizeNumber $sec
+sec=$return
+
+#print
+OUT='<span foreground="'
+OUT+="$color"
+OUT+='">'
+OUT+="${hours}:${min}:${sec}"
+OUT+="</span>"
+echo $OUT
