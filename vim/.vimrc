@@ -53,10 +53,10 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
     nnoremap <SPACE> za
     let g:SimpylFold_docstring_preview = 0
 " navigate in splits
-	nnoremap <C-J> <C-W><C-J>
-	nnoremap <C-K> <C-W><C-K>
-	nnoremap <C-L> <C-W><C-L>
-	nnoremap <C-H> <C-W><C-H>
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+    nnoremap <C-H> <C-W><C-H>
 " some usefull functions
     nnoremap <F1> :NERDTreeToggle<Enter>
     nnoremap <F2> :set list!<Enter>
@@ -80,6 +80,11 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Navigating with guides
     inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+
+"configurations based on filetype
+"""folding
+autocmd FileType python setlocal foldmethod=indent
+autocmd FileType cpp setlocal foldmethod=syntax
 """PHP/HTML
     autocmd FileType php,html inoremap ,b <b></b><Space><++><Esc>FbT>i
     autocmd FileType php,html inoremap ,it <em></em><Space><++><Esc>FeT>i
@@ -103,7 +108,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
     autocmd FileType php,html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
     autocmd FileType php,html inoremap ,dl <dl><Enter><Enter></dl><enter><enter><++><esc>3kcc
     autocmd FileType php,html inoremap &<space> &amp;<space>
-"markdown
+"""markdown
 function! UnderlineHeading(level)
   if a:level == 1
     normal! yypVr=
