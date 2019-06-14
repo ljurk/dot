@@ -44,8 +44,10 @@ fi
 #add a 0 to one char numbers
 timerizeNumber $((sec/3600))
 hours=$return
+sec=$((sec-hours*3600))
 timerizeNumber $((sec/60))
 min=$return
+sec=$((sec-min*60))
 timerizeNumber $sec
 sec=$return
 
