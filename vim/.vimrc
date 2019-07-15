@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vimwiki/vimwiki'
     Plug 'tmhedberg/SimpylFold'
     Plug 'Valloric/YouCompleteMe'
+    Plug 'justinmk/vim-sneak'
 call plug#end()
 
 if &term =~ '256color'
@@ -84,7 +85,8 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "configurations based on filetype
 """folding
 autocmd FileType python setlocal foldmethod=indent
-autocmd FileType cpp setlocal foldmethod=syntax
+"autocmd FileType cpp setlocal foldmethod=syntax
+"autocmd FileType cpp setlocal foldlevel=2
 """PHP/HTML
     autocmd FileType php,html inoremap ,b <b></b><Space><++><Esc>FbT>i
     autocmd FileType php,html inoremap ,it <em></em><Space><++><Esc>FeT>i
@@ -115,10 +117,11 @@ function! UnderlineHeading(level)
   elseif a:level == 2
     normal! yypVr-
   else
-    normal! I###<space>
+    "normal! I###<space>
+    normal! I### 
   endif
 endfunction
 
-nnoremap <leader>u1 :call UnderlineHeading(1);<Enter>
-nnoremap <leader>u2 :call UnderlineHeading(2);<Enter>
-nnoremap <leader>u3 :call UnderlineHeading(3);<Enter>
+nnoremap <leader>u1 :call UnderlineHeading(1);
+nnoremap <leader>u2 :call UnderlineHeading(2);
+nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
