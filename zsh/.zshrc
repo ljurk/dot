@@ -13,7 +13,7 @@ setopt appendhistory
 bindkey "\e[7~" beginning-of-line       #HOME
 bindkey "\e[8~" end-of-line             #END
 bindkey "\e[3~" delete-char             #DEL
-bindkey '^o' autosuggest-accept
+bindkey ',' autosuggest-accept
 
 # use antigen
 source $HOME/.antigen/antigen.zsh
