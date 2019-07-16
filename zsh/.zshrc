@@ -9,10 +9,23 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 
+###prompt
+##left
 autoload -Uz promptinit && promptinit
 prompt redhat
 autoload -U colors && colors
 PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[magenta]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+
+##right
+#load vcf_info
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+#set prompt
+RPROMPT="%{$fg[green]%}\$vcs_info_msg_0_"
+#format vcf_info string
+zstyle ':vcs_info:git:*' formats '[%b]'
 
 # key bindings
 bindkey "\e[7~" beginning-of-line       #HOME
