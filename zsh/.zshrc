@@ -9,6 +9,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 
+autoload -Uz promptinit && promptinit
+prompt redhat
+autoload -U colors && colors
+PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[magenta]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+
 # key bindings
 bindkey "\e[7~" beginning-of-line       #HOME
 bindkey "\e[8~" end-of-line             #END
@@ -20,22 +25,6 @@ bindkey '<' backward-word
 
 # use antigen
 source $HOME/.antigen/antigen.zsh
-
-# POWERLEVEL 9K Theme
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
-#prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs status ssh)
-#dir
-POWERLEVEL9K_DIR_HOME_BACKGROUND='092'
-POWERLEVEL9K_DIR_ETC_BACKGROUND='092'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='092'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='092'
-#user
-POWERLEVEL9K_USER_DEFAULT_BACKGROUND='052'
-POWERLEVEL9K_USER_DEFAULT_FOREGROUND='white'
-#install theme
-antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # color for autosuggestions should be red
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=9"
