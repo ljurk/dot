@@ -32,9 +32,11 @@ bindkey "\e[7~" beginning-of-line       #HOME
 bindkey "\e[8~" end-of-line             #END
 bindkey "\e[3~" delete-char             #DEL
 bindkey ',' autosuggest-accept
-bindkey '^[[ ' up-line-or-search #alt+space
-bindkey '>' forward-word
-bindkey '<' backward-word
+#alt+vim keys for navigating up and down in history and left and right in words
+bindkey '^[k' up-line-or-search
+bindkey '^[j' down-line-or-search
+bindkey '^[l' forward-word
+bindkey '^[h' backward-word
 
 # use antigen
 source $HOME/.antigen/antigen.zsh
