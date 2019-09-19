@@ -47,6 +47,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=9"
 # bundles
 antigen bundle git
 antigen bundle pip
+antigen bundle vagrant
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -87,6 +88,7 @@ alias py='python3'
 alias ll='ls -lisa'
 alias la='ls -A'
 alias l='ls -CF'
+alias z='zathura'
 alias gpta='git remote | xargs -L1 git push --all'
 alias tbase='tmux a -t base || tmux new -s base'
 alias setclip='xclip -selection c'
@@ -99,3 +101,13 @@ alias ncocc='sudo -u www-data php /var/www/nc/occ maintenance:mode'
 alias ppsql='sudo -u postgres psql'
 alias sserv='sudo service'
 alias tlscheck='nmap --script ssl-enum-ciphers -p 443'
+# Vagrant aliases
+alias vs="vagrant status"
+alias vssh="vagrant ssh"
+alias vup="vagrant up --no-provision"
+alias vp="vagrant provision"
+alias vr="vagrant reload"
+alias vd="vagrant destroy"
+# ansible
+alias a="ansible"
+alias ap="ansible-playbook"
