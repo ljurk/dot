@@ -1,1 +1,2 @@
+#!/bin/bash
 stow -S ranger termite dmenu autorandr gtk ohmy vim zsh x i3blocks i3 tmux powerline bash rofi dunst 
