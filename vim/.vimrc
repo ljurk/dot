@@ -12,9 +12,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
     Plug 'vimwiki/vimwiki'
     Plug 'tmhedberg/SimpylFold'
-    Plug 'Valloric/YouCompleteMe'
+    " Plug 'Valloric/YouCompleteMe'
+    Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'justinmk/vim-sneak'
+    Plug 'https://github.com/PProvost/vim-ps1'
 call plug#end()
+
+"ale
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%:%code%]  %s [%severity%]'
+let g:ale_linters = {
+\   'python': ['flake8','pylint'],
+\}
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
@@ -28,6 +38,10 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " color it up
     color nachtleben
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 " tab settings
     set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " cursor in center
@@ -78,7 +92,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
     let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 " Navigating with guides
-    inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+    "inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 
 "configurations based on filetype
 """folding
