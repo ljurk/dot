@@ -50,6 +50,7 @@ antigen bundle pip
 antigen bundle vagrant
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle gpg-agent
 
 # apply antigen bundles & theme
 antigen apply
@@ -112,5 +113,4 @@ alias vd="vagrant destroy"
 # ansible
 alias a="ansible"
 alias ap="ansible-playbook"
-# docker
-alias dcup="docker-compose up"
+alias av="ansible-vault edit"
