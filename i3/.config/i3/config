@@ -58,6 +58,7 @@ bindsym $mod+Shift+d exec --no-startup-id "$HOME/.scripts/displayselect"
 bindsym $mod+Shift+f exec "/$HOME/.scripts/dbrowse"
 bindsym $mod+Shift+t exec --no-startup-id "/$HOME/.scripts/todo"
 bindsym $mod+s exec --no-startup-id "/$HOME/.scripts/settingsmenu"
+bindsym $mod+Shift+s exec "/$HOME/.scripts/sshSession"
 #bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
 bindsym $mod+T exec "$HOME/.scripts/timer"
 bindsym $mod+u exec "$HOME/.scripts/umlaute"
@@ -138,7 +139,6 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
