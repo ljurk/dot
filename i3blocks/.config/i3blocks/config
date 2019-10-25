@@ -1,5 +1,18 @@
 separator_block_width=14
 
+[arch-update]
+command=~/.config/i3blocks/scripts/arch-update
+interval=3600
+markup=pango
+LABEL=
+
+[temperature]
+command=~/.config/i3blocks/scripts/temperature
+label=
+interval=10
+T_WARN=70
+T_CRIT=90
+
 [timer]
 label=
 command=~/.config/i3blocks/scripts/timerBlock ~/.config/i3blocks/scripts/.timerfile
@@ -8,13 +21,13 @@ markup=pango
 
 [memory]
 label=
-command=/usr/lib/i3blocks/memory
+command=~/.config/i3blocks/scripts/memory
 separator=false
 interval=30
 
 [disk-root]
 label=
-command=/usr/lib/i3blocks/disk /
+command=~/.config/i3blocks/scripts/disk
 interval=30
 color=#1793D1
 
@@ -53,7 +66,7 @@ interval=5
 markup=pango
 
 [time]
-label=
+label=
 command=date '+%a %m-%d-%y %l:%M:%S %p'
 interval=1
 color=#50C878
