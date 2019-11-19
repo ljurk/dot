@@ -58,7 +58,7 @@ bindsym $mod+a exec --no-startup-id "/$HOME/.scripts/azn"
 bindsym $mod+Shift+d exec --no-startup-id "$HOME/.scripts/displayselect"
 bindsym $mod+Shift+f exec "/$HOME/.scripts/dbrowse"
 bindsym $mod+Shift+t exec --no-startup-id "/$HOME/.scripts/todo"
-bindsym $mod+s exec --no-startup-id "/$HOME/.scripts/settingsmenu"
+bindsym $mod+s exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+s exec "/$HOME/.scripts/sshSession"
 #bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
 bindsym $mod+T exec "$HOME/.scripts/timer"
