@@ -61,6 +61,7 @@ bindsym $mod+Shift+t exec --no-startup-id "/$HOME/.scripts/todo"
 bindsym $mod+s exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+s exec "/$HOME/.scripts/sshSession"
 #bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
+bindsym $mod+Ctrl+j exec --no-startup-id "$HOME/.scripts/dji"
 bindsym $mod+T exec "$HOME/.scripts/timer"
 bindsym $mod+u exec "$HOME/.scripts/umlaute"
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
