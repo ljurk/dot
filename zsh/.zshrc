@@ -97,6 +97,7 @@ alias tbase='tmux a -t base || tmux new -s base'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
 alias semon='platformio device monitor'
+alias temp='watch -n 2 sensors'
 #Adminstuff
 alias a2res='sudo service apache2 restart'
 alias a2rel='sudo service apache2 reload'
