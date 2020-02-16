@@ -65,6 +65,7 @@ bindsym $mod+Shift+s exec "/$HOME/.scripts/sshSession"
 bindsym $mod+Ctrl+j exec --no-startup-id "$HOME/.scripts/dji"
 bindsym $mod+T exec "$HOME/.scripts/timer"
 bindsym $mod+u exec "$HOME/.scripts/umlaute"
+bindsym $mod+Shift+u exec "termite -e 'sudo pacman -Syu'"
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+x exec "$HOME/.scripts/power"
 
