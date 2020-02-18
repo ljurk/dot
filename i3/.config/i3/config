@@ -71,7 +71,7 @@ bindsym $mod+x exec "$HOME/.scripts/power"
 
 #function keys
 bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F3 exec thunar
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F4 exec pavucontrol
 bindsym $mod+Shift+F4 exec cadence
