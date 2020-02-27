@@ -1,0 +1,8 @@
+[user]
+	email = ljurk@pm.me
+	name = ljurk
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+
