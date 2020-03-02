@@ -31,7 +31,8 @@ bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id "/$HOME/.scripts/dmenu_recency"
+bindsym $mod+d exec --no-startup-id "rofi -show run"
+bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # launch categorized menu
@@ -56,7 +57,6 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 # Start Applications
 bindsym $mod+Shift+m exec --no-startup-id "/$HOME/.scripts/dmenumount"
 bindsym $mod+a exec --no-startup-id "/$HOME/.scripts/azn"
-bindsym $mod+Shift+d exec --no-startup-id "$HOME/.scripts/displayselect"
 bindsym $mod+Shift+f exec "/$HOME/.scripts/dbrowse"
 bindsym $mod+Shift+t exec --no-startup-id "/$HOME/.scripts/todo"
 bindsym $mod+s exec --no-startup-id rofi -show drun
