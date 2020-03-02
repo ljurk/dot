@@ -77,6 +77,7 @@ highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Re
     nnoremap <F3> :set relativenumber!<Enter>
     nnoremap <F6> :make clean<ENTER>
     nnoremap <F5> :w<ENTER>:make<ENTER>
+    nnoremap <F7> :ALEDetail <ENTER>
 " move text to 0,0+4 Spaces,0+8Spaces
     nnoremap mt0 ^d0j
     nnoremap mt1 ^d0I    j
