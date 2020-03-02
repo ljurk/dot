@@ -120,3 +120,7 @@ alias av="ansible-vault edit"
 alias d="docker"
 alias dcp="docker-compose"
 alias dcup="docker-compose up"
+## For My Proxy Tunnel
+alias proxy-on='ssh -fN cmgraylogProxy'
+alias proxy-check='ssh -O check cmgraylogProxy'
+alias proxy-off='ssh -O exit cmgraylogProxy'
