@@ -28,7 +28,7 @@ rofi.kb-remove-char-back:            BackSpace
 ! "Always show number of lines" Set from: Default
 ! rofi.fixed-num-lines:                true
 ! "Whether to load and show icons" Set from: Default
-! rofi.show-icons:                     false
+rofi.show-icons:                     true
 ! "Terminal to use" Set from: Default
 ! rofi.terminal:                       rofi-sensible-terminal
 ! "Ssh client to use" Set from: Default
