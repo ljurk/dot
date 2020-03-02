@@ -60,6 +60,11 @@ command=~/.config/i3blocks/scripts/battery.sh
 interval=30
 markup=pango
 
+[sshproxy]
+command=~/.config/i3blocks/scripts/i3sshproxy
+interval=5
+markup=pango
+
 [vpn]
 command=~/.config/i3blocks/scripts/i3vpn
 interval=5
