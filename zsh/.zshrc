@@ -39,7 +39,7 @@ bindkey '^[l' forward-word
 bindkey '^[h' backward-word
 
 # use antigen
-source $HOME/.antigen/antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 
 # color for autosuggestions should be red
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=9"
