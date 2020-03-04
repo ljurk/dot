@@ -69,6 +69,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #swap escape with caps
 #xmodmap /home/ljurk/dotfiles/.Xmodmap
 #aliases
+alias :q='exit'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
