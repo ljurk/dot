@@ -16,6 +16,17 @@ prompt redhat
 autoload -U colors && colors
 PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[magenta]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
+# execution time
+# If command execution time above min. time, plugins will not output time.
+ZSH_COMMAND_TIME_MIN_SECONDS=3
+
+# Message to display (set to "" for disable).
+ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
+
+# Message color.
+ZSH_COMMAND_TIME_COLOR="cyan"
+
+
 ##right
 #load vcf_info
 autoload -Uz vcs_info
@@ -52,6 +63,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle gpg-agent
 antigen bundle srijanshetty/zsh-pandoc-completion
+antigen bundle popstas/zsh-command-time
 
 # apply antigen bundles & theme
 antigen apply
