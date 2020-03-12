@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
     Plug 'vimwiki/vimwiki'
     Plug 'tmhedberg/SimpylFold'
-    " Plug 'Valloric/YouCompleteMe'
+    Plug 'Valloric/YouCompleteMe'
     Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'justinmk/vim-sneak'
     Plug 'https://github.com/PProvost/vim-ps1'
