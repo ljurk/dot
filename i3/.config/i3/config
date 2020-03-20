@@ -233,7 +233,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id xautolock -time 60 -locker blurlock
 exec --no-startup-id jack_control start
-exec --no-startup-id nextclound --background
+exec --no-startup-id nextcloud
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
 exec --no-startup-id find /home/ljurk/.local/share/remmina -maxdepth 1 -type f | xargs xdg-open #open saved rdp connections
