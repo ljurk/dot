@@ -226,19 +226,14 @@ mode "resize" {
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id autorandr --change --default mobile
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
 exec --no-startup-id xautolock -time 60 -locker blurlock
 exec --no-startup-id jack_control start
 exec --no-startup-id nextcloud
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
 exec --no-startup-id find /home/ljurk/.local/share/remmina -maxdepth 1 -type f | xargs xdg-open #open saved rdp connections
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id setxkbmap -option caps:escape
 
