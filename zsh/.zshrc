@@ -9,6 +9,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 setopt HIST_IGNORE_DUPS
+#auto cd
+setopt autocd autopushd
 
 ###prompt
 ##left
@@ -49,6 +51,8 @@ bindkey '^[k' up-line-or-search
 bindkey '^[j' down-line-or-search
 bindkey '^[l' forward-word
 bindkey '^[h' backward-word
+#fzf
+bindkey -s '^[c' 'cdfzf\n'
 
 # use antigen
 source /usr/share/zsh/share/antigen.zsh
@@ -139,3 +143,5 @@ alias dcup="docker-compose up"
 alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
 alias proxy-off='ssh -O exit cmgraylogProxy'
+# fzf
+alias cdfzf='cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"'
