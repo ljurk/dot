@@ -27,10 +27,14 @@ bindsym $mod+Shift+Return exec termite
 # kill focused window
 bindsym $mod+Shift+q kill
 
+### rofi
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -show run"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Tab exec --no-startup-id rofi -show window
+# websearch
+bindsym $mod+w "exec $HOME/.scripts/rofiwebsearch"
+bindsym $mod+Shift+w "exec $HOME/.scripts/rofiwebbookmarks"
 
 ## sound-section
 exec --no-startup-id volumeicon
