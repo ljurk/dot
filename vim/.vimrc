@@ -11,6 +11,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
 call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/scrooloose/nerdtree.git'
     Plug 'vimwiki/vimwiki'
+    Plug 'airblade/vim-gitgutter'
     Plug 'tmhedberg/SimpylFold'
     Plug 'Valloric/YouCompleteMe'
     Plug 'https://github.com/dense-analysis/ale.git'
