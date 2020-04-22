@@ -9,7 +9,8 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-    Plug 'https://github.com/scrooloose/nerdtree.git'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'vimwiki/vimwiki'
     Plug 'airblade/vim-gitgutter'
     Plug 'tmhedberg/SimpylFold'
