@@ -72,7 +72,7 @@ markup=pango
 
 [vpn]
 command=~/.config/i3blocks/scripts/i3vpn
-interval=5
+interval=once
 markup=pango
 
 [time]
