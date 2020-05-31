@@ -57,9 +57,8 @@ separator=false
 [volume]
 label=
 command=~/.config/i3blocks/scripts/volume
-interval=2
-signal=10
-#color=#d70a53
+interval=once
+signal=2
 
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
