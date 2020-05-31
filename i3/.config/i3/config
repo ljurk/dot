@@ -33,11 +33,14 @@ bindsym $mod+d exec --no-startup-id "rofi -show run"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 # websearch
-bindsym $mod+w "exec $HOME/.scripts/rofiwebsearch"
-bindsym $mod+Shift+w "exec $HOME/.scripts/rofiwebbookmarks"
+bindsym $mod+Shift+w "exec $HOME/.scripts/rofiwebsearch"
+bindsym $mod+w "exec $HOME/.scripts/rofiwebbookmarks"
 
 ## sound-section
 exec --no-startup-id volumeicon
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ unmute && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%- unmute && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioMute exec "amixer -q set Master toggle && pkill -RTMIN+2 i3blocks"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -52,6 +55,7 @@ bindsym $mod+T exec "$HOME/.scripts/timer"
 bindsym $mod+u exec "$HOME/.scripts/umlaute"
 bindsym $mod+p exec "/usr/bin/keepmenu"
 bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Print exec "$HOME/.scripts/rofirecord"
 
 # altlassian tools
 #bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
@@ -102,7 +106,7 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 
 # split orientation
 bindsym $mod+semicolon split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+v exec export CM_LAUNCHER=rofi && exec clipmenu
 bindsym $mod+q split toggle;exec notify-send 'split orientation changed'
 
 # toggle fullscreen mode for the focused container
@@ -277,6 +281,7 @@ bar {
 	i3bar_command i3bar
         status_command i3blocks
         position bottom
+        font pango:FontAwesome 14
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
@@ -284,7 +289,6 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 
     colors {
