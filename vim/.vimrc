@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tmhedberg/SimpylFold'
     Plug 'Valloric/YouCompleteMe'
     Plug 'https://github.com/dense-analysis/ale.git'
+    Plug 'tpope/vim-surround'
     Plug 'justinmk/vim-sneak'
     Plug 'https://github.com/PProvost/vim-ps1'
 call plug#end()
@@ -27,6 +28,9 @@ let g:ale_echo_msg_format = '[%linter%:%code%]  %s [%severity%]'
 let g:ale_linters = {
 \   'python': ['flake8','pylint'],
 \   'cpp': ['cpplint'],
+\   'yml': ['ansible-lint'],
+\   'js': ['eslint'],
+\   'css': ['stylelint'],
 \}
 
 if &term =~ '256color'
