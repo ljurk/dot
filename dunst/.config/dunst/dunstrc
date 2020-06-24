@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = DejaVu Sans Mono For Powerline 18
+    font = FontAwesome 18
     line_height = 0
     markup = full
 
