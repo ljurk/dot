@@ -1,3 +1,4 @@
+browser "devour surf %u"
 bind-key j down
 bind-key k up
 bind-key J next-feed articlelist
