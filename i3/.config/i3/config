@@ -1,9 +1,6 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-# set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
-
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 1
 new_float normal
@@ -30,7 +27,7 @@ bindsym $mod+Shift+q kill
 ### rofi
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -show run"
-bindsym $mod+Shift+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+Shift+d exec --no-startup-id "$HOME/.scripts/rofipdf"
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 # websearch
 bindsym $mod+Shift+w "exec $HOME/.scripts/rofiwebsearch"
@@ -68,7 +65,7 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 #function keys
 bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec thunar
+bindsym $mod+e exec thunar
 bindsym $mod+F4 exec pavucontrol
 bindsym $mod+Shift+F4 exec cadence
 bindsym $mod+F6 exec thunderbird
@@ -81,23 +78,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -146,8 +131,8 @@ set $ws9 9
 #assign workspaces to diffrent monitors
 workspace $ws1 output HDMI-A-0
 workspace $ws2 output HDMI-A-0
-workspace $ws4 output DVI-D-0
-workspace $ws5 output DVI-D-0
+workspace $ws3 output DVI-D-0
+workspace $ws4 output DisplayPort-2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -159,17 +144,6 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-
-# Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
-bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -211,20 +185,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
@@ -241,8 +205,6 @@ exec --no-startup-id jack_control start
 exec --no-startup-id nextcloud
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
-exec --no-startup-id find /home/ljurk/.local/share/remmina -maxdepth 1 -type f | xargs xdg-open #open saved rdp connections
-
 exec --no-startup-id setxkbmap -option caps:escape
 
 # Color palette used for the terminal ( ~/.Xresources file )
