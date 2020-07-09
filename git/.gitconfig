@@ -1,8 +1,13 @@
 [user]
-	email = ljurk@pm.me
-	name = ljurk
+	email = lukas.jurk@tu-dresden.de
+	name = Lukas Jurk
 [diff]
 	tool = vimdiff
+
 [difftool]
 	prompt = false
 
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
