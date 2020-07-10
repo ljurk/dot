@@ -115,6 +115,8 @@ alias vf='vim $(fzf)'
 alias nb='newsboat'
 alias gpta='git remote | xargs -L1 git push --all'
 alias tbase='tmux a -t base || tmux new -s base'
+alias tans='tmux a -t ansible || tmux new -s ansible'
+alias tweb='tmux a -t web || tmux new -s web'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
 #microcontroller
