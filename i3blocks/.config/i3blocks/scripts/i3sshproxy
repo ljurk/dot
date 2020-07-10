@@ -9,11 +9,11 @@ notification=""
 
 if [[ $state == *"Master running"* ]]; then
     echo "$up"
-    rightclick="ssh -O exit $connectionName"
+    rightclick="pkill -RTMIN+4 i3blocks && ssh -O exit $connectionName"
     notification="kill proxy connection"
 else
     echo "$down"
-    rightclick="ssh -fN $connectionName"
+    rightclick="pkill -RTMIN+4 i3blocks && ssh -fN $connectionName"
     notification="start proxy connection"
 fi
 

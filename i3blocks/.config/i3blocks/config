@@ -12,12 +12,15 @@ interval=3600
 markup=pango
 LABEL=
 
-[temperature]
-command=~/.config/i3blocks/scripts/temperature
-label=
-interval=10
-T_WARN=70
-T_CRIT=90
+[gpu]
+command=~/.config/i3blocks/scripts/i3gpu
+label=G
+interval=1
+
+[cpu]
+command=~/.config/i3blocks/scripts/i3cpu
+label=C
+interval=1
 
 [timer]
 label=
@@ -28,7 +31,6 @@ markup=pango
 [memory]
 label=
 command=~/.config/i3blocks/scripts/memory
-separator=false
 interval=30
 
 [disk-root]
@@ -42,37 +44,21 @@ command=~/.config/i3blocks/scripts/i3ip
 color=#00FF00
 interval=10
 
-[strength]
-command=echo "$(iw dev wlo1 link | grep signal | cut -d " " -f 2-)"
-interval=10
-color=#cb4b16
-
-[cpu]
-label=CPU
-command=/usr/lib/i3blocks/cpu_usage
-interval=10
-min_width=CPU: 100.00%
-separator=false
-
 [volume]
 label=
 command=~/.config/i3blocks/scripts/volume
 interval=once
 signal=2
 
-[battery]
-command=~/.config/i3blocks/scripts/battery.sh
-interval=30
-markup=pango
-
 [sshproxy]
 command=~/.config/i3blocks/scripts/i3sshproxy
-interval=5
+interval=once
 markup=pango
 
 [vpn]
 command=~/.config/i3blocks/scripts/i3vpn
 interval=once
+signal=3
 markup=pango
 
 [time]
@@ -80,5 +66,4 @@ label=
 command=date '+%a %m-%d-%y %l:%M:%S %p'
 interval=1
 color=#50C878
-
 
