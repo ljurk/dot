@@ -88,8 +88,6 @@ highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Re
     nnoremap mt0 ^d0j
     nnoremap mt1 ^d0I    j
     nnoremap mt2 ^d0I        j
-" remove trailing whitespaces
-    nnoremap mrm :%s/\s\+$//e
 " macros for markdown
     nnoremap mdt ggi---title: <a href="https://303.ddns.net"><img src="smile.png" alt="drawing" width="100"/></a><++>---
 
@@ -138,10 +136,14 @@ function! UnderlineHeading(level)
     normal! yypVr-
   else
     "normal! I###<space>
-    normal! I### 
+    normal! I###
   endif
 endfunction
 
 nnoremap <leader>u1 :call UnderlineHeading(1);
 nnoremap <leader>u2 :call UnderlineHeading(2);
 nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
+
+" Automatically deletes all trailing whitespace and newlines at end of file on save.
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritepre * %s/\n\+\%$//e
