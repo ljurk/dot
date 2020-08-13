@@ -18,18 +18,6 @@ autoload -Uz promptinit && promptinit
 prompt redhat
 autoload -U colors && colors
 PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[magenta]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-
-# execution time
-# If command execution time above min. time, plugins will not output time.
-ZSH_COMMAND_TIME_MIN_SECONDS=3
-
-# Message to display (set to "" for disable).
-ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
-
-# Message color.
-ZSH_COMMAND_TIME_COLOR="cyan"
-
-
 ##right
 #load vcf_info
 autoload -Uz vcs_info
@@ -40,6 +28,14 @@ setopt prompt_subst
 RPROMPT="%{$fg[green]%}\$vcs_info_msg_0_"
 #format vcf_info string
 zstyle ':vcs_info:git:*' formats '[%b]'
+
+## execution time
+# If command execution time above min. time, plugins will not output time.
+ZSH_COMMAND_TIME_MIN_SECONDS=3
+# Message to display (set to "" for disable).
+ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
+# Message color.
+ZSH_COMMAND_TIME_COLOR="cyan"
 
 # key bindings
 bindkey "\e[7~" beginning-of-line       #HOME
@@ -54,11 +50,11 @@ bindkey '^[h' backward-word
 #fzf
 bindkey -s '^[c' 'cdfzf\n'
 
-# use antigen
-source /usr/share/zsh/share/antigen.zsh
-
 # color for autosuggestions should be red
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=9"
+
+# use antigen
+source /usr/share/zsh/share/antigen.zsh
 
 # bundles
 antigen bundle git
@@ -73,12 +69,8 @@ antigen bundle popstas/zsh-command-time
 # apply antigen bundles & theme
 antigen apply
 
-# Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='vim'
- fi
+# Preferred editor
+export EDITOR='vim'
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
