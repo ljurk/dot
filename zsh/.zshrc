@@ -80,6 +80,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #swap escape with caps
 #xmodmap /home/ljurk/dotfiles/.Xmodmap
 #aliases
+alias git_current_branch="git branch | sed  '/^\*/!d;s/\* //'"
 alias :q='exit'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
