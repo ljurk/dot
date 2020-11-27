@@ -13,12 +13,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'vimwiki/vimwiki'
     Plug 'airblade/vim-gitgutter'
-    Plug 'tmhedberg/SimpylFold'
     Plug 'Valloric/YouCompleteMe'
-    Plug 'https://github.com/dense-analysis/ale.git'
+    Plug 'dense-analysis/ale'
     Plug 'tpope/vim-surround'
     Plug 'justinmk/vim-sneak'
-    Plug 'https://github.com/PProvost/vim-ps1'
+    " optional
+    "Plug 'mattn/emmet-vim'
+    "Plug 'fatih/vim-go'
+    "Plug 'https://github.com/jamessan/vim-gnupg'
 call plug#end()
 
 "ale
