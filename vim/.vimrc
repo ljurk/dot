@@ -95,6 +95,8 @@ let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
 """folding
 autocmd FileType python setlocal foldmethod=indent
 
+"""spellchecking
+autocmd FileType markdown setlocal spell
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
