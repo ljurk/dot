@@ -35,12 +35,6 @@ let g:ale_linters = {
 \   'css': ['stylelint'],
 \}
 
-if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    set t_ut=
-endif
-
 let mapleader = ","
 " recommandations from https://realpython.com/vim-and-python-a-match-made-in-heaven/
 let g:ycm_autoclose_preview_window_after_completion=1
