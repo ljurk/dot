@@ -41,6 +41,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " color it up
 color nachtleben
+set cursorline!
+hi CursorLine   cterm=NONE ctermbg=16 ctermfg=NONE
 " vimdiff colors
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
