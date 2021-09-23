@@ -40,6 +40,9 @@ let mapleader = ","
 " recommandations from https://realpython.com/vim-and-python-a-match-made-in-heaven/
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>y "+y
+map <leader>Y "+Y
+
 " color it up
 color nachtleben
 set cursorline
