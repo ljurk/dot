@@ -25,13 +25,11 @@ bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 ### rofi
-# start program launcher
-bindsym $mod+d exec --no-startup-id "rofi -show run"
-bindsym $mod+Shift+d exec --no-startup-id "$HOME/.scripts/rofipdf"
-bindsym $mod+Tab exec --no-startup-id rofi -show window
-# websearch
-bindsym $mod+Shift+w "exec $HOME/.scripts/rofiwebsearch"
-bindsym $mod+w "exec $HOME/.scripts/rofiwebbookmarks"
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+d exec rofipdf
+bindsym $mod+Tab exec rofi -show window
+bindsym $mod+Shift+w exec rofiwebsearch
+bindsym $mod+w exec rofiwebbookmarks
 
 ## sound-section
 exec --no-startup-id volumeicon
@@ -44,22 +42,23 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+a exec --no-startup-id "/$HOME/.scripts/azn"
-bindsym $mod+Shift+f exec "/$HOME/.scripts/dbrowse"
-bindsym $mod+Shift+t exec --no-startup-id "/$HOME/.scripts/todo"
-bindsym $mod+Shift+s exec "/$HOME/.scripts/sshSession"
-bindsym $mod+T exec "$HOME/.scripts/timer"
-bindsym $mod+u exec "$HOME/.scripts/umlaute"
-bindsym $mod+p exec "/usr/bin/keepmenu"
+bindsym $mod+a exec --no-startup-id "azn"
+#bindsym $mod+Shift+f exec "dbrowse"
+bindsym $mod+Shift+t exec --no-startup-id "todo"
+bindsym $mod+s exec alacritty -e tb $(tb list | rofi -dmenu)
+bindsym $mod+Shift+s exec "sshSession"
+bindsym $mod+T exec "timer"
+bindsym $mod+u exec "umlaute"
+bindsym $mod+p exec "/home/ljurk/.local/bin/keepmenu"
 bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+Print exec "$HOME/.scripts/rofirecord"
+bindsym $mod+Print exec "rofirecord"
 
 # altlassian tools
 #bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
-bindsym $mod+Ctrl+j exec --no-startup-id "$HOME/.scripts/dji"
+bindsym $mod+Ctrl+j exec --no-startup-id "dji"
 
 # killing
-bindsym $mod+x exec "$HOME/.scripts/power"
+bindsym $mod+x exec "power"
 bindsym $mod+Shift+x exec i3lock -c 191919
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -69,8 +68,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+F4 exec pavucontrol
 bindsym $mod+Shift+F4 exec cadence
 bindsym $mod+F6 exec thunderbird
-bindsym $mod+F9 exec --no-startup-id "/$HOME/.scripts/remminaMenu"
-bindsym $mod+F12 exec nitrogen --restore
+bindsym $mod+F9 exec --no-startup-id "remminaMenu"
 
 # change focus
 bindsym $mod+h focus left
@@ -118,9 +116,9 @@ bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 
 # Workspace names
-set $ws1 1:
-set $ws2 2:
-set $ws3 3:
+set $ws1 1
+set $ws2 2
+set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
@@ -129,10 +127,15 @@ set $ws8 8
 set $ws9 9
 
 #assign workspaces to diffrent monitors
-workspace $ws1 output HDMI-A-0
-workspace $ws2 output HDMI-A-0
-workspace $ws3 output DVI-D-0
-workspace $ws4 output DisplayPort-2
+workspace $ws1 output DisplayPort-0
+workspace $ws2 output DisplayPort-0
+workspace $ws3 output DisplayPort-0
+workspace $ws4 output DisplayPort-0
+workspace $ws5 output DisplayPort-1
+workspace $ws6 output DisplayPort-1
+workspace $ws7 output DisplayPort-1
+workspace $ws8 output DisplayPort-1
+workspace $ws9 output DisplayPort-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -160,7 +163,6 @@ bindsym $mod+Shift+9 move container to workspace $ws8; workspace $ws9
 # get class: xprop and click on program
 assign [class="Firefox"] $ws1
 assign [class="Thunderbird"] $ws2
-assign [class="org.remmina.Remmina"] $ws4
 
 # Open specific applications in floating mode
 for_window [class="Lightdm-settings"] floating enable
@@ -204,7 +206,7 @@ exec --no-startup-id xautolock -time 60 -locker blurlock
 exec --no-startup-id jack_control start
 exec --no-startup-id nextcloud
 exec --no-startup-id firefox
-exec --no-startup-id thunderbird
+exec --no-startup-id dunst
 exec --no-startup-id setxkbmap -option caps:escape
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -297,4 +299,3 @@ smart_gaps on
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
-
