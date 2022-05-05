@@ -1,6 +1,18 @@
-# shortcuts
+# dot
 
-## tmux
+These are my dotfiles, managed with stow.
+
+## Installation
+
+```
+stow */
+```
+
+[Reason for leading slash](https://stackoverflow.com/questions/64231650/why-doesnt-gnu-stow-ignore-single-files-in-main-directory)
+
+## shortcuts
+
+### tmux
 
 hostkey(hk): `Ctrl+a`
 
