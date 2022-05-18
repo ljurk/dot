@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'dense-analysis/ale'
     Plug 'tpope/vim-surround'
     Plug 'justinmk/vim-sneak'
+    Plug 'kien/ctrlp.vim'
     " optional
     "Plug 'mattn/emmet-vim'
     "Plug 'fatih/vim-go'
@@ -59,9 +60,13 @@ set so=999
 " disable ex mode
 map q: <Nop>
 nnoremap Q <nop>
-" swtich between tabs
-nnoremap H gT
-nnoremap L gt
+
+" buffers
+nnoremap H :bnext<Enter>
+nnoremap L :bprevious<Enter>
+nnoremap <leader>b :CtrlPBuffer<Enter>
+nnoremap <leader>l :CtrlP .<Enter>
+
 " page up/down
 let g:BASH_Ctrl_j = 'off'
 nnoremap <C-j> <C-d>
