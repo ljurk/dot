@@ -80,43 +80,39 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 #swap escape with caps
 #xmodmap /home/ljurk/dotfiles/.Xmodmap
-#aliases
-alias todo="vim ~/.todo.md"
+
+## aliases
 alias :q='exit'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias ag='sudo apt-get'
 alias p='sudo pacman'
-alias pr='sudo pacman -Rsn $(pacman -Qqtd)' # remove orpahned pacakges
+alias order66='sudo pacman -Rsn $(pacman -Qqtd)' # remove orpahned pacakges
 alias diskusage='sudo du -sh * | sort -hf'
 alias sv='sudo vim'
 alias v='vim'
-alias py='python3'
 alias ll='ls -lisa'
 alias la='ls -A'
 alias l='ls -CF'
 alias z='devour zathura'
 alias zf='devour zathura $(find ~ -name "*.pdf" | fzf)'
-alias vf='vim $(fzf)'
-alias nb='newsboat'
+# tmux
 alias tbase='tmux a -t base || tmux new -s base'
 alias tans='tmux a -t ansible || tmux new -s ansible'
 alias tweb='tmux a -t web || tmux new -s web'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
-#microcontroller
+# microcontroller
 alias semon='platformio device monitor'
 alias avrtest='avrdude -p m328p -c gpio'
 alias temp='watch -n 2 sensors'
-#Adminstuff
+# adminstuff
 alias tlscheck='nmap --script ssl-enum-ciphers -p 443'
 # docker
 alias d="docker"
 alias dcp="docker-compose"
 alias dcup="docker-compose up"
-## For My Proxy Tunnel
+# ssh tunnel
 alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
 alias proxy-off='ssh -O exit cmgraylogProxy'
