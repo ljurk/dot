@@ -67,6 +67,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle gpg-agent
 antigen bundle srijanshetty/zsh-pandoc-completion
 antigen bundle popstas/zsh-command-time
+antigen bundle sparsick/ansible-zsh
 
 # apply antigen bundles & theme
 antigen apply
@@ -133,10 +134,6 @@ alias vup="vagrant up --no-provision"
 alias vp="vagrant provision"
 alias vr="vagrant reload"
 alias vd="vagrant destroy"
-# ansible
-alias a="ansible"
-alias ap="ansible-playbook"
-alias av="ansible-vault edit"
 # docker
 alias d="docker"
 alias dcp="docker-compose"
