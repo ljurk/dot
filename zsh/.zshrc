@@ -82,7 +82,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #xmodmap /home/ljurk/dotfiles/.Xmodmap
 #aliases
 alias todo="vim ~/.todo.md"
-alias git_current_branch="git branch | sed  '/^\*/!d;s/\* //'"
 alias :q='exit'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -94,14 +93,6 @@ alias pr='sudo pacman -Rsn $(pacman -Qqtd)' # remove orpahned pacakges
 alias diskusage='sudo du -sh * | sort -hf'
 alias sv='sudo vim'
 alias v='vim'
-alias g='git'
-alias gs='git status'
-alias gch='git checkout'
-alias gd='git diff'
-alias gc='git commit'
-alias ga='git add'
-alias gpl='git pull'
-alias gps='git push'
 alias py='python3'
 alias ll='ls -lisa'
 alias la='ls -A'
@@ -110,7 +101,6 @@ alias z='devour zathura'
 alias zf='devour zathura $(find ~ -name "*.pdf" | fzf)'
 alias vf='vim $(fzf)'
 alias nb='newsboat'
-alias gpta='git remote | xargs -L1 git push --all'
 alias tbase='tmux a -t base || tmux new -s base'
 alias tans='tmux a -t ansible || tmux new -s ansible'
 alias tweb='tmux a -t web || tmux new -s web'
