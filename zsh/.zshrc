@@ -111,19 +111,7 @@ alias semon='platformio device monitor'
 alias avrtest='avrdude -p m328p -c gpio'
 alias temp='watch -n 2 sensors'
 #Adminstuff
-alias a2res='sudo service apache2 restart'
-alias a2rel='sudo service apache2 reload'
-alias ncocc='sudo -u www-data php /var/www/nc/occ maintenance:mode'
-alias ppsql='sudo -u postgres psql'
-alias sserv='sudo service'
 alias tlscheck='nmap --script ssl-enum-ciphers -p 443'
-# Vagrant aliases
-alias vs="vagrant status"
-alias vssh="vagrant ssh"
-alias vup="vagrant up --no-provision"
-alias vp="vagrant provision"
-alias vr="vagrant reload"
-alias vd="vagrant destroy"
 # docker
 alias d="docker"
 alias dcp="docker-compose"
@@ -132,6 +120,3 @@ alias dcup="docker-compose up"
 alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
 alias proxy-off='ssh -O exit cmgraylogProxy'
-# fzf
-alias cdfzf='cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"'
-alias pf="fzf --preview '([[ -f {} ]] && (bat --style=plain --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
