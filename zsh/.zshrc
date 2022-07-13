@@ -108,10 +108,19 @@ alias avrtest='avrdude -p m328p -c gpio'
 alias temp='watch -n 2 sensors'
 # adminstuff
 alias tlscheck='nmap --script ssl-enum-ciphers -p 443'
+certinfo() {
+    curl --insecure -vvI "https://$1" 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'
+}
+certissuer() {
+    certinfo $1 | grep "*  issuer" | sed -e "s/\*  issuer: //"
+}
 # docker
 alias d="docker"
 alias dcp="docker-compose"
 alias dcup="docker-compose up"
+dgetid() {
+    docker ps -qf "name=$1"
+}
 # ssh tunnel
 alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
