@@ -84,6 +84,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 ## aliases
 alias :q='exit'
 alias ls='ls --color=auto'
+alias gs='git status'
 alias grep='grep --color=auto'
 alias ag='sudo apt-get'
 alias p='sudo pacman'
