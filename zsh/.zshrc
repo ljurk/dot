@@ -17,7 +17,7 @@ setopt autocd autopushd
 autoload -Uz promptinit && promptinit
 prompt redhat
 autoload -U colors && colors
-PS1="%{$fg[yellow]%}%~ %{$reset_color%}%% "
+PS1="%{$fg[magenta]%}% %m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 ##right
 #load vcf_info
 autoload -Uz vcs_info
