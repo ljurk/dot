@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'justinmk/vim-sneak'
     Plug 'kien/ctrlp.vim'
+    Plug 'thinca/vim-quickrun'
     " optional
     "Plug 'mattn/emmet-vim'
     "Plug 'fatih/vim-go'
@@ -38,6 +39,11 @@ let g:ale_linters = {
 \}
 
 let mapleader = ","
+
+" quickrun
+map <F5> :QuickRun<cr>
+nnoremap <F6> :bw! quickrun://output<cr>
+
 " recommandations from https://realpython.com/vim-and-python-a-match-made-in-heaven/
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -83,8 +89,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <F1> :NERDTreeToggle<Enter>
 nnoremap <F2> :set list!<Enter>
 nnoremap <F3> :set relativenumber!<Enter>
-nnoremap <F6> :make clean<ENTER>
-nnoremap <F5> :w<ENTER>:make!<ENTER>
 nnoremap <F7> :ALEDetail <ENTER>
 " fix all spell erros with first alternative
 nnoremap <F8> :%normal ]s1z=<ENTER>
