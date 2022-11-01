@@ -126,3 +126,4 @@ dgetid() {
 alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
 alias proxy-off='ssh -O exit cmgraylogProxy'
+alias forever='for ((;;))'
