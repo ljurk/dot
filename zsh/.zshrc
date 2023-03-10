@@ -1,8 +1,13 @@
 # set environment variables
 export PATH=$HOME/.scripts/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
-export TERM="xterm-256color"
+
+# HOME and END keys
 bindkey "^[[H" beginning-of-line
+bindkey '\eOH'  beginning-of-line
+bindkey "\E[1~" beginning-of-line
 bindkey "^[[F" end-of-line
+bindkey '\eOF'  end-of-line
+bindkey "\E[4~" end-of-line
 # history settings
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
