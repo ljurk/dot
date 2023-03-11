@@ -1,6 +1,15 @@
 # set environment variables
 export PATH=$HOME/.scripts/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
+# always start tmux
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+if _not_inside_tmux; then
+    tat
+fi
+
 # HOME and END keys
 bindkey "^[[H" beginning-of-line
 bindkey '\eOH'  beginning-of-line

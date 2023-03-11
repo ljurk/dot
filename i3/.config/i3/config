@@ -18,8 +18,8 @@ font xft:URWGothic-Book 14
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty -e tmux
-bindsym $mod+Shift+Return exec alacritty
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty --config-file ~/.config/alacritty/present.yml
 
 # kill focused window
 bindsym $mod+Shift+q kill
