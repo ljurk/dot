@@ -1,0 +1,19 @@
+#!/bin/bash
+DMENU="rofi -dmenu"
+dest="/home/ljurk/.config/i3blocks/scripts/.timerfile"
+
+unit=$(printf "seconds\\nminutes\\nhours" | $DMENU "Unit?")
+number=$(printf "" | $DMENU "How much ${unit}?")
+re='^[0-9]+$'
+if ! [[ $number =~ $re ]] ; then
+   echo "error: Not a number" >&2; exit 1
+   exit
+fi
+
+if [ "$unit" = "minutes" ]; then
+    number=$((number*60))
+fi
+if [ "$unit" = "hours" ]; then
+    number=$((number*3600))
+fi
+echo "$number" > "$dest"

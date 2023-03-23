@@ -1,5 +1,5 @@
 # set environment variables
-export PATH=$HOME/.scripts/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # always start tmux
 _not_inside_tmux() {

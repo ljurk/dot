@@ -1,0 +1,128 @@
+#!/bin/bash
+
+# Usage:
+# `$0`: Ask for recording type via rofi
+# `$0 screencast`: Record both audio and screen
+# `$0 video`: Record only screen
+# `$0 audio`: Record only audio
+# `$0 kill`: Kill existing recording
+#
+# If there is already a running instance, user will be prompted to end it.
+
+dest="$HOME/screencasts/"
+
+updateicon() { \
+	echo "$1" > /tmp/recordingicon
+        pkill -RTMIN+3 i3blocks
+	}
+
+killrecording() {
+	recpid="$(cat /tmp/recordingpid)"
+	# kill with SIGTERM, allowing finishing touches.
+	kill -15 "$recpid"
+	rm -f /tmp/recordingpid
+	updateicon ""
+        pkill -RTMIN+3 i3blocks
+	# even after SIGTERM, ffmpeg may still run, so SIGKILL it.
+	sleep 3
+	kill -9 "$recpid"
+	exit
+	}
+
+chooseMonitor() {
+    # prints SIZE OFFSET
+    monitors=$(xrandr --query | grep " connected" | sed 's/primary//g' |sed ' s/(.*//g')
+    choosen=$(echo "$monitors" | rofi -dmenu | awk '{print $3;}')
+    echo -n "$(echo "$choosen" | awk -F "+" '{print $1" ";}')"
+    echo "$choosen" | awk -F "+" '{print ":0.0+"$2","$3;}'
+}
+
+screencast() { \
+        monitor=$(chooseMonitor)
+        size="$(echo "$monitor" | awk '{print $1}')"
+        offset="$(echo "$monitor" | awk '{print $2}')"
+
+	ffmpeg -y \
+	-f x11grab \
+	-framerate 60 \
+        -s "$size" \
+        -i "$offset" \
+	-f jack -i default \
+	-r 30 \
+ 	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
+	"$dest$(date '+%y%m%d-%H%M-%S').mp4" &
+	echo $! > /tmp/recordingpid
+	updateicon "⏺️🎙️"
+       	}
+
+video() {
+    monitor=$(chooseMonitor)
+    size="$(echo "$monitor" | awk '{print $1}')"
+    offset="$(echo "$monitor" | awk '{print $2}')"
+
+    ffmpeg \
+	-f x11grab \
+        -s "$size" \
+        -i "$offset" \
+ 	-c:v libx264 -qp 0 -r 30 \
+	"$dest$(date '+%y%m%d-%H%M-%S').mkv" &
+	echo $! > /tmp/recordingpid
+	updateicon "⏺️"
+	}
+
+webcamhidef() { ffmpeg \
+	-f v4l2 \
+	-i /dev/video0 \
+	-video_size 1920x1080 \
+	"$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
+	echo $! > /tmp/recordingpid
+	updateicon "🎥"
+	}
+
+webcam() { ffmpeg \
+	-f v4l2 \
+	-i /dev/video0 \
+	-video_size 640x480 \
+	"$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
+	echo $! > /tmp/recordingpid
+	updateicon "🎥"
+	}
+
+webcamwindow() {
+    mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --title='mpvfloat' /dev/video0
+}
+
+audio() { \
+	ffmpeg \
+	-f alsa -i default \
+	-c:a flac \
+	"$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
+	echo $! > /tmp/recordingpid
+	updateicon "🎙️"
+	}
+
+askrecording() { \
+	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)\\nwebcam window" | rofi -dmenu -i -p "Select recording style:")
+	case "$choice" in
+		screencast) screencast;;
+		audio) audio;;
+		video) video;;
+		webcam) webcam;;
+		"webcam (hi-def)") webcamhidef;;
+		"webcam window") webcamwindow;;
+	esac
+	}
+
+asktoend() { \
+	response=$(printf "Yes\\nNo" | rofi -dmenu -i -p "Recording still active. End recording?") &&
+	[ "$response" = "Yes" ] &&  killrecording
+	}
+
+
+case "$1" in
+	screencast) screencast;;
+	audio) audio;;
+	video) video;;
+	kill) killrecording;;
+	*) ([ -f /tmp/recordingpid ] && asktoend && exit) || askrecording;;
+esac

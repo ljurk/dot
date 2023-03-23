@@ -1,0 +1,41 @@
+#!/bin/bash
+
+DMENU="rofi -dmenu"
+match=$(printf "shutdown\\nreboot\\ntimed shutdown\\ncancel shutdown\\nturn off screen" | $DMENU)
+
+case "$match" in
+"shutdown")
+    ok=$(printf "yes\\nno" | $DMENU -p "realy?")
+    if [ "$ok" == "yes" ]
+    then
+        shutdown now
+    else
+        notify-send "dont waste my time"
+    fi
+    ;;
+"reboot")
+    ok=$(printf "yes\\nno" | $DMENU -p "realy?")
+    if [ "$ok" == "yes" ]
+    then
+        reboot
+    else
+        notify-send "dont waste my time"
+    fi
+    ;;
+"timed shutdown")
+    min=$($DMENU -p "in how much minutes?")
+    output=$(shutdown -P +"$min" 2>&1 &)
+    notify-send "$output"
+    ;;
+"cancel shutdown")
+    output=$(shutdown -c 2>&1 &)
+    notify-send "shutdown canceled"
+    ;;
+"turn off screen")
+    output=$(xset dpms force off)
+    notify-send "screen turned off"
+    ;;
+*)
+    notify-send "dont waste my time"
+    ;;
+esac
