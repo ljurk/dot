@@ -10,6 +10,12 @@ stow */
 
 [Reason for leading slash](https://stackoverflow.com/questions/64231650/why-doesnt-gnu-stow-ignore-single-files-in-main-directory)
 
+## Install packages
+
+```
+cat packages.txt | sed -e '/^#/d' -e '/^$/d' | sudo pacman -S -
+```
+
 ## shortcuts
 
 ### tmux

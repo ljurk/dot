@@ -1,0 +1,31 @@
+# basic i3
+xorg-server
+xorg-xinit
+i3-wm
+i3blocks
+i3lock
+
+# default applications
+alacritty
+zsh
+tmux
+vim
+rofi
+stow
+git
+thunar
+firefox
+thunderbird
+gnome-keyring
+seahorse
+keepassxc
+networkmanager-openvpn
+network-manager-applet
+zathura
+flameshot
+pavucontrol
+nextcloud
+
+# fonts
+ttf-dejavu
+ttf-font-awesome
