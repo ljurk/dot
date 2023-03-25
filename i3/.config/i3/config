@@ -2,12 +2,12 @@
 set $mod Mod4
 
 include ~/.config/i3/*.conf
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
 
-# Hide borders
-hide_edge_borders none
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border pixel 2
+default_floating_border pixel 1
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+smart_borders on
 
 focus_follows_mouse no
 
@@ -21,9 +21,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty --config-file ~/.config/alacritty/present.yml
-
-# kill focused window
-bindsym $mod+Shift+q kill
 
 ### rofi
 bindsym $mod+d exec rofi -show run
@@ -42,33 +39,23 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+a exec --no-startup-id "azn"
-#bindsym $mod+Shift+f exec "dbrowse"
+bindsym $mod+e exec thunar
 bindsym $mod+Shift+t exec --no-startup-id "todo"
-bindsym $mod+s exec alacritty -e tb $(tb list | rofi -dmenu)
 bindsym $mod+Shift+s exec "sshSession"
 bindsym $mod+T exec "timer"
 bindsym $mod+u exec "umlaute"
 bindsym $mod+p exec "/home/ljurk/.local/bin/keepmenu"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print exec "rofirecord"
-
-# altlassian tools
-#bindsym $mod+t exec "$HOME/.local/bin/dmenutrello"
-bindsym $mod+Ctrl+j exec --no-startup-id "dji"
+bindsym $mod+F9 exec --no-startup-id "remminaMenu"
+bindsym $mod+v exec export CM_LAUNCHER=rofi && exec clipmenu
 
 # killing
 bindsym $mod+x exec "power"
 bindsym $mod+Shift+x exec i3lock -c 191919
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-#function keys
-bindsym $mod+F2 exec firefox
-bindsym $mod+e exec thunar
-bindsym $mod+F4 exec pavucontrol
-bindsym $mod+Shift+F4 exec cadence
-bindsym $mod+F6 exec thunderbird
-bindsym $mod+F9 exec --no-startup-id "remminaMenu"
+# kill focused window
+bindsym $mod+Shift+q kill
 
 # change focus
 bindsym $mod+h focus left
@@ -82,51 +69,18 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# workspace back and forth (with/without active container)
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-
-# split orientation
-bindsym $mod+semicolon split h;exec notify-send 'tile horizontally'
-bindsym $mod+v exec export CM_LAUNCHER=rofi && exec clipmenu
-bindsym $mod+q split toggle;exec notify-send 'split orientation changed'
-
-# toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
-
-# toggle tiling / floating
+# floating windows
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
-
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
-
-
 # Open specific applications in floating mode
 for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Lxappearance"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable
 for_window [class="Pavucontrol"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -137,105 +91,35 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # exit resize mode: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
+# colors
+set $colorMain #66347F
+set $colorSecondary #37306B
+client.focused  $colorMain #285577 #ffffff #2e9ef4 $colorMain
 
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your
-# terminal background change the line 362 from:
-# background #14191D
-# to:
-# background $term_background
-# Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
-
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
+# Start i3bar to display a workspace bar + the system information i3blocks
 bar {
-	i3bar_command i3bar
-        status_command i3blocks
-        position bottom
-        font pango:FontAwesome 14
+    i3bar_command i3bar
+    status_command i3blocks
+    position bottom
+    font pango:FontAwesome 14
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
+    # unbind mousewheel from switching workspaces
 	bindsym button4 nop
 	bindsym button5 nop
-	strip_workspace_numbers yes
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
-
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        background $colorSecondary
+        focused_workspace  $colorSecondary $colorMain #ffffff
     }
 }
-
-
-# Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000
-
-  client.background       #2B2C2B
-
-#############################
-### settings for i3-gaps: ###
-#############################
-
-# Set inner/outer gaps
-gaps inner 2
-gaps outer -2
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
