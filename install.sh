@@ -9,7 +9,8 @@ stow */
 sudo pacman --noconfirm -S base-devel
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay && makepkg --noconfirm -si
-yay --noconfirm -S antigen
+cd ~/.dot
+yay --noconfirm -S $(cat packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
 
 # lightdm
 sudo systemctl enable lightdm.service

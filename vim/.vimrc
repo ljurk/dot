@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'kien/ctrlp.vim'
     Plug 'thinca/vim-quickrun'
+    Plug 'schickele/vim-nachtleben'
     " optional
     "Plug 'mattn/emmet-vim'
     "Plug 'fatih/vim-go'
