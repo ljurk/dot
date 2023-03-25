@@ -7,6 +7,24 @@ i3lock
 lightdm
 lightdm-gtk-greeter
 
+# audio
+pipewire-jack
+wireplumber
+pavucontrol
+mpd
+mpc
+ncmpcpp
+ario
+
+# display
+arandr
+autorandr
+adapta-gtk-theme
+papirus-icon-theme
+
+# aur
+base-devel
+
 # default applications
 alacritty
 zsh
@@ -25,7 +43,6 @@ networkmanager-openvpn
 network-manager-applet
 zathura
 flameshot
-pavucontrol
 nextcloud
 
 # fonts
