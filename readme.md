@@ -16,6 +16,14 @@ stow */
 cat packages.txt | sed -e '/^#/d' -e '/^$/d' | sudo pacman -S -
 ```
 
+### lightdm
+
+enable lightdm service
+
+```
+sudo systemctl enable lightdm.service
+```
+
 ## shortcuts
 
 ### tmux
