@@ -1,13 +1,25 @@
+"query:All :unread = \"yes\""
+"query:synth:unread = \"yes\" and tags =~ \"synth\""
+"query:tech:unread = \"yes\" and tags =~ \"tech\""
+"query:mtb:unread = \"yes\" and tags =~ \"mtb\""
+
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
-https://www.archlinux.org/feeds/news/ "tech"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~Linus Tech Tips(YouTube)"
+
 https://notrelated.libsyn.com/rss "tech"
 https://heise.de/rss/heise-atom.xml "tech"
+https://arstechnica.com/feed "tech"
+
 https://synthtopia.com/feed "synth"
 http://www.matrixsynth.com/feeds/posts/default "synth"
 http://greatsynthesizers.com/en/feed/ "synth"
 https://www.synthanatomy.com/feed/atom "synth"
 https://www.reddit.com/r/synthesizers/.rss?format=xml "synth"
 https://www.gearnews.com/zone/synth/feed/ "synth"
+https://www.gearnews.de/feed/ "synth"
 https://www.sequencer.de/blog/feed "synth"
+
 http://www.pinkbike.com/pinkbike_xml_feed.php "mtb"
 https://www.mtb-news.de/feed/ "mtb"
+
+https://tu-dresden.de/tu-dresden/newsportal/news/RSS "~tu-dresden" "work"
