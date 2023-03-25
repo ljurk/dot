@@ -1,7 +1,6 @@
 configuration {
 	modi: "window,run,ssh,drun";
 	show-icons: true;
-	theme: "glue_pro_blue";
 	kb-move-char-back: "Control+b";
 	kb-move-char-forward: "Control+f";
 	kb-remove-char-back: "BackSpace";
@@ -13,4 +12,6 @@ configuration {
 	kb-row-right: "Right,Control+l";
 	kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
 	kb-row-down: "Down,Control+j";
+	kb-mode-complete: "";
 }
+@theme "glue_pro_blue"
