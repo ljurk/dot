@@ -51,7 +51,7 @@ bindsym $mod+F9 exec --no-startup-id "remminaMenu"
 bindsym $mod+v exec export CM_LAUNCHER=rofi && exec clipmenu
 
 # killing
-bindsym $mod+x exec "power"
+bindsym $mod+x exec "powermenu"
 bindsym $mod+Shift+x exec i3lock -c 191919
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # kill focused window

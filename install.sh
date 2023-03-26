@@ -14,3 +14,7 @@ yay --noconfirm -S $(cat packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
 
 # lightdm
 sudo systemctl enable lightdm.service
+
+# install feather font
+mkdir -p ~/.local/share/fonts/panels/
+curl -s https://raw.githubusercontent.com/adi1090x/rofi/master/fonts/Icomoon-Feather.ttf > ~/.local/share/fonts/panels/icomoon-feather.ttf
