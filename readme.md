@@ -16,11 +16,13 @@ stow */
 cat packages.txt | sed -e '/^#/d' -e '/^$/d' | sudo pacman -S -
 ```
 
-### lightdm
+### login manger
 
-enable lightdm service
+[ly](https://github.com/fairyglade/ly) is used as a login manger. After installation its necessary to enable the service and update its PAM-config, so ly unlocks gnome-keyring
 
 ```
+sudo rm /etc/pam.d/ly
+sudo ln -s "$(pwd)/ly/pam" /etc/pam.d/ly
 sudo systemctl enable lightdm.service
 ```
 

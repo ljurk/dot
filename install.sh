@@ -12,8 +12,10 @@ cd /tmp/yay && makepkg --noconfirm -si
 cd ~/.dot
 yay --noconfirm -S $(cat packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
 
-# lightdm
-sudo systemctl enable lightdm.service
+# enable login manager
+sudo rm /etc/pam.d/ly
+sudo ln -s "$(pwd)/ly/pam" /etc/pam.d/ly
+sudo systemctl enable ly.service
 
 # install feather font
 mkdir -p ~/.local/share/fonts/panels/
