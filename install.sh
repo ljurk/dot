@@ -20,3 +20,6 @@ sudo systemctl enable ly.service
 # install feather font
 mkdir -p ~/.local/share/fonts/panels/
 curl -s https://raw.githubusercontent.com/adi1090x/rofi/master/fonts/Icomoon-Feather.ttf > ~/.local/share/fonts/panels/icomoon-feather.ttf
+
+# openvpn
+nmcli connection import type openvpn file ~/.config/vpn/tud.ovpn || true
