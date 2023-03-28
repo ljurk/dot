@@ -30,9 +30,9 @@ bindsym $mod+Shift+w exec rofiwebsearch
 bindsym $mod+w exec rofiwebbookmarks
 
 ## sound-section
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ unmute && pkill -RTMIN+2 i3blocks"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%- unmute && pkill -RTMIN+2 i3blocks"
-bindsym XF86AudioMute exec "amixer -q set Master toggle && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%- unmute"
+bindsym XF86AudioMute exec "amixer -q set Master toggle"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -107,25 +107,3 @@ client.focused #664477 #F0C674 #cccccc #e7d8b1
 client.focused_inactive #e7d8b1 #e7d8b1 #181715 #a074c4
 client.unfocused #222133 #222133 #aaaaaa #a074c4
 client.urgent #ce4045 #ce4045 #e7d8b1 #dccd69
-
-# Start i3bar to display a workspace bar + the system information i3blocks
-bar {
-    i3bar_command i3bar
-    status_command i3blocks
-    position bottom
-    font pango:FontAwesome 14
-
-    # unbind mousewheel from switching workspaces
-	bindsym button4 nop
-	bindsym button5 nop
-
-    colors {
-        background #222133
-        focused_workspace #664477 #664477 #cccccc #ffffff
-        separator #aaaaaa
-        statusline #ffffff
-        active_workspace   #222133 #5f676a #ffffff
-        inactive_workspace #222133 #222133 #aaaaaa
-        urgent_workspace #DCCD69 #DCCD69 #181715 #ffffff
-    }
-}

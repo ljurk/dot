@@ -13,8 +13,7 @@ dest="$HOME/screencasts/"
 
 updateicon() { \
 	echo "$1" > /tmp/recordingicon
-        pkill -RTMIN+3 i3blocks
-	}
+}
 
 killrecording() {
 	recpid="$(cat /tmp/recordingpid)"
@@ -22,7 +21,6 @@ killrecording() {
 	kill -15 "$recpid"
 	rm -f /tmp/recordingpid
 	updateicon ""
-        pkill -RTMIN+3 i3blocks
 	# even after SIGTERM, ffmpeg may still run, so SIGKILL it.
 	sleep 3
 	kill -9 "$recpid"
@@ -52,7 +50,7 @@ screencast() { \
  	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
 	"$dest$(date '+%y%m%d-%H%M-%S').mp4" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️🎙️"
+	updateicon ""
        	}
 
 video() {
@@ -67,7 +65,7 @@ video() {
  	-c:v libx264 -qp 0 -r 30 \
 	"$dest$(date '+%y%m%d-%H%M-%S').mkv" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️"
+	updateicon ""
 	}
 
 webcamhidef() { ffmpeg \
@@ -76,7 +74,7 @@ webcamhidef() { ffmpeg \
 	-video_size 1920x1080 \
 	"$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
 	echo $! > /tmp/recordingpid
-	updateicon "🎥"
+	updateicon ""
 	}
 
 webcam() { ffmpeg \
@@ -85,7 +83,7 @@ webcam() { ffmpeg \
 	-video_size 640x480 \
 	"$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
 	echo $! > /tmp/recordingpid
-	updateicon "🎥"
+	updateicon ""
 	}
 
 webcamwindow() {
@@ -98,7 +96,7 @@ audio() { \
 	-c:a flac \
 	"$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
 	echo $! > /tmp/recordingpid
-	updateicon "🎙️"
+	updateicon ""
 	}
 
 askrecording() { \
