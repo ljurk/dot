@@ -17,8 +17,6 @@ ario
 # display
 arandr
 autorandr
-adapta-gtk-theme
-papirus-icon-theme
 
 # aur
 base-devel

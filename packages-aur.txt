@@ -1,3 +1,5 @@
 antigen
 vim-plug
 ly
+dracula-gtk-theme
+dracula-icons-git
