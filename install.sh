@@ -23,3 +23,6 @@ curl -s https://raw.githubusercontent.com/adi1090x/rofi/master/fonts/Icomoon-Fea
 
 # openvpn
 nmcli connection import type openvpn file ~/.config/vpn/tud.ovpn || true
+
+# passwordless pacman
+sudo sh -c 'echo "%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers'
