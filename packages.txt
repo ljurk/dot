@@ -4,6 +4,7 @@ xorg-xinit
 i3-wm
 polybar
 i3lock
+dunst
 
 # audio
 pipewire-jack
@@ -25,22 +26,48 @@ base-devel
 alacritty
 zsh
 tmux
+fzf
 vim
 rofi
 stow
 git
 thunar
+gvfs
+gvfs-smb
 firefox
 thunderbird
 gnome-keyring
 seahorse
 keepassxc
 networkmanager-openvpn
+networkmanager-openconnect
 network-manager-applet
 zathura
 flameshot
-nextcloud
+nextcloud-client
+vagrant
+virtualbox
+virtualbox-host-modules-arch
+
+# work
+remmina
+freerdp
 
 # fonts
 ttf-dejavu
 ttf-font-awesome
+
+# ctf
+nmap
+curl
+httpie
+socat
+ghidra
+ltrace
+strace
+gdb
+zaproxy
+
+# development
+docker
+docker-compose

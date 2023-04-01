@@ -146,3 +146,7 @@ alias forever='for ((;;))'
 function pacman-rm(){
     pacman -Qet |  fzf --multi --preview 'pacman -Qi {1}' | cut -d ' ' -f 1 | xargs -ro sudo pacman -R
 }
+function provision(){
+    sudo pacman --noconfirm --needed -S $(cat ~/.dot/packages.txt | sed -e '/^#/d' -e '/^$/d')
+    yay --noconfirm --needed -S $(cat ~/.dot/packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
+}
