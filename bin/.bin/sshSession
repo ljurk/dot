@@ -1,8 +1,0 @@
-#!/bin/bash
-
-DMENU="rofi -dmenu"
-#get all known hosts from ~/.ssh/known_hosts
-#hosts=$(awk '{ print $1 }' ~/.ssh/known_hosts | sed -e 's/.*[1-2].*//g' -e '/^$/d')
-hosts=$(awk '{ print $1 }' ~/.ssh/known_hosts)
-match=$(printf "$hosts" | $DMENU)
-alacritty --command ssh $match

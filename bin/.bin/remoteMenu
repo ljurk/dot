@@ -1,0 +1,2 @@
+#!/bin/bash
+cat ~/.bin/remotes.txt | rofi -dmenu | xargs -I {} sh -c "{}"

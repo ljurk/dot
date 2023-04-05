@@ -1,0 +1,5 @@
+xdg-open rdp://dom\\\\ljurk@ts1.slm.tu-dresden.de
+xdg-open rdp://dom\\\\ljurk@ts2.slm.tu-dresden.de
+xdg-open rdp://dom\\\\ljurk@192.168.183.143
+alacritty --command ssh cmgraylog
+alacritty --command ssh 192.168.0.31
