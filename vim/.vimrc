@@ -11,6 +11,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:^
 " vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree'
+    Plug 'junegunn/fzf.vim'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'vimwiki/vimwiki'
     Plug 'airblade/vim-gitgutter'
@@ -115,3 +116,6 @@ autocmd FileType markdown setlocal spell
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
+
+" switch buffers without saving
+set hidden
