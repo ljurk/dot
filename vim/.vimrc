@@ -18,8 +18,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Valloric/YouCompleteMe'
     Plug 'dense-analysis/ale'
     Plug 'tpope/vim-surround'
-    Plug 'justinmk/vim-sneak'
-    Plug 'kien/ctrlp.vim'
     Plug 'thinca/vim-quickrun'
     Plug 'schickele/vim-nachtleben'
     " optional
@@ -72,8 +70,10 @@ nnoremap Q <nop>
 " buffers
 nnoremap H :bnext<Enter>
 nnoremap L :bprevious<Enter>
-nnoremap <leader>b :CtrlPBuffer<Enter>
-nnoremap <leader>l :CtrlP .<Enter>
+" fzf
+nmap <leader>b :Buffers<Enter>
+nmap <leader>l :Files .<Enter>
+nmap <leader>g :GFiles? <Enter>
 
 " page up/down
 let g:BASH_Ctrl_j = 'off'
