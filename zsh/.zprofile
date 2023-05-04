@@ -6,5 +6,8 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export BROWSER=/usr/bin/firefox
 export PATH="/usr/sbin:/sbin:/usr/games:$PATH:$HOME/.bin"
 
+# navigate fzf with alt+j/k
+export FZF_DEFAULT_OPTS='--bind alt-j:down,alt-k:up'
+
 setxkbmap -option caps:escape
 setxkbmap -option compose:ralt
