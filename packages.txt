@@ -27,7 +27,7 @@ alacritty
 zsh
 tmux
 fzf
-vim
+gvim
 rofi
 stow
 git
