@@ -21,8 +21,8 @@ bindkey "\E[4~" end-of-line
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory
-setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 #auto cd
 setopt autocd autopushd
 
