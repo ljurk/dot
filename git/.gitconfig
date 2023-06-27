@@ -1,6 +1,7 @@
 [user]
 	email = lukas.jurk@tu-dresden.de
 	name = Lukas Jurk
+	signingkey = ~/.ssh/id_ed25519
 [diff]
 	tool = vimdiff
 
@@ -13,3 +14,7 @@
     autoSetupRemote = true
 [rebase]
 	autoStash = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
