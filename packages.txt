@@ -48,6 +48,7 @@ nextcloud-client
 vagrant
 virtualbox
 virtualbox-host-modules-arch
+xclip
 
 # work
 remmina
@@ -71,3 +72,6 @@ zaproxy
 # development
 docker
 docker-compose
+
+# lsusb
+usbutils
