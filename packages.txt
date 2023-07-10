@@ -32,6 +32,8 @@ rofi
 stow
 git
 thunar
+tumbler  # for thunar thumbnails
+feh
 gvfs
 gvfs-smb
 firefox
