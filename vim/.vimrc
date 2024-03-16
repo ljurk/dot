@@ -32,7 +32,7 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%:%code%]  %s [%severity%]'
 let g:ale_linters = {
-\   'python': ['flake8','pylint'],
+\   'python': ['ruff'],
 \   'cpp': ['cpplint'],
 \   'yml': ['ansible-lint'],
 \   'js': ['eslint'],
