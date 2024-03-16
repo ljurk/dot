@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'thinca/vim-quickrun'
     Plug 'schickele/vim-nachtleben'
     Plug 'fatih/vim-go'
+    Plug 'tpope/vim-commentary'
 call plug#end()
 
 "ale
