@@ -20,10 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'thinca/vim-quickrun'
     Plug 'schickele/vim-nachtleben'
-    " optional
-    "Plug 'mattn/emmet-vim'
-    "Plug 'fatih/vim-go'
-    "Plug 'https://github.com/jamessan/vim-gnupg'
+    Plug 'fatih/vim-go'
 call plug#end()
 
 "ale
@@ -44,6 +41,20 @@ let mapleader = ","
 " quickrun
 map <F5> :QuickRun<cr>
 nnoremap <F6> :bw! quickrun://output<cr>
+
+" go
+":autocmd BufWritePre *.go :GoBuild
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+autocmd FileType go setlocal foldmethod=syntax
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" quickfix
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+" auto close preview after selection
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " recommandations from https://realpython.com/vim-and-python-a-match-made-in-heaven/
 let g:ycm_autoclose_preview_window_after_completion=1
