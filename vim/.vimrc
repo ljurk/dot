@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'schickele/vim-nachtleben'
     Plug 'fatih/vim-go'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "ale
@@ -83,6 +84,14 @@ nnoremap Q <nop>
 " buffers
 nnoremap H :bnext<Enter>
 nnoremap L :bprevious<Enter>
+
+" git
+nmap <leader>gs :Git<Enter>
+nmap <leader>gc :Git commit<Enter>
+nmap <leader>gcn! :Git commit --no-edit --amend<Enter>
+nmap <leader>ga :GitGutterStageHunk<Enter>
+nmap <leader>gd :Git diff --cached<Enter>
+
 " fzf
 nmap <leader>b :Buffers<Enter>
 nmap <leader>l :Files .<Enter>
