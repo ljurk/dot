@@ -1,9 +1,12 @@
 Lukas Jurk
-Abteilung Operative Prozesse und Systeme (OPS)
 
 Technische Universität Dresden
-Zentrum für Informationsdienste und Hochleistungsrechnen (ZIH)
-Andreas-Pfitzmann-Bau, Raum E044
-Nöthnitzer Str. 46
-01187 Dresden
+CIDS - Center for Interdisciplinary Digital Sciences
+Department Informationsdienste und Hochleistungsrechnen (ZIH)
+Operative Prozesse und Systeme (OPS)
+
 Telefon: +49 351 463-42816
+E-Mail: lukas.jurk@tu-dresden.de
+Web: https://tu-dresden.de/zih
+
+Besucheradresse: Andreas-Pfitzmann-Bau, Raum E044
