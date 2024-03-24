@@ -72,11 +72,7 @@ bindsym $mod+Shift+l move right
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # Open specific applications in floating mode
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable
-for_window [class="Pavucontrol"] floating enable
+for_window [class="Apache Directory Studio"] floating disable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
