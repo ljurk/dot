@@ -23,6 +23,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
+    " preview for substitute
+    Plug 'markonm/traces.vim'
 call plug#end()
 
 "ale
@@ -34,15 +36,39 @@ let g:ale_linters = {
 \   'python': ['ruff'],
 \   'cpp': ['cpplint'],
 \   'yml': ['ansible-lint'],
+\   'md': ['mdl'],
 \   'js': ['eslint'],
 \   'css': ['stylelint'],
 \}
+let b:ale_fixers = {
+\   'python': ['remove_trailing_lines', 'trim_whitespace', 'ruff_format'],
+\   'py': ['remove_trailing_lines', 'trim_whitespace', 'ruff_format'],
+\   'yaml': ['remove_trailing_lines', 'trim_whitespace', 'prettier'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
 
 let mapleader = ","
 
 " quickrun
 map <F5> :QuickRun<cr>
 nnoremap <F6> :bw! quickrun://output<cr>
+
+" highlight search
+set incsearch
+
+" move visual selection up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" start substitute with word you are currently on
+" nnoremap <leader>s [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]"
+nnoremap <Leader>s :let @/ = '\<<C-r>=expand("<cword>")<CR>\>'<CR>:%s/<C-r>/<Left><Left>
+
+
+" python
+"autocmd BufWritePre *.py :silent! %!ruff format -- >/dev/null 2>&1
 
 " go
 ":autocmd BufWritePre *.go :GoBuild
@@ -59,10 +85,18 @@ map <C-m> :cprevious<CR>
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " recommandations from https://realpython.com/vim-and-python-a-match-made-in-heaven/
-let g:ycm_autoclose_preview_window_after_completion=1
+"let g:go_def_mode='gopls'
+"let g:ycm_autoclose_preview_window_after_completion=1
+" Enable YCM
+"let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_semantic_triggers = {'go': ['.']}
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>y "+y
 map <leader>Y "+Y
+
+" quote words
+:nnoremap <Leader>q" ciw""<Esc>P
+:nnoremap <Leader>q' ciw''<Esc>P
 
 " color it up
 color nachtleben
@@ -80,10 +114,16 @@ set so=999
 " disable ex mode
 map q: <Nop>
 nnoremap Q <nop>
+" searching with f/F
+" nnoremap n ;
+" nnoremap N ,
 
 " buffers
 nnoremap H :bnext<Enter>
 nnoremap L :bprevious<Enter>
+
+"ALE
+nnoremap ]d :ALENext<Enter>
 
 " git
 nmap <leader>gs :Git<Enter>
@@ -96,6 +136,9 @@ nmap <leader>gd :Git diff --cached<Enter>
 nmap <leader>b :Buffers<Enter>
 nmap <leader>l :Files .<Enter>
 nmap <leader>g :GFiles? <Enter>
+nmap <leader>r :Rg<Enter>
+" register
+nnoremap <leader>p :<C-u>registers<CR>:normal! "p<Left>
 
 " page up/down
 let g:BASH_Ctrl_j = 'off'
@@ -118,7 +161,7 @@ nnoremap <F7> :ALEDetail <ENTER>
 nnoremap <F8> :%normal ]s1z=<ENTER>
 
 " Enable autocompletion:
-    set wildmode=longest,list,full
+set wildmode=longest,list,full
 
 " filetypes for vimwiki
 let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
@@ -134,6 +177,8 @@ autocmd FileType python setlocal foldmethod=indent
 
 """spellchecking
 autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal spelllang=de_de,en_us
+
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
@@ -141,3 +186,7 @@ autocmd BufWritepre * %s/\n\+\%$//e
 
 " switch buffers without saving
 set hidden
+
+" vagrant
+au BufReadPost vagrantfile set syntax=ruby
+highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
