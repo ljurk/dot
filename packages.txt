@@ -55,6 +55,9 @@ xclip
 # work
 remmina
 freerdp
+libfido2
+yubikey-manager-qt
+extra/yubioath-desktop
 
 # fonts
 ttf-dejavu
