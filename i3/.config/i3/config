@@ -22,14 +22,15 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty --config-file ~/.config/alacritty/present.toml
 
-### rofi
+# rofi
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec rofipdf
 bindsym $mod+Tab exec rofi -show window
 bindsym $mod+Shift+w exec rofiwebsearch
 bindsym $mod+w exec rofiwebbookmarks
+bindsym $mod+a exec rofiaudio
 
-## sound-section
+# sound-section
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer -q set Master toggle"

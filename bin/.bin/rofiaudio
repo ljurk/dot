@@ -1,0 +1,18 @@
+#/bin/bash
+set -e
+
+SINK_DEFAULT=$(pactl info | grep -oP 'Default Sink: \K\S+')
+SINK_NAMES=$(pactl list sinks | grep -oP 'Name: \K\S+')
+
+DEFAULT_INDEX=$(printf "%s" "$SINK_NAMES" | grep -n "$SINK_DEFAULT" | cut -d: -f1)
+
+SINK_DESCRIPTIONS=$(pactl list sinks | grep -oP 'Description: \K.*' | sed 's/^ \+//' | sed 's/ \+$//')
+
+SINK_DESCRIPTION=$(printf "%s" "$SINK_DESCRIPTIONS" | sed "${DEFAULT_INDEX}d" | rofi -dmenu -i -p "Select sink:")
+SINK_DESCRIPTION=$(printf "%s" "$SINK_DESCRIPTION" | sed 's/(/\\(/' | sed 's/)/\\)/')
+
+DESCRIPTION_INDEX=$(printf "%s\n" "$SINK_DESCRIPTIONS" | grep -n "$SINK_DESCRIPTION" | cut -d: -f1)
+
+DEFAULT_SINK_NAME=$(echo "$SINK_NAMES" | sed -n "${DESCRIPTION_INDEX}p")
+notify-send "set-default-sink $SINK_DESCRIPTION"
+pactl set-default-sink "$DEFAULT_SINK_NAME"
