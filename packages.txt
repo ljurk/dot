@@ -1,67 +1,119 @@
+# for checkupdates
+pacman-contrib
+# aur
+base-devel
+
 # basic i3
+amd-ucode
+man-db
 xorg-server
 xorg-xinit
 i3-wm
 polybar
 i3lock
 dunst
+lightdm
+lightdm-slick-greeter
 
 # audio
 pipewire-jack
+pipewire-alsa
+pipewire-pulse
 wireplumber
 pavucontrol
-mpd
-mpc
-ncmpcpp
-ario
+#mpd
+#mpc
+#ncmpcpp
+#ario
+alsa-utils
+audacity
 
 # display
 arandr
 autorandr
 
-# aur
-base-devel
+# images
+gimp
+inkscape
+tumbler
+feh
+imagemagick
+flameshot
+
+# files
+thunar
+xarchiver
+nfs-utils
+gvfs-nfs
+ntfs-3g
+sshfs
+gvfs
+gvfs-smb
 
 # default applications
 alacritty
 zsh
 tmux
 fzf
-gvim
+#gvim
+neovim
 rofi
 stow
 git
-thunar
-tumbler  # for thunar thumbnails
-feh
-gvfs
-gvfs-smb
 firefox
+chromium
 thunderbird
+signal-desktop
 gnome-keyring
 seahorse
 keepassxc
-networkmanager-openvpn
-networkmanager-openconnect
-network-manager-applet
+# fixes 'No valid secrets'
+webkit2gtk-4.1
 zathura
-flameshot
+zathura-pdf-mupdf
 nextcloud-client
 vagrant
 virtualbox
 virtualbox-host-modules-arch
+
+# cli
 xclip
+jq
+yq
+unzip
+bat
+htop
+pwgen
+ripgrep
+usbutils
+
+# networking
+gnu-netcat
+lsof
+networkmanager
+network-manager-applet
+networkmanager-openvpn
+networkmanager-openconnect
 
 # work
+libreoffice-fresh
 remmina
 freerdp
 libfido2
 yubikey-manager-qt
-extra/yubioath-desktop
+yubioath-desktop
+dbeaver
+mariadb-clients
+cups
+glab
+okular
 
 # fonts
 ttf-dejavu
+ttf-dejavu-nerd
 ttf-font-awesome
+ttf-inconsolata-go-nerd
+terminus-font
 
 # ctf
 nmap
@@ -77,6 +129,16 @@ zaproxy
 # development
 docker
 docker-compose
-
-# lsusb
-usbutils
+kubectl
+kubectx
+helm
+ansible
+ansible-lint
+gitlab-runner
+prettier
+python-ruff
+python-virtualenv
+python-cookiecutter
+picocom
+markdownlint
+rpi-imager

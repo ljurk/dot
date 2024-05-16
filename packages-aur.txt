@@ -1,10 +1,27 @@
-antigen
-vim-plug
-ly
 dracula-gtk-theme
 dracula-icons-git
 ttf-font-awesome-4
 gobuster-bin
 seclists
 pcloud-drive
-rancher-k3d-bin
+antigen
+
+rofi-greenclip
+
+# work
+ykcs11-p11-kit-module
+apachedirectorystudio
+glpi-agent
+vmware-vmrc
+mongodb-compass
+git-credential-keepassxc
+slides
+
+# archive
+#vim-plug
+#ly
+#rancher-k3d-bin
+#tmux-plugin-manager
+#ruby-fusuma
+#golangci-lint-bin
+#ps_mem
