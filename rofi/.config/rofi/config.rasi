@@ -20,6 +20,7 @@ configuration {
     display-window:             "";
 	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	window-format:              "{w} · {c} · {t}";
+    font: "InconsolataGo Nerd Font Bold 17";
 }
 
 /*****----- Global Properties -----*****/
