@@ -67,8 +67,10 @@ return {
 
             local servers = {
                 gopls = {},
+                bashls = {},
                 -- ruff_lsp = {},
-                python_lsp_server = {},
+                --python_lsp_server = {},
+                pyright = {},
                 lua_ls = {
                     settings = {
                         Lua = {
@@ -89,6 +91,7 @@ return {
             -- vim.list_extend(ensure_installed, {
             --     "stylua", -- Used to format lua code
             --     "ruff",
+            --     "yamlfmt",
             -- })
             require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -140,6 +143,7 @@ return {
                 lua = { "stylua" },
                 go = { "goimports", "gofmt" },
                 python = { "isort", "ruff_format" },
+                yaml = { "prettier" },
             },
         },
     },
@@ -203,9 +207,11 @@ return {
                 -- No, but seriously. Please read `:help ins-completion`, it is really good!
                 mapping = cmp.mapping.preset.insert({
                     -- Select the [n]ext item
-                    ["<C-n>"] = cmp.mapping.select_next_item(),
+                    -- ["<C-n>"] = cmp.mapping.select_next_item(),
+                    ["<Tab>"] = cmp.mapping.select_next_item(),
                     -- Select the [p]revious item
-                    ["<C-p>"] = cmp.mapping.select_prev_item(),
+                    --["<C-p>"] = cmp.mapping.select_prev_item(),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
                     -- scroll the documentation window [b]ack / [f]orward
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -214,7 +220,8 @@ return {
                     -- Accept ([y]es) the completion.
                     --  This will auto-import if your LSP supports it.
                     --  This will expand snippets if the LSP sent a snippet.
-                    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                    --["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
                     -- Manually trigger a completion from nvim-cmp.
                     --  Generally you don't need this, because nvim-cmp will display

@@ -11,9 +11,11 @@ vim.api.nvim_command("autocmd FileType markdown setlocal spell spelllang=de_de,e
 
 -- Auto Remove Trailing Whitespace and Newlines
 vim.api.nvim_command("autocmd BufWritePre * %s/\\s\\+$//e | %s/\\n\\+\\%$//e")
+-- Auto Replace tabs with 4 spaces
+-- vim.api.nvim_command("autocmd BufWritePre * %s/\t/    /e")
 
 local nnoremap = function(key, action)
-	vim.api.nvim_set_keymap("n", key, action, { noremap = true })
+    vim.api.nvim_set_keymap("n", key, action, { noremap = true })
 end
 
 -- Buffers Navigation
@@ -23,6 +25,9 @@ nnoremap("L", ":bprevious<Enter>")
 -- FZF Integration
 nnoremap("<leader>b", ":Buffers<Enter>")
 nnoremap("<leader>l", ":Files .<Enter>")
+-- move visual block
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Misc. Key Mappings
 nnoremap("<F2>", ":set list!<Enter>")
