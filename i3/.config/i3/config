@@ -15,6 +15,7 @@ focus_follows_mouse no
 # is used in the bar {} block below.
 font pango:DejaVu Sans Mono 14
 
+bindsym $mod+space workspace back_and_forth
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -71,7 +72,6 @@ bindsym $mod+Shift+l move right
 
 # floating windows
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
 # Open specific applications in floating mode
 for_window [class="Apache Directory Studio"] floating disable
 
