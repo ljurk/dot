@@ -13,9 +13,7 @@ cd ~/.dot
 yay --noconfirm -S $(cat packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
 
 # enable login manager
-sudo rm /etc/pam.d/ly
-sudo ln -s "$(pwd)/ly/pam" /etc/pam.d/ly
-sudo systemctl enable ly.service
+sudo systemctl enable lightdm.service
 
 # install feather font
 mkdir -p ~/.local/share/fonts/panels/
