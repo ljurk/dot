@@ -27,3 +27,6 @@ sudo sh -c 'echo "%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers'
 
 # allow ssh to bind low numbered ports(https://superuser.com/questions/710253/allow-non-root-process-to-bind-to-port-80-and-443)
 sudo setcap CAP_NET_BIND_SERVICE=+eip
+
+# enable tapping mousepad
+sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
