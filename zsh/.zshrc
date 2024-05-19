@@ -86,9 +86,6 @@ antigen bundle sparsick/ansible-zsh
 # apply antigen bundles & theme
 antigen apply
 
-# Preferred editor
-export EDITOR='vim'
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
