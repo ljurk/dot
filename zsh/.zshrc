@@ -6,7 +6,11 @@ _not_inside_tmux() {
   [[ -z "$TMUX" ]]
 }
 
-if _not_inside_tmux; then
+_is_not_root() {
+  [[ $(whoami) != "root" ]]
+}
+
+if _not_inside_tmux && _is_not_root; then
     tat
 fi
 
@@ -31,7 +35,7 @@ setopt autocd autopushd
 autoload -Uz promptinit && promptinit
 prompt redhat
 autoload -U colors && colors
-PS1="%{$fg[magenta]%}% %m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+PS1='%{$fg[magenta]%}% $( [[ $(whoami) == "root" ]] && echo "%{$fg[red]%}root@%{$fg[magenta]%}" )%m %{$fg[yellow]%}%~ %{$reset_color%}%% '
 ##right
 #load vcf_info
 autoload -Uz vcs_info
