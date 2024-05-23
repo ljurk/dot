@@ -63,6 +63,33 @@ bindkey '^[k' up-line-or-search
 bindkey '^[j' down-line-or-search
 bindkey '^[l' forward-word
 bindkey '^[h' backward-word
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+# Alt+Shift+Backspace
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+    zle -f kill
+}
+zle -N backward-kill-dir
+bindkey '^[^H' backward-kill-dir
+
+# Alt+Shift+h
+backward-word-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-word
+}
+zle -N backward-word-dir
+bindkey '^[H' backward-word-dir
+# Alt+Shift+l
+forward-word-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle forward-word
+}
+zle -N forward-word-dir
+bindkey '^[L' forward-word-dir
+
 #fzf
 bindkey -s '^[c' 'cdfzf\n'
 
