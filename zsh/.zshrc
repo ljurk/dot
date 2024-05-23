@@ -1,3 +1,5 @@
+# disable vi mode
+bindkey -e
 # set environment variables
 export PATH=$HOME/.bin/:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
