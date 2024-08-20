@@ -30,3 +30,7 @@ sudo setcap CAP_NET_BIND_SERVICE=+eip
 
 # enable tapping mousepad
 sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
+
+# disable beep
+rmmod snd_pcsp
+sudo cp nobeep.conf /etc/modprobe.d/nobeep.conf
