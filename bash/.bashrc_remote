@@ -1,0 +1,90 @@
+alias s='systemctl'
+alias j='journalctl'
+alias p='podman'
+alias v='vi'
+#alias sudo='sudo env "BASH_ENV=/tmp/.bashrc_temp"'
+
+# Alt+k for navigating up in history
+bind '"\ek": history-search-backward'
+
+# Alt+j for navigating down in history
+bind '"\ej": history-search-forward'
+
+# Alt+l for moving forward one word
+bind '"\el": forward-word'
+
+# Alt+h for moving backward one word
+bind '"\eh": backward-word'
+
+# Alt+Right Arrow for moving forward one word
+bind '"\e[1;3C": forward-word'
+
+# Alt+Left Arrow for moving backward one word
+bind '"\e[1;3D": backward-word'
+
+
+
+# Wrapper function for sudo su
+# function sudo_su() {
+#     sudo su -c "exec bash --rcfile /tmp/.bashrc_temp "
+# }
+# alias susu='sudo_su'
+# Custom function to override 'sudo su'
+function sudo() {
+    if [[ $1 == "su" ]]; then
+        # Your custom command instead of 'sudo su'
+        command sudo su -c "exec bash --rcfile /tmp/.bashrc_temp"
+    else
+        # If it's not 'sudo su', use the original sudo command
+        command sudo "$@"
+    fi
+}
+
+
+#####
+# Completion
+####
+# Ensure bash completion is loaded
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+elif [[ -f /etc/bash_completion ]]; then
+    . /etc/bash_completion
+fi
+
+# Source the specific systemctl completion script
+# if [ -f /usr/share/bash-completion/completions/systemctl ]; then
+#     . /usr/share/bash-completion/completions/systemctl
+# fi
+# Source all bash completion files
+if [ -d /usr/share/bash-completion/completions ]; then
+    for completion in /usr/share/bash-completion/completions/*; do
+        if [ -f "$completion" ]; then
+            . "$completion"
+        fi
+    done
+fi
+
+# Enable autocompletion for the alias
+complete -F _systemctl s
+complete -F _journalctl j
+complete -F __start_podman p
+
+#####
+# PS1
+####
+
+# Function to set the PS1 variable
+function set_prompt() {
+    local color
+    if [ "$EUID" -eq 0 ]; then
+        # Red for root
+        color="\[\033[0;31m\]"
+    else
+        # Green for non-root users
+        color="\[\033[0;32m\]"
+    fi
+    PS1="${color}\[\033[1m\]\u@\h:\[\033[0;34m\]\w\[\033[0m\] \$ "
+}
+
+# Call the function to set the prompt
+set_prompt

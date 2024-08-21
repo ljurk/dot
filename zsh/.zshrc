@@ -168,10 +168,16 @@ alias dcup="docker-compose up"
 dgetid() {
     docker ps -qf "name=$1"
 }
-# ssh tunnel
+
+# ssh
 alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
 alias proxy-off='ssh -O exit cmgraylogProxy'
+ssh() {
+    command ssh $@ "cat > /tmp/.bashrc_temp" < ~/.bashrc_remote
+    command ssh -t $@ "bash --rcfile /tmp/.bashrc_temp ; rm /tmp/.bashrc_temp"
+}
+
 alias forever='for ((;;))'
 
 # pacman
