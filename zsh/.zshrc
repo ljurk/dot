@@ -188,3 +188,58 @@ function provision(){
     sudo pacman --noconfirm --needed -S $(cat ~/.dot/packages.txt | sed -e '/^#/d' -e '/^$/d')
     yay --noconfirm --needed -S $(cat ~/.dot/packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
 }
+# git log show with fzf
+gli() {
+
+  # param validation
+  if [[ ! `git log -n 1 $@ | head -n 1` ]] ;then
+    return
+  fi
+
+  # filter by file string
+  local filter
+  # param existed, git log for file if existed
+  if [ -n $@ ] && [ -f $@ ]; then
+    filter="-- $@"
+  fi
+
+  # git command
+  local gitlog=(
+    git log
+    --graph --color=always
+    --abbrev=7
+    --format='%C(auto)%h %an %C(blue)%s %C(yellow)%cr'
+    $@
+  )
+
+  # fzf command
+  local fzf=(
+    fzf
+    --ansi --no-sort --reverse --tiebreak=index
+    --preview "f() { set -- \$(echo -- \$@ | grep -o '[a-f0-9]\{7\}'); [ \$# -eq 0 ] || git show --color=always \$1 $filter; }; f {}"
+    --bind "ctrl-q:abort,ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % $filter | less -R') << 'FZF-EOF'
+                {}
+                FZF-EOF"
+   --preview-window=right:60%
+  )
+
+  # piping them
+  $gitlog | $fzf
+}
+
+gissues() {
+  # Format the issues list for fzf
+  formatted_issues=$(glab issue list --per-page 999 --output json | jq -r '.[] | "#\(.iid): \(.title) (\(.labels | join(", ")))"')
+
+  # Use fzf to select an issue and preview its content
+  selected_issue=$(echo "$formatted_issues" | fzf --preview-window=right:60% --preview 'script -q -c "glab issue view $(echo {} | cut -d# -f2 | cut -d: -f1)" /dev/null')
+
+  # If an issue was selected, display it using glab issue view
+  if [[ -n "$selected_issue" ]]; then
+    issue_id=$(echo "$selected_issue" | cut -d# -f2 | cut -d: -f1)
+    glab issue view "$issue_id" --web
+  fi
+}
+alias gissue='glab issue view $(git rev-parse --abbrev-ref HEAD | cut -d - -f1)'
