@@ -14,7 +14,7 @@ return {
         end, { desc = "[F]ind Files based on [c]urrent directory" })
         require("telescope").setup({
             defaults = {
-                prompt_prefix = "󰍉",
+                prompt_prefix = "󰍉 ",
                 mappings = {
                     i = {
                         -- close telescope by pressing esc only once
