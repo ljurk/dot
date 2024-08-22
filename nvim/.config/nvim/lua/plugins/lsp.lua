@@ -146,6 +146,7 @@ return {
                 go = { "goimports", "gofmt" },
                 python = { "isort", "ruff_format" },
                 yaml = { "prettier" },
+                html = { "prettier" },
             },
         },
     },
