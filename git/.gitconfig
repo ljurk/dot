@@ -18,3 +18,31 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = ./allowed_signers
+[alias]
+    check-signed = "!sh -c ' \
+        verbose=false; \
+        if [ \"$0\" = \"-v\" ]; then \
+            verbose=true; \
+        fi; \
+        all_signed=true; \
+        for commit in $(git rev-list --all); do \
+            sha=$(git show -s --format=%H $commit); \
+            message=$(git show -s --format=%s $commit); \
+            if ! git verify-commit $commit >/dev/null 2>&1; then \
+                if [ \"$verbose\" = true ]; then \
+                    echo \"Commit $sha is not signed. Message: $message\"; \
+                else \
+                    echo \"not ok\"; \
+                    exit 1; \
+                fi; \
+                all_signed=false; \
+            fi; \
+        done; \
+        if [ \"$all_signed\" = true ]; then \
+            echo \"ok\"; \
+        else \
+            echo \"not ok\"; \
+        fi \
+    '"
