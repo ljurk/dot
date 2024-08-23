@@ -46,8 +46,17 @@ precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 # return code
 local returncode="%(?..%{$fg[red]%} %? %{$resetcolor%})"
+
 #set prompt
-RPROMPT="${returncode}%{$fg[green]%}\$vcs_info_msg_0_"
+update_rprompt() {
+RPROMPT="$(git check-signed 2>&1)${returncode}%{$fg[green]%}\$vcs_info_msg_0_"
+}
+
+# Set up precmd hook to call update_rprompt
+precmd() {
+    update_rprompt
+}
+
 #format vcf_info string
 zstyle ':vcs_info:git:*' formats '[%b]'
 
