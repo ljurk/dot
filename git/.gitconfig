@@ -1,25 +1,32 @@
 [user]
-	email = lukas.jurk@tu-dresden.de
-	name = Lukas Jurk
-	signingkey = ~/.ssh/id_ed25519
+    email = lukas.jurk@tu-dresden.de
+    name = Lukas Jurk
+    signingkey = ~/.ssh/id_ed25519
+
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [pull]
-	rebase = true
+    rebase = true
+
 [push]
     autoSetupRemote = true
+
 [rebase]
-	autoStash = true
+    autoStash = true
+
 [gpg]
-	format = ssh
+    format = ssh
+
 [commit]
-	gpgsign = true
+    gpgsign = true
+
 [gpg "ssh"]
-	allowedSignersFile = ./allowed_signers
+    allowedSignersFile = ./allowed_signers
+
 [alias]
     check-signed = "!sh -c ' \
         verbose=false; \
