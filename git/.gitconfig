@@ -3,7 +3,7 @@
 	name = Lukas Jurk
 	signingkey = ~/.ssh/id_ed25519
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 
 [difftool]
 	prompt = false
