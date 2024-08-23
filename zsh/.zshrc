@@ -138,8 +138,9 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias :q='exit'
 alias ls='ls --color=auto'
 alias gs='git status'
-alias gbroot='git log --reverse --ancestry-path $(git merge-base master HEAD)..HEAD --pretty=format:%H | head -1'
+alias gbroot='git log --reverse --ancestry-path $(git merge-base "$(git rev-parse --abbrev-ref origin/HEAD)" HEAD)..HEAD --pretty=format:%H | head -1'
 alias grbroot='git rebase -i $(gbroot)^'
+alias gsu='git status -uno'
 alias grep='grep --color=auto'
 alias ag='sudo apt-get'
 alias p='sudo pacman'
@@ -236,6 +237,28 @@ gli() {
 
   # piping them
   $gitlog | $fzf
+}
+
+gstatus() {
+  # Format the issues list for fzf
+  formatted_issues=$(git status --short)
+
+  # Use fzf to select an issue and preview its content
+  selected_issue=$(echo "$formatted_issues" | fzf --preview-window=right:60% \
+                                                  --preview '
+        file=$(echo {} | cut -c4-)
+        state=$(echo {} | cut -c1)
+
+        if [[ "$state" == " " ]]; then
+          git diff --color "$file"
+        else
+          bat --style=plain,numbers --color=always "$file"
+        fi')
+
+  # If an issue was selected, display it using glab issue view
+  if [[ -n "$selected_issue" ]]; then
+      nvim "${selected_issue: 3}"
+  fi
 }
 
 gissues() {
