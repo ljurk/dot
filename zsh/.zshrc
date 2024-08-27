@@ -275,3 +275,5 @@ gissues() {
   fi
 }
 alias gissue='glab issue view $(git rev-parse --abbrev-ref HEAD | cut -d - -f1)'
+
+source <(fzf --zsh)
