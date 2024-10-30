@@ -1,9 +1,22 @@
+####
+# Aliases
+####
 alias s='systemctl'
 alias j='journalctl'
 alias p='podman'
 alias v='vi'
-#alias sudo='sudo env "BASH_ENV=/tmp/.bashrc_temp"'
+alias lslvm='pvs && echo && vgs && echo && lvs'
 
+alias findoldfiles="find . -type f -mtime +7 -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n'"
+alias findnewfiles="find . -type f -mtime -7 -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n'"
+function tcphosts() {
+    echo "$1"
+    tcpdump -nn -i any "dst port $1" -q | awk '{print $3}' | cut -d. -f1-4
+}
+
+####
+# Keybinds
+####
 # Alt+k for navigating up in history
 bind '"\ek": history-search-backward'
 
@@ -22,13 +35,10 @@ bind '"\e[1;3C": forward-word'
 # Alt+Left Arrow for moving backward one word
 bind '"\e[1;3D": backward-word'
 
+####
+# Functions
+####
 
-
-# Wrapper function for sudo su
-# function sudo_su() {
-#     sudo su -c "exec bash --rcfile /tmp/.bashrc_temp "
-# }
-# alias susu='sudo_su'
 # Custom function to override 'sudo su'
 function sudo() {
     if [[ $1 == "su" ]]; then
@@ -39,7 +49,6 @@ function sudo() {
         command sudo "$@"
     fi
 }
-
 
 #####
 # Completion
