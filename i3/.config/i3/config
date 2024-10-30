@@ -53,7 +53,7 @@ bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 
 # killing
 bindsym $mod+x exec "powermenu"
-bindsym $mod+Shift+x exec i3lock -c 191919
+bindsym $mod+Shift+x exec "tiempo start --type break; i3lock -n -c 191919; tiempo end --type break"
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # kill focused window
 bindsym $mod+Shift+q kill
