@@ -8,6 +8,7 @@ amd-ucode
 man-db
 xorg-server
 xorg-xinit
+xorg-xinput
 i3-wm
 polybar
 i3lock
@@ -44,11 +45,13 @@ flameshot
 thunar
 xarchiver
 nfs-utils
+exfatprogs
 gvfs-nfs
 ntfs-3g
 sshfs
 gvfs
 gvfs-smb
+samba
 
 # default applications
 alacritty
@@ -102,6 +105,7 @@ freerdp
 libfido2
 yubikey-manager-qt
 yubioath-desktop
+yubico-piv-tool
 dbeaver
 mariadb-clients
 cups
@@ -127,8 +131,7 @@ gdb
 zaproxy
 
 # development
-docker
-docker-compose
+npm
 kubectl
 kubectx
 helm
@@ -136,9 +139,10 @@ ansible
 ansible-lint
 gitlab-runner
 prettier
-python-ruff
+ruff
 python-virtualenv
 python-cookiecutter
 picocom
 markdownlint
 rpi-imager
+go
