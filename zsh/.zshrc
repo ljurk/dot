@@ -274,6 +274,7 @@ gissues() {
     glab issue view "$issue_id" --web
   fi
 }
+alias gpop='git popbranch'
 alias gissue='glab issue view $(git rev-parse --abbrev-ref HEAD | cut -d - -f1)'
 
 source <(fzf --zsh)

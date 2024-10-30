@@ -28,6 +28,7 @@
     allowedSignersFile = ./allowed_signers
 
 [alias]
+    popbranch = !"git stash pop $(echo $(git stash list | grep $(git rev-parse --abbrev-ref HEAD 2>/dev/null) | head -1) | awk '{print $1}' | tr -d ':')"
     check-signed = "!sh -c ' \
         verbose=false; \
         if [ \"$0\" = \"-v\" ]; then \
