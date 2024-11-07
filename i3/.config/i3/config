@@ -44,7 +44,6 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 bindsym $mod+e exec thunar
 bindsym $mod+Shift+t exec --no-startup-id "todo"
 bindsym $mod+Shift+s exec "remoteMenu"
-bindsym $mod+T exec "timer"
 bindsym $mod+u exec "umlaute"
 bindsym $mod+p exec "/home/ljurk/.local/bin/keepmenu"
 bindsym Print exec --no-startup-id flameshot gui
