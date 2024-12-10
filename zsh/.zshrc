@@ -143,11 +143,14 @@ alias grbroot='git rebase -i $(gbroot)^'
 alias gsu='git status -uno'
 alias grep='grep --color=auto'
 alias ag='sudo apt-get'
-alias p='sudo pacman'
+alias pm='sudo pacman'
+alias p='podman'
+alias s='sudo systemctl'
+alias j='sudo journalctl'
 alias order66='sudo pacman -Rsn $(pacman -Qqtd)' # remove orpahned pacakges
 alias diskusage='sudo du -sh * | sort -hf'
-alias sv='sudo vim'
-alias v='vim'
+alias sv='sudo nvim'
+alias v='nvim'
 alias ll='ls -lisa'
 alias la='ls -A'
 alias l='ls -CF'
@@ -188,6 +191,7 @@ ssh() {
     command ssh -t $@ "bash --rcfile /tmp/.bashrc_temp ; rm /tmp/.bashrc_temp"
 }
 
+alias sshs='ssh $(grep -h -r "^\s*Host " ~/.ssh/config ~/.ssh/config.d/* | awk "{print \$2}" | sort | fzf)'
 alias forever='for ((;;))'
 
 # pacman
@@ -276,5 +280,6 @@ gissues() {
 }
 alias gpop='git popbranch'
 alias gissue='glab issue view $(git rev-parse --abbrev-ref HEAD | cut -d - -f1)'
+alias gbranches='git branch -a | sed "s#remotes/origin/##g" | sort | uniq | fzf | xargs git checkout'
 
 source <(fzf --zsh)
