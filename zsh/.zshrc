@@ -265,6 +265,21 @@ gstatus() {
   fi
 }
 
+gmrs() {
+  # Format the issues list for fzf
+  formatted_issues=$(glab mr list --per-page 999 --output json | jq -r '.[] | "#\(.iid): \(.title) (\(.labels | join(", ")))"')
+
+  # Use fzf to select an issue and preview its content
+  selected_issue=$(echo "$formatted_issues" | fzf --preview-window=right:60% --preview 'script -q -c "glab mr view $(echo {} | cut -d# -f2 | cut -d: -f1)" /dev/null')
+
+  # If an issue was selected, display it using glab issue view
+  if [[ -n "$selected_issue" ]]; then
+    echo "$issue_id"
+    issue_id=$(echo "$selected_issue" | cut -d# -f2 | cut -d: -f1)
+    glab mr view "$issue_id" --web
+  fi
+}
+
 gissues() {
   # Format the issues list for fzf
   formatted_issues=$(glab issue list --per-page 999 --output json | jq -r '.[] | "#\(.iid): \(.title) (\(.labels | join(", ")))"')
