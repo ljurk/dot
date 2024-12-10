@@ -169,7 +169,7 @@ alias temp='watch -n 2 sensors'
 # adminstuff
 alias tlscheck='nmap --script ssl-enum-ciphers -p 443'
 certinfo() {
-    curl --insecure -vvI "https://$1" 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'
+    nmap -p 443 --script ssl-cert "$1"
 }
 certissuer() {
     certinfo $1 | grep "*  issuer" | sed -e "s/\*  issuer: //"
