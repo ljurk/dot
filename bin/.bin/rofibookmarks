@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Check if the CSV file exists
+CSV_FILE="/home/ljurk/.bin/bookmarks.csv"
+if [[ ! -f "$CSV_FILE" ]]; then
+    echo "The file $CSV_FILE does not exist."
+    exit 1
+fi
+
+# Read display names and URLs from the CSV file into an associative array
+declare -A url_map
+while IFS=, read -r name url; do
+    url_map["$name"]="$url"
+done < "$CSV_FILE"
+
+# Show the list of display names in rofi and get the selected name
+selected_name=$(printf "%s\n" "${!url_map[@]}" | rofi -dmenu -p "Select URL:")
+
+# If a name was selected, open the corresponding URL using xdg-open
+if [[ -n "$selected_name" ]]; then
+    selected_url="${url_map[$selected_name]}"
+    xdg-open "$selected_url"
+else
+    echo "No URL selected."
+fi

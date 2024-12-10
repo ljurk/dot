@@ -27,9 +27,8 @@ bindsym $mod+Shift+Return exec alacritty --config-file ~/.config/alacritty/prese
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec rofipdf
 bindsym $mod+Tab exec rofi -show window
-bindsym $mod+Shift+w exec rofiwebsearch
-bindsym $mod+w exec rofiwebbookmarks
 bindsym $mod+a exec rofiaudio
+bindsym $mod+b exec rofibookmarks
 
 # sound-section
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ unmute"
