@@ -61,16 +61,14 @@ elif [[ -f /etc/bash_completion ]]; then
 fi
 
 # Source the specific systemctl completion script
-# if [ -f /usr/share/bash-completion/completions/systemctl ]; then
-#     . /usr/share/bash-completion/completions/systemctl
-# fi
-# Source all bash completion files
-if [ -d /usr/share/bash-completion/completions ]; then
-    for completion in /usr/share/bash-completion/completions/*; do
-        if [ -f "$completion" ]; then
-            . "$completion"
-        fi
-    done
+if [ -f /usr/share/bash-completion/completions/systemctl ]; then
+    . /usr/share/bash-completion/completions/systemctl
+fi
+if [ -f /usr/share/bash-completion/completions/journalctl ]; then
+    . /usr/share/bash-completion/completions/journalctl
+fi
+if [ -f /usr/share/bash-completion/completions/podman ]; then
+    . /usr/share/bash-completion/completions/podman
 fi
 
 # Enable autocompletion for the alias
