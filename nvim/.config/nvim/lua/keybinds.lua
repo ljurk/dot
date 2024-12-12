@@ -40,6 +40,8 @@ vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true })
 vim.api.nvim_set_keymap("x", "<leader>y", '"+y', { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>Y", '"+Y', { noremap = true })
 vim.api.nvim_set_keymap("x", "<leader>Y", '"+Y', { noremap = true })
+vim.keymap.set("n", "]e", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[e", vim.diagnostic.goto_prev)
 
 -- use vims Yank behaviour
 nnoremap("Y", "yy")
