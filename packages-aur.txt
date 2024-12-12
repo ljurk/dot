@@ -8,6 +8,8 @@ antigen
 
 rofi-greenclip
 
+qlcplus
+
 # work
 ykcs11-p11-kit-module
 apachedirectorystudio
@@ -16,6 +18,7 @@ vmware-vmrc
 mongodb-compass
 git-credential-keepassxc
 slides
+python-eduvpn-client
 
 # archive
 #vim-plug

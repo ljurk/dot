@@ -4,6 +4,7 @@ pacman-contrib
 base-devel
 
 # basic i3
+base
 amd-ucode
 man-db
 xorg-server
@@ -15,6 +16,9 @@ i3lock
 dunst
 lightdm
 lightdm-slick-greeter
+pipewire
+grub
+efibootmgr
 
 # audio
 pipewire-jack
@@ -22,10 +26,6 @@ pipewire-alsa
 pipewire-pulse
 wireplumber
 pavucontrol
-#mpd
-#mpc
-#ncmpcpp
-#ario
 alsa-utils
 audacity
 
@@ -58,8 +58,8 @@ alacritty
 zsh
 tmux
 fzf
-#gvim
 neovim
+mousepad
 rofi
 stow
 git
@@ -78,6 +78,9 @@ nextcloud-client
 vagrant
 virtualbox
 virtualbox-host-modules-arch
+kicad
+kicad-library
+kicad-library-3d
 
 # cli
 xclip
@@ -89,6 +92,9 @@ htop
 pwgen
 ripgrep
 usbutils
+bc
+nmap
+curl
 
 # networking
 gnu-netcat
@@ -97,6 +103,11 @@ networkmanager
 network-manager-applet
 networkmanager-openvpn
 networkmanager-openconnect
+nss-mdns
+traceroute
+tailscale
+iftop
+speedtest-cli
 
 # work
 libreoffice-fresh
@@ -119,17 +130,6 @@ ttf-font-awesome
 ttf-inconsolata-go-nerd
 terminus-font
 
-# ctf
-nmap
-curl
-httpie
-socat
-ghidra
-ltrace
-strace
-gdb
-zaproxy
-
 # development
 npm
 kubectl
@@ -146,3 +146,10 @@ picocom
 markdownlint
 rpi-imager
 go
+podman
+podman-compose
+platformio-core
+platformio-core-udev
+typescript
+nodejs
+npm
