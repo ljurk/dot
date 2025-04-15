@@ -5,6 +5,7 @@ gobuster-bin
 seclists
 pcloud-drive
 antigen
+tmux-plugin-manager
 
 rofi-greenclip
 
@@ -24,7 +25,6 @@ python-eduvpn-client
 #vim-plug
 #ly
 #rancher-k3d-bin
-#tmux-plugin-manager
 #ruby-fusuma
 #golangci-lint-bin
 #ps_mem
