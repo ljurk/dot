@@ -16,12 +16,25 @@ stow */
 cat packages.txt | sed -e '/^#/d' -e '/^$/d' | sudo pacman -S -
 ```
 
-### login manger
+## neat to know
 
-lightdm is used as a login manger. After installation its necessary to enable the service:
+### Enable tapping
+
+To enable tapping on the touchpad run
 
 ```
-sudo systemctl enable lightdm.service
+xinput --set-prop 12 "libinput Tapping Enabled" 1
+```
+
+### Hide firefox tab-bar
+
+`<FIREFOX_PROFILE_FOLDER>/chrome/userChrome.css`:
+
+```
+/* hides the native tabs */
+#TabsToolbar {
+  visibility: collapse;
+}
 ```
 
 ## shortcuts
