@@ -187,8 +187,9 @@ alias proxy-on='ssh -fN cmgraylogProxy'
 alias proxy-check='ssh -O check cmgraylogProxy'
 alias proxy-off='ssh -O exit cmgraylogProxy'
 ssh() {
-    command ssh $@ "cat > /tmp/.bashrc_temp" < ~/.bashrc_remote
-    command ssh -t $@ "bash --rcfile /tmp/.bashrc_temp ; rm /tmp/.bashrc_temp"
+    remote_tmp=$(command ssh "$1" "mktemp /tmp/bashrc_temp.XXXXXX")
+    command scp ~/.bashrc_remote "$1:$remote_tmp"
+    command ssh -t $1 "export BASHRC_TEMP=$remote_tmp; bash --rcfile $remote_tmp; rm $remote_tmp"
 }
 
 alias sshs='ssh $(grep -h -r "^\s*Host " ~/.ssh/config ~/.ssh/config.d/* | awk "{print \$2}" | sort | fzf)'
