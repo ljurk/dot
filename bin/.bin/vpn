@@ -1,20 +1,25 @@
 #!/bin/sh
 
-if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Usage: $0 [status|toggle] <vpn-name>"
+if [ -z "$1" ]; then
+    echo "Usage: $0 [status|toggle]"
     exit 1
 fi
 
+connected() {
+   eduvpn-cli status 2>&1 | grep -q "Connected"
+}
+
 if [ "$1" = "status" ]; then
-   nmcli -f GENERAL.STATE con show $2 2>&1 | grep -q " activated" && echo %{F#F0C674}vpn || echo vpn
+   connected && echo %{F#F0C674}vpn || echo vpn
 elif [ "$1" = "toggle" ]; then
-    if nmcli -f GENERAL.STATE con show $2 2>&1 | grep -q " activated"; then
-        notify-send "disable vpn $2"
-        nmcli con down id "$2"
+    if connected; then
+        notify-send "disable vpn..."
+        eduvpn-cli disconnect
     else
-        notify-send "enable vpn $2"
-        nmcli con up id "$2"
+        notify-send "enable vpn..."
+        eduvpn-cli connect --number 1
     fi
+    notify-send "finished"
 else
     echo "$1"
     echo "The provided argument is not 'status' or 'toggle'."
