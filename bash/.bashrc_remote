@@ -43,7 +43,7 @@ bind '"\e[1;3D": backward-word'
 function sudo() {
     if [[ $1 == "su" ]]; then
         # Your custom command instead of 'sudo su'
-        command sudo su -c "exec bash --rcfile /tmp/.bashrc_temp"
+        command sudo su -c "exec bash --rcfile $BASHRC_TEMP"
     else
         # If it's not 'sudo su', use the original sudo command
         command sudo "$@"
