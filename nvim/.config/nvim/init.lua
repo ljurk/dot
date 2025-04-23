@@ -24,6 +24,7 @@ vim.opt.listchars = { eol = "$", tab = ">-", trail = "~", extends = ">", precede
 vim.opt.mouse = ""
 -- Additional Settings
 vim.opt.hidden = true
+vim.opt.so = 999
 vim.cmd("au BufReadPost vagrantfile set syntax=ruby")
 
 require("keybinds")
