@@ -2,8 +2,8 @@
 
 # List explicitly installed packages
 explicit_packages=$(pacman -Qe | awk '{print $1}')
-pacman_packages_file="packages.txt"
-aur_packages_file="packages-aur.txt"
+pacman_packages_file="$HOME/.dot/packages.txt"
+aur_packages_file="$HOME/.dot/packages-aur.txt"
 
 temp_file=$(mktemp)
 sed -e '/^\s*#/d' -e '/^$/d' "$pacman_packages_file" > "$temp_file"
