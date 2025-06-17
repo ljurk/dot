@@ -95,3 +95,19 @@ function set_prompt() {
 
 # Call the function to set the prompt
 set_prompt
+
+# Record command start in milliseconds
+trap '[[ -z "$CMD_TIMER_START" ]] && CMD_TIMER_START=$(date +%s)' DEBUG
+
+__show_command_time() {
+  if [[ -n "$CMD_TIMER_START" ]]; then
+    CMD_TIMER_END=$(date +%s)
+    CMD_TIMER_DIFF=$((CMD_TIMER_END - CMD_TIMER_START))
+    if (( CMD_TIMER_DIFF > 2 )); then
+      echo -e "\e[90mCommand took ${CMD_TIMER_DIFF}s\e[0m"
+    fi
+    unset CMD_TIMER_START
+  fi
+}
+
+PROMPT_COMMAND="__show_command_time"
