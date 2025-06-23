@@ -6,6 +6,9 @@ alias j='journalctl'
 alias p='podman'
 alias v='vi'
 alias lslvm='pvs && echo && vgs && echo && lvs'
+alias dus='du -sh ./* | sort -h'
+alias ll='ls -lisa'
+alias r='sudo su'
 
 alias findoldfiles="find . -type f -mtime +7 -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n'"
 alias findnewfiles="find . -type f -mtime -7 -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n'"
