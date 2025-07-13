@@ -54,3 +54,5 @@
             echo \"not ok\"; \
         fi \
     '"
+[init]
+	defaultBranch = main
