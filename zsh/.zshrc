@@ -49,7 +49,7 @@ local returncode="%(?..%{$fg[red]%} %? %{$resetcolor%})"
 
 #set prompt
 update_rprompt() {
-RPROMPT="$(git check-signed 2>&1)${returncode}%{$fg[green]%}\$vcs_info_msg_0_"
+RPROMPT="${returncode}%{$fg[green]%}\$vcs_info_msg_0_"
 }
 
 # Set up precmd hook to call update_rprompt
