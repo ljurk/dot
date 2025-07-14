@@ -203,9 +203,40 @@ function provision(){
     sudo pacman --noconfirm --needed -S $(cat ~/.dot/packages.txt | sed -e '/^#/d' -e '/^$/d')
     yay --noconfirm --needed -S $(cat ~/.dot/packages-aur.txt | sed -e '/^#/d' -e '/^$/d')
 }
+
+# vagrant
+vrestart(){
+    vagrant destroy -f $1
+    vagrant up $1
+    vagrant ssh $1
+}
+
+alias ap='ansible-playbook --diff'
+# work
+alias idm-tools-db='mariadb -u idm-tools -p -h idm-tools-db.zih.tu-dresden.de --ssl-ca ~/work/idm/idm-tools-db/cert-ca.pem --ssl-cert ~/work/idm/idm-tools-db/cert-client.pem --ssl-key ~/work/idm/idm-tools-db/cert-client.nokey'
+alias pw='pwgen -s 40 1'
+alias newrole='cookiecutter ~/private/cookiecutter-ansible-role'
+alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
+
+rmFromKnownHosts() {
+    grep $1 ~/.ssh/known_hosts
+    sed -i "/^$1/d" ~/.ssh/known_hosts
+    echo "removed"
+}
+
+grun() {
+    cmd="git config --global --add safe.directory '*';gitlab-runner exec docker --docker-pull-policy=if-not-present $1"
+    sudo podman run --entrypoint bash --rm -w $PWD -v $PWD:$PWD -v ~/containers/auth.json:/root/.docker/config.json -v /var/run/podman/podman.sock:/var/run/docker.sock docker.io/gitlab/gitlab-runner:v15.11.1 -c "$cmd"
+}
+
+gstashes() {
+    git stash list | fzf --ansi --no-sort --reverse --tiebreak=index \
+                         --preview 'git stash show --color -p $(echo {} | grep -oP "(?<=stash@\{)\d+(?=\})")' \
+                         --preview-window=right:60%
+}
+
 # git log show with fzf
 gli() {
-
   # param validation
   if [[ ! `git log -n 1 $@ | head -n 1` ]] ;then
     return
@@ -218,7 +249,6 @@ gli() {
     filter="-- $@"
   fi
 
-  # git command
   local gitlog=(
     git log
     --graph --color=always
