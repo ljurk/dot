@@ -1,9 +1,12 @@
+lua-language-server
+stylua
 ansible-language-server
 bash-language-server
 biome
 aur/clang-format-static-bin
 extra/golangci-lint
 aur/golangci-lint-langserver-bin
+aur/goimports-reviser-bin
 extra/gopls
 extra/prettier
 extra/ruff
