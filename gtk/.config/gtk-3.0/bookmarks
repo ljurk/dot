@@ -1,7 +1,5 @@
-file:///home/ljurk/work work
+file:///home/ljurk/work
 file:///home/ljurk/projects
-smb://vs-grp03.zih.tu-dresden.de/glwslm/ glwslm
-smb://file6.verw.tu-dresden.de/dezernat6$/PROJEKTE PROJEKTE
-smb://file6.verw.tu-dresden.de/dezernat6$/SG65 SG65
-smb://file6.verw.tu-dresden.de/home$/ljurk HOME
-smb://file6.verw.tu-dresden.de/dezernat6$/SG65/AM_CampusNet/Team_CN/Mitarbeiterordner/Jurk_Lukas AZ
+file:///home/ljurk/Downloads
+smb://vs-sec-smb3.zih.tu-dresden.de/linux_auth/ IDM
+sftp://dgw.zih.tu-dresden.de/home/ljurk HOME
