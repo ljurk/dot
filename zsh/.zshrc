@@ -138,17 +138,14 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias :q='exit'
 alias ls='ls --color=auto'
 alias gs='git status'
-alias gbroot='git log --reverse --ancestry-path $(git merge-base "$(git rev-parse --abbrev-ref origin/HEAD)" HEAD)..HEAD --pretty=format:%H | head -1'
-alias grbroot='git rebase -i $(gbroot)^'
+alias grbroot='git rebase -i $(git log --reverse --ancestry-path $(git merge-base "$(git rev-parse --abbrev-ref origin/HEAD)" HEAD)..HEAD --pretty=format:%H | head -1)^'
 alias gsu='git status -uno'
 alias grep='grep --color=auto'
-alias ag='sudo apt-get'
 alias pm='sudo pacman'
 alias p='podman'
 alias s='sudo systemctl'
 alias j='sudo journalctl'
 alias order66='sudo pacman -Rsn $(pacman -Qqtd)' # remove orpahned pacakges
-alias diskusage='sudo du -sh * | sort -hf'
 alias sv='sudo nvim'
 alias v='nvim'
 alias ll='ls -lisa'
@@ -156,10 +153,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias z='devour zathura'
 alias zf='devour zathura $(find ~ -name "*.pdf" | fzf)'
+alias wifi='nmcli device wifi list | tail -n +2 | grep -v "^\*" | awk '\''{print $2}'\'' | sort -u | fzf | awk '\''{system("nmcli device wifi connect " $1)}'\'''
+
 # tmux
-alias tbase='tmux a -t base || tmux new -s base'
-alias tans='tmux a -t ansible || tmux new -s ansible'
-alias tweb='tmux a -t web || tmux new -s web'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
 # microcontroller
@@ -167,25 +163,9 @@ alias semon='platformio device monitor'
 alias avrtest='avrdude -p m328p -c gpio'
 alias temp='watch -n 2 sensors'
 # adminstuff
-alias tlscheck='nmap --script ssl-enum-ciphers -p 443'
-certinfo() {
-    nmap -p 443 --script ssl-cert "$1"
-}
-certissuer() {
-    certinfo $1 | grep "*  issuer" | sed -e "s/\*  issuer: //"
-}
-# docker
-alias d="docker"
-alias dcp="docker-compose"
-alias dcup="docker-compose up"
-dgetid() {
-    docker ps -qf "name=$1"
-}
+alias certinfo='nmap -p 443 --script ssl-cert'
 
 # ssh
-alias proxy-on='ssh -fN cmgraylogProxy'
-alias proxy-check='ssh -O check cmgraylogProxy'
-alias proxy-off='ssh -O exit cmgraylogProxy'
 ssh() {
     remote_tmp=$(command ssh "$1" "mktemp /tmp/bashrc_temp.XXXXXX")
     command scp ~/.bashrc_remote "$1:$remote_tmp"
