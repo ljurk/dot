@@ -1,3 +1,5 @@
+lua-language-server
+stylua
 ansible-language-server
 bash-language-server
 biome
