@@ -6,3 +6,6 @@ az,/home/ljurk/work/Arbeitszeit-2024.xlsx
 abwesenheit,https://sharepoint.tu-dresden.de/sites/zih/Lists/HomeOffice/AllItems.aspx
 grafana[Monitoring-System],https://grafana.zih.tu-dresden.de/dashboards/f/nrIDLnsmk/
 tickets[Lizenzserver],https://tickets.tu-dresden.de/otrs/index.pl?Action=AgentTicketQueue;QueueID=106;View=;Filter=Unlocked
+tickets[IDM],https://tickets.tu-dresden.de/otrs/index.pl?Action=AgentTicketQueue;QueueID=92;View=Small;Filter=Unlocked;;SortBy=Age;OrderBy=Down
+[git]my mrs,https://gitlab.hrz.tu-chemnitz.de/zih/all/ansible/-/merge_requests?scope=all&state=opened&author_username=ljurk--tu-dresden.de
+[git]all mrs,https://gitlab.hrz.tu-chemnitz.de/zih/all/ansible/-/merge_requests
