@@ -164,6 +164,7 @@ alias avrtest='avrdude -p m328p -c gpio'
 alias temp='watch -n 2 sensors'
 # adminstuff
 alias certinfo='nmap -p 443 --script ssl-cert'
+alias queryLdap='ldapsearch -x -b "$LDAP_BASE" -H "$LDAP_HOST" -D "$LDAP_USER" -w "$LDAP_PASSWORD"'
 
 # ssh
 ssh() {
