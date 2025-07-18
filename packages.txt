@@ -2,6 +2,9 @@
 pacman-contrib
 # aur
 base-devel
+linux
+linux-firmware
+yay
 
 # basic i3
 base
@@ -10,6 +13,7 @@ man-db
 xorg-server
 xorg-xinit
 xorg-xinput
+xdo
 i3-wm
 polybar
 i3lock
@@ -28,10 +32,13 @@ wireplumber
 pavucontrol
 alsa-utils
 audacity
+spotify-launcher
 
 # display
 arandr
 autorandr
+mpv
+aur/dracula-gtk-theme
 
 # images
 gimp
@@ -52,11 +59,15 @@ sshfs
 gvfs
 gvfs-smb
 samba
+7zip
+aur/pcloud-drive
 
 # default applications
 alacritty
 zsh
 tmux
+aur/antigen
+aur/tmux-plugin-manager
 fzf
 neovim
 mousepad
@@ -109,47 +120,29 @@ tailscale
 iftop
 speedtest-cli
 
-# work
-libreoffice-fresh
-remmina
-freerdp
-libfido2
-yubikey-manager-qt
-yubioath-desktop
-yubico-piv-tool
-dbeaver
-mariadb-clients
-cups
-glab
-okular
-
 # fonts
 ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
 ttf-inconsolata-go-nerd
 terminus-font
+aur/dracula-icons-git
+aur/ttf-font-awesome-4
 
 # development
-npm
-kubectl
-kubectx
-helm
-ansible
-ansible-lint
-gitlab-runner
-prettier
-ruff
 python-virtualenv
-python-cookiecutter
 picocom
-markdownlint
 rpi-imager
 go
 podman
 podman-compose
 platformio-core
 platformio-core-udev
-typescript
-nodejs
-npm
+opentofu
+
+
+aur/rofi-greenclip
+
+aur/qlcplus
+aur/ykcs11-p11-kit-module
+aur/python-eduvpn-client

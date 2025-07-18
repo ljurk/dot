@@ -1,0 +1,23 @@
+# work
+openldap
+mongodb-compass-bin
+aur/apachedirectorystudio
+
+libreoffice-fresh
+remmina
+freerdp
+libfido2
+yubikey-manager-qt
+yubioath-desktop
+yubico-piv-tool
+dbeaver
+mariadb-clients
+cups
+glab
+okular
+
+ansible
+ansible-lint
+aur/git-credential-keepassxc
+python-cookiecutter
+gitlab-runner

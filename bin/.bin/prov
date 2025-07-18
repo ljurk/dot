@@ -1,0 +1,38 @@
+#!/bin/sh
+
+function install(){
+    yay --needed -S $(cat $1 | sed -e '/^#/d' -e '/^$/d')
+}
+
+function check(){
+    echo "Not installed:"
+    comm -23 <(grep -vhE '^\s*#|^\s*$' $1 | sed 's|^[^/]*/||' | sort) <(yay -Qq | sort)
+    echo
+    echo "Explicitly installed but not declared:"
+    comm -13 <(grep -vhE '^\s*#|^\s*$' $1 | sed 's|^[^/]*/||' | sort) <(pacman -Qqe | sort)
+}
+
+# Convert arguments to an array
+args=("$@")
+i=0
+
+while [[ $i -lt ${#args[@]} ]]; do
+    case "${args[i]}" in
+        --install)
+            install "${args[i+1]}"
+            ((i+=2))
+            ;;
+        --check)
+            check "${args[i+1]}"
+            ((i+=2))
+            ;;
+        --)  # Stop processing options
+            ((i++))
+            break
+            ;;
+        *)
+            echo "Unknown option: ${args[i]}" >&2
+            exit 1
+            ;;
+    esac
+done
