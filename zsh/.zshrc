@@ -188,6 +188,10 @@ vrestart(){
     vagrant ssh $1
 }
 
+cht() {
+    curl --silent cht.sh/$1 | less -R
+}
+
 alias ap='ansible-playbook --diff'
 # work
 alias idm-tools-db='mariadb -u idm-tools -p -h idm-tools-db.zih.tu-dresden.de --ssl-ca ~/work/idm/idm-tools-db/cert-ca.pem --ssl-cert ~/work/idm/idm-tools-db/cert-client.pem --ssl-key ~/work/idm/idm-tools-db/cert-client.nokey'
