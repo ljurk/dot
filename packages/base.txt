@@ -10,16 +10,7 @@ yay
 base
 amd-ucode
 man-db
-xorg-server
-xorg-xinit
-xorg-xinput
-xdo
-i3-wm
-polybar
-i3lock
 dunst
-lightdm
-lightdm-slick-greeter
 pipewire
 grub
 efibootmgr
@@ -35,8 +26,6 @@ audacity
 spotify-launcher
 
 # display
-arandr
-autorandr
 mpv
 aur/dracula-gtk-theme
 
@@ -46,7 +35,6 @@ inkscape
 tumbler
 feh
 imagemagick
-flameshot
 
 # files
 thunar
