@@ -1,0 +1,10 @@
+wdisplay
+wl-clipboard
+cliphist
+brightnessctl
+aur/swaylock-effects
+# screenshot
+grim
+slurp
+swappy
+ly

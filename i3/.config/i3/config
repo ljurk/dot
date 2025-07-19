@@ -21,12 +21,10 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty --config-file ~/.config/alacritty/present.toml
+bindsym $mod+Shift+Return exec "alacritty --config-file ~/.config/alacritty/present.toml"
 
 # rofi
 bindsym $mod+d exec rofi -show run
-bindsym $mod+Shift+d exec rofipdf
-bindsym $mod+Tab exec rofi -show window
 bindsym $mod+a exec rofiaudio
 bindsym $mod+b exec rofibookmarks
 
@@ -36,23 +34,19 @@ bindsym XF86AudioLowerVolume exec "amixer set Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer -q set Master toggle"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
 
 # Start Applications
 bindsym $mod+e exec thunar
 bindsym $mod+Shift+t exec --no-startup-id "todo"
-bindsym $mod+Shift+s exec "remoteMenu"
-bindsym $mod+u exec "umlaute"
-bindsym $mod+p exec "/home/ljurk/.local/bin/keepmenu"
-bindsym Print exec --no-startup-id flameshot gui
+bindsym Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+Print exec "rofirecord"
-bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
+bindsym $mod+v exec --no-startup-id cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
 # killing
 bindsym $mod+x exec "powermenu"
-bindsym $mod+Shift+x exec "tiempo start --type break; i3lock -n -c 191919; tiempo end --type break"
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+Shift+x exec "tiempo start --type break; swaylock; tiempo end --type break"
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -71,16 +65,13 @@ bindsym $mod+Shift+l move right
 # floating windows
 bindsym $mod+Shift+space floating toggle
 # Open specific applications in floating mode
-for_window [class="Apache Directory Studio"] floating disable
+for_window [app_id="Apache Directory Studio"] floating disable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+r exec swaymsg reload
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -101,3 +92,17 @@ client.focused #664477 #F0C674 #cccccc #e7d8b1
 client.focused_inactive #e7d8b1 #e7d8b1 #181715 #a074c4
 client.unfocused #222133 #222133 #aaaaaa #a074c4
 client.urgent #ce4045 #ce4045 #e7d8b1 #dccd69
+
+
+input "type:touchpad" {
+    dwt enabled
+    dwtp enabled
+    tap enabled
+    tap_button_map lrm
+    accel_profile "flat"
+    pointer_accel 1
+}
+
+input * {
+    xkb_options caps:escape,compose:ralt
+}

@@ -1,0 +1,170 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "spacing": 0,
+  "height": 0,
+
+  "margin-top": 0,
+  "margin-right": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+
+  "modules-left": ["sway/workspaces", "sway/window"],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "systemd-failed-units",
+    "custom/pacman",
+    "custom/dunst",
+    "custom/vpn",
+    "privacy",
+    "backlight",
+    "cpu",
+    "memory",
+    "disk",
+    "battery",
+    "network",
+    "pulseaudio",
+    "tray",
+  ],
+
+  "systemd-failed-units": {
+    "hide-on-ok": true,
+    "format": "systemd: {nr_failed}✗",
+    "system": true,
+    "user": true,
+  },
+
+  "custom/pacman": {
+    "format": " {}",
+    "interval": 60,
+    "exec": "(CHECKUPDATES_DB=\"/tmp/checkup-db-${UID}-$$\" checkupdates | wc -l)",
+    "exec-if": "exit 0",
+  },
+
+  "custom/dunst": {
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 100,
+  },
+
+  "custom/vpn": {
+    "exec": "~/.bin/vpn status",
+    "on-click": "~/.bin/vpn toggle",
+    "restart-interval": 5,
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+    ],
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""],
+    "scroll-step": 5,
+  },
+
+  "disk": {
+    "format": "{path} {percentage_used}%",
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "tooltip": false,
+  },
+
+  "sway/window": {
+    "max-length": 50,
+    "swap-icon-label": false,
+  },
+
+  "tray": {
+    "spacing": 10,
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:%R %d.%m.%y}",
+    "tooltip": false,
+  },
+
+  "cpu": {
+    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "interval": 2,
+
+    "tooltip": false,
+    "states": {
+      "critical": 90,
+    },
+  },
+
+  "memory": {
+    "format": " {percentage}%",
+    "interval": 2,
+
+    "states": {
+      "critical": 80,
+    },
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20,
+    },
+    "format": "{icon}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt-click": "click-right",
+    "format-alt": "{icon} {capacity}%",
+    "states": {
+      "warning": 20,
+      "critical": 10,
+    },
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+  },
+
+  "network": {
+    "format-wifi": " {essid} {ipaddr}",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": "no network",
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+    "tooltip": true,
+    "tooltip-format": "{icon} at {volume}%",
+  },
+}

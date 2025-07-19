@@ -10,7 +10,7 @@ connected() {
 }
 
 if [ "$1" = "status" ]; then
-   connected && echo %{F#F0C674}vpn || echo vpn
+   connected && echo vpn || echo vpn
 elif [ "$1" = "toggle" ]; then
     if connected; then
         notify-send "disable vpn..."

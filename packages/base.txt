@@ -8,23 +8,13 @@ yay
 
 # basic i3
 base
-amd-ucode
 man-db
-xorg-server
-xorg-xinit
-xorg-xinput
-xdo
-i3-wm
-polybar
-i3lock
 dunst
-lightdm
-lightdm-slick-greeter
-pipewire
 grub
 efibootmgr
 
 # audio
+pipewire
 pipewire-jack
 pipewire-alsa
 pipewire-pulse
@@ -35,8 +25,6 @@ audacity
 spotify-launcher
 
 # display
-arandr
-autorandr
 mpv
 aur/dracula-gtk-theme
 
@@ -44,9 +32,6 @@ aur/dracula-gtk-theme
 gimp
 inkscape
 tumbler
-feh
-imagemagick
-flameshot
 
 # files
 thunar
@@ -75,7 +60,6 @@ rofi
 stow
 git
 firefox
-chromium
 thunderbird
 signal-desktop
 gnome-keyring
@@ -94,9 +78,7 @@ kicad-library
 kicad-library-3d
 
 # cli
-xclip
 jq
-yq
 unzip
 bat
 htop
@@ -112,10 +94,7 @@ gnu-netcat
 lsof
 networkmanager
 network-manager-applet
-networkmanager-openvpn
-networkmanager-openconnect
 nss-mdns
-traceroute
 tailscale
 iftop
 speedtest-cli
@@ -131,7 +110,6 @@ aur/ttf-font-awesome-4
 
 # development
 python-virtualenv
-picocom
 rpi-imager
 go
 podman
@@ -139,9 +117,6 @@ podman-compose
 platformio-core
 platformio-core-udev
 opentofu
-
-
-aur/rofi-greenclip
 
 aur/qlcplus
 aur/ykcs11-p11-kit-module

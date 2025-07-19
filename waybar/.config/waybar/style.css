@@ -1,0 +1,90 @@
+@define-color purple #bd93f9;
+@define-color white  #ffffff;
+@define-color black  #000000;
+@define-color gray   #322d28;
+
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "Font Awesome 7 Free", "DejaVu Sans Mono";
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background-color: @gray;
+}
+
+#clock {
+    font-size: 20px;
+}
+#tray,
+#cpu,
+#custom-pacman,
+#custom-dunst,
+#custom-vpn,
+#memory,
+#network,
+#window,
+#backlight,
+#disk,
+#pulseaudio,
+#privacy,
+#systemd-failed-units,
+#clock {
+    margin-right: 6px;
+    padding: 2px 8px;
+    background-color: @purple;
+    color: @gray;
+}
+
+#tray,
+#workspaces {
+    background-color: @gray;
+}
+
+#workspaces {
+    margin-right: 6px;
+}
+
+#workspaces button {
+    padding: 2px 4px;
+    color: @white;
+}
+
+#workspaces button.focused {
+    background-color: @purple;
+    color: @gray;
+}
+
+#privacy,
+#systemd-failed-units.degraded,
+#workspaces button.urgent {
+    background-color: #e78a4e;
+    color: #1d2021;
+}
+
+#battery {
+    margin-right: 6px;
+    padding: 2px 8px;
+    background-color: #a9b665;
+    color: @gray;
+}
+
+#battery.warning,
+#battery.critical,
+#battery.urgent,
+#cpu.critical,
+#memory.critical {
+    background-color: @purple;
+    border: 2px solid #917a53;
+    color: #ae6330;
+}
+
+#cpu.critical,
+#memory.critical {
+    color: #c14a4a;
+}
