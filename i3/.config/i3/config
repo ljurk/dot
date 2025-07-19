@@ -77,7 +77,7 @@ for_window [class="Apache Directory Studio"] floating disable
 for_window [urgent=latest] focus
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r swaymsg reload
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -101,3 +101,7 @@ client.focused #664477 #F0C674 #cccccc #e7d8b1
 client.focused_inactive #e7d8b1 #e7d8b1 #181715 #a074c4
 client.unfocused #222133 #222133 #aaaaaa #a074c4
 client.urgent #ce4045 #ce4045 #e7d8b1 #dccd69
+
+input * {
+    xkb_options caps:escape,compose:ralt
+}
