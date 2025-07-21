@@ -1,0 +1,14 @@
+ansible-language-server
+bash-language-server
+biome
+aur/clang-format-static-bin
+extra/golangci-lint
+aur/golangci-lint-langserver-bin
+extra/gopls
+extra/prettier
+extra/ruff
+#extra/ruff-lsp
+extra/yamlfmt
+aur/python-xmlformatter
+extra/markdownlint
+extra/mypy

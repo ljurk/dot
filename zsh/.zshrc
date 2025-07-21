@@ -309,4 +309,8 @@ alias gpop='git popbranch'
 alias gissue='glab issue view $(git rev-parse --abbrev-ref HEAD | cut -d - -f1)'
 alias gbranches='git branch -a | sed "s#remotes/origin/##g" | sort | uniq | fzf | xargs git checkout'
 
+stowy() {
+   command stow $(ls -d */ | cut -d/ -f1 | grep -vE '^(mime|mail|packages|wifi|lightdm|grub)$') "$@"
+}
+
 source <(fzf --zsh)
