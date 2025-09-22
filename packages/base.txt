@@ -24,6 +24,10 @@ alsa-utils
 audacity
 spotify-launcher
 
+bluez
+bluetui
+aur/bluetooth-autoconnect
+
 # display
 mpv
 aur/dracula-gtk-theme
