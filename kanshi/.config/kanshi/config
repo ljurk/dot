@@ -1,0 +1,26 @@
+output "Lenovo Group Limited LEN T27h-20 VNA5XDD9" {
+  mode 2560x1440@60
+  position 0,0
+  scale 1
+  alias $WORK1
+}
+
+output "Lenovo Group Limited LEN T27h-2L VNA805LB" {
+  mode 2560x1440@60
+  position 2560,0
+  scale 1
+  alias $WORK2
+}
+
+output "Lenovo Group Limited 0x40A9 Unknown" {
+  mode 1920x1080
+  position 1710,1440
+  scale 1
+  alias $WORK_INTERNAL
+}
+
+profile work {
+    output $WORK1 enable
+    output $WORK2 enable
+    output $WORK_INTERNAL enable
+}

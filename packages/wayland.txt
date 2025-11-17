@@ -3,6 +3,7 @@ wl-clipboard
 cliphist
 brightnessctl
 aur/swaylock-effects
+kanshi
 # screenshot
 grim
 slurp
