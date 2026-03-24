@@ -3,7 +3,7 @@ return {
     cmd = { "gopls" },
 
     -- Filetypes to automatically attach to
-    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    filetypes = { "go", "gomod" },
 
     -- Sets the root directory
     root_markers = { { "go.mod", "go.work" }, ".git" },
