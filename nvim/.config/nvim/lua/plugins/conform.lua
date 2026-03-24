@@ -26,7 +26,7 @@ return { -- Autoformat
 
         formatters_by_ft = {
             lua = { "stylua" },
-            go = { "gofmt", "goimports-reviser", "golangci-lint" },
+            go = { "goimports-reviser", "gofmt", "golangci-lint" },
             python = { "ruff_format", "ruff_fix", "ruff_organize_imports" },
             jsonc = { "prettier" },
             yaml = { "prettier" },
