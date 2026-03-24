@@ -33,19 +33,15 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt autocd autopushd
 
 ###prompt
-##left
-autoload -Uz promptinit && promptinit
-prompt redhat
 autoload -U colors && colors
 PS1='%{$fg[magenta]%}% $( [[ $(whoami) == "root" ]] && echo "%{$fg[red]%}root@%{$fg[magenta]%}" )%m %{$fg[yellow]%}%~ %{$reset_color%}%% '
-##right
 #load vcf_info
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 # return code
-local returncode="%(?..%{$fg[red]%} %? %{$resetcolor%})"
+local returncode="%(?..%{$fg[red]%} %? %{$reset_color%})"
 
 #set prompt
 update_rprompt() {
@@ -128,14 +124,7 @@ antigen bundle sparsick/ansible-zsh
 # apply antigen bundles & theme
 antigen apply
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-#swap escape with caps
-#xmodmap /home/ljurk/dotfiles/.Xmodmap
-
 ## aliases
-alias :q='exit'
 alias ls='ls --color=auto'
 alias gs='git status'
 alias grbroot='git rebase -i $(git log --reverse --ancestry-path $(git merge-base "$(git rev-parse --abbrev-ref origin/HEAD)" HEAD)..HEAD --pretty=format:%H | head -1)^'
@@ -156,9 +145,6 @@ alias zf='devour zathura $(find ~ -name "*.pdf" | fzf)'
 alias wifi='nmcli device wifi list | tail -n +2 | grep -v "^\*" | awk '\''{print $2}'\'' | sort -u | fzf | awk '\''{system("nmcli device wifi connect " $1)}'\'''
 
 # tmux
-alias setclip='xclip -selection c'
-alias getclip='xclip -selection c -o'
-
 tmux-ansible() {
   local session="ansible"
   local workdir="$HOME/work/ansible"
