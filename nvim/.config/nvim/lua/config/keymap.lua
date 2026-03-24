@@ -22,9 +22,6 @@ end
 nnoremap("H", ":bnext<Enter>")
 nnoremap("L", ":bprevious<Enter>")
 
--- FZF Integration
-nnoremap("<leader>b", ":Buffers<Enter>")
-nnoremap("<leader>l", ":Files .<Enter>")
 -- move visual block
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

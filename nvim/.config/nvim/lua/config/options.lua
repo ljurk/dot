@@ -10,9 +10,6 @@ vim.opt.signcolumn = "yes"
 -- Cursorline
 vim.opt.cursorline = true
 
--- Show whitespace characters
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -49,7 +46,7 @@ vim.opt.termguicolors = true
 vim.opt.shell = "/bin/zsh"
 vim.cmd("syntax on")
 vim.cmd("filetype plugin on")
-vim.opt.listchars = { eol = "$", tab = ">-", trail = "~", extends = ">", precedes = "<", space = "^" }
+vim.opt.listchars = { eol = "$", tab = ">-", trail = "~", nbsp = "␣", extends = ">", precedes = "<", space = "^" }
 
 vim.opt.mouse = ""
 -- Additional Settings
