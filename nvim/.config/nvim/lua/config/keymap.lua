@@ -1,44 +1,33 @@
 -- Key Mappings
 
--- Add other key mappings here
-
--- Filetype-specific Settings
--- Example: Python specific settings
--- autocmd FileType python setlocal foldmethod=indent
-
--- Spellchecking for Markdown
+-- Spellchecking for Markdown files (German + English)
 vim.api.nvim_command("autocmd FileType markdown setlocal spell spelllang=de_de,en_us")
 
--- Auto Remove Trailing Whitespace and Newlines
+-- Auto remove trailing whitespace and excess newlines on save
 vim.api.nvim_command("autocmd BufWritePre * %s/\\s\\+$//e | %s/\\n\\+\\%$//e")
--- Auto Replace tabs with 4 spaces
--- vim.api.nvim_command("autocmd BufWritePre * %s/\t/    /e")
 
-local nnoremap = function(key, action)
-    vim.api.nvim_set_keymap("n", key, action, { noremap = true })
-end
+-- Buffers: H/L to switch buffers (alternative to :bnext/:bprevious)
+vim.keymap.set("n", "H", "<cmd>bnext<CR>")
+vim.keymap.set("n", "L", "<cmd>bprevious<CR>")
 
--- Buffers Navigation
-nnoremap("H", ":bnext<Enter>")
-nnoremap("L", ":bprevious<Enter>")
-
--- move visual block
+-- Move visual block up/down (keeps selection after moving)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Misc. Key Mappings
-nnoremap("<F2>", ":set list!<Enter>")
-nnoremap("<F3>", ":set relativenumber!<Enter>")
-nnoremap("<F5>", ":QuickRun<CR>")
-nnoremap("<F6>", ":bw! quickrun://output<CR>")
-nnoremap("<F7>", ":ALEDetail <ENTER>")
-nnoremap("<F8>", ":%normal ]s1z=<ENTER>")
-vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("x", "<leader>y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>Y", '"+Y', { noremap = true })
-vim.api.nvim_set_keymap("x", "<leader>Y", '"+Y', { noremap = true })
+-- Toggle visibility of special characters (listchars)
+vim.keymap.set("n", "<F2>", "<cmd>set list!<CR>")
+-- Toggle relative line numbers
+vim.keymap.set("n", "<F3>", "<cmd>set relativenumber!<CR>")
+
+-- Yank to system clipboard
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("x", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+vim.keymap.set("x", "<leader>Y", '"+Y')
+
+-- Jump between LSP diagnostics
 vim.keymap.set("n", "]e", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[e", vim.diagnostic.goto_prev)
 
--- use vims Yank behaviour
-nnoremap("Y", "yy")
+-- Y yanks whole line (like C/D) instead of from cursor
+vim.keymap.set("n", "Y", "yy")
