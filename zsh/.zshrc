@@ -158,6 +158,46 @@ alias wifi='nmcli device wifi list | tail -n +2 | grep -v "^\*" | awk '\''{print
 # tmux
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
+
+tmux-ansible() {
+  local session="ansible"
+  local workdir="$HOME/work/ansible"
+
+  # Check if session already exists
+  if tmux has-session -t "$session" 2>/dev/null; then
+    if [[ -n "$TMUX" ]]; then
+      # Inside tmux: switch to existing session
+      tmux switch-client -t "$session"
+    else
+      # Outside tmux: attach
+      tmux attach -t "$session"
+    fi
+    return
+  fi
+
+  # Create new session detached
+  tmux new-session -d -s "$session" -c "$workdir"
+
+   # Rename first window and run git status
+  tmux rename-window -t "$session:0" 'main'
+  tmux send-keys -t "$session:main" "git status" C-m
+
+  # Create second window with vertical split (top/bottom)
+  tmux new-window -t "$session:1" -n 'split' -c "$workdir"
+  tmux split-window -v -t "$session:1" -c "$workdir"
+
+  # Ensure the first window is active when attaching
+  tmux select-window -t "$session:main"
+
+  # Connect appropriately depending on whether we're in tmux
+  if [[ -n "$TMUX" ]]; then
+    tmux switch-client -t "$session"
+  else
+    tmux attach -t "$session"
+  fi
+}
+
+
 # microcontroller
 alias semon='platformio device monitor'
 alias avrtest='avrdude -p m328p -c gpio'
