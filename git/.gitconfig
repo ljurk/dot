@@ -17,6 +17,7 @@
 
 [rebase]
     autoStash = true
+    autosquash = true
 
 [gpg]
     format = ssh
@@ -54,5 +55,6 @@
             echo \"not ok\"; \
         fi \
     '"
+    fixup-fzf = "!git log --oneline | fzf --ansi --preview 'git show --color=always {1}' | cut -d' ' -f1 | xargs -r git commit --fixup"
 [init]
-	defaultBranch = main
+    defaultBranch = main
