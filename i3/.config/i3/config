@@ -2,6 +2,7 @@
 set $mod Mod4
 
 include ~/.config/i3/*.conf
+include /etc/sway/config.d/*
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
@@ -24,7 +25,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec "alacritty --config-file ~/.config/alacritty/present.toml"
 
 # rofi
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 bindsym $mod+a exec rofiaudio
 bindsym $mod+b exec rofibookmarks
 
