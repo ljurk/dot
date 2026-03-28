@@ -12,15 +12,29 @@ output "Lenovo Group Limited LEN T27h-2L VNA805LB" {
   alias $WORK2
 }
 
-output "Lenovo Group Limited 0x40A9 Unknown" {
-  mode 1920x1080
-  position 1710,1440
+output "Iiyama North America PL2760Q 1154110401351" {
+  mode 2560x1440@60
+  position 0,0
   scale 1
-  alias $WORK_INTERNAL
+  alias $KOE1
 }
+
+profile koe {
+    output $KOE1 enable
+    output "Lenovo Group Limited 0x40A9 Unknown" {
+      mode 1920x1080
+      position 320,1440
+      scale 1
+    }
+}
+
 
 profile work {
     output $WORK1 enable
     output $WORK2 enable
-    output $WORK_INTERNAL enable
+    output "Lenovo Group Limited 0x40A9 Unknown" {
+      mode 1920x1080
+      position 1710,1440
+      scale 1
+    }
 }
