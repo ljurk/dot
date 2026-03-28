@@ -50,7 +50,7 @@
   "custom/pacman": {
     "format": " {}",
     "interval": 60,
-    "exec": "(CHECKUPDATES_DB=\"/tmp/checkup-db-${UID}-$$\" checkupdates | wc -l)",
+    "exec": "(checkupdates | wc -l)",
     "exec-if": "exit 0",
   },
 
