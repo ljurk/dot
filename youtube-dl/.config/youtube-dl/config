@@ -1,7 +1,0 @@
--o "%(title)s.%(ext)s"
---restrict-filenames
---audio-format mp3
--f bestvideo+bestaudio
---continue
---add-metadata
---download-archive download.txt
