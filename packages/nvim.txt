@@ -10,7 +10,6 @@ aur/goimports-reviser-bin
 extra/gopls
 extra/prettier
 extra/ruff
-#extra/ruff-lsp
 extra/yamlfmt
 aur/python-xmlformatter
 extra/markdownlint

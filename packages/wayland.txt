@@ -1,9 +1,10 @@
-wdisplay
+wdisplays
 wl-clipboard
 cliphist
 brightnessctl
 aur/swaylock-effects
 kanshi
+wlprop
 # screenshot
 grim
 slurp

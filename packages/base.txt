@@ -9,6 +9,8 @@ yay
 # basic i3
 base
 man-db
+sway
+waybar
 dunst
 grub
 efibootmgr
@@ -61,7 +63,6 @@ fzf
 neovim
 mousepad
 rofi
-stow
 git
 firefox
 thunderbird
@@ -92,6 +93,7 @@ usbutils
 bc
 nmap
 curl
+opencode
 
 # networking
 gnu-netcat
@@ -118,9 +120,12 @@ rpi-imager
 go
 podman
 podman-compose
+buildah
+trivy
 platformio-core
 platformio-core-udev
 opentofu
+uv
 
 aur/qlcplus
 aur/ykcs11-p11-kit-module
