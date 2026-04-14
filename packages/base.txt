@@ -106,13 +106,7 @@ iftop
 speedtest-cli
 
 # fonts
-ttf-dejavu
 ttf-dejavu-nerd
-ttf-font-awesome
-ttf-inconsolata-go-nerd
-terminus-font
-aur/dracula-icons-git
-aur/ttf-font-awesome-4
 
 # development
 python-virtualenv

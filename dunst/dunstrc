@@ -2,7 +2,7 @@
     follow = keyboard
     frame_width = 0
     separator_color = "#282a36"
-    font = Monospace 18
+    font = DejaVuSansM Nerd Font Mono 18
     format = "<b>%s</b>%p\n%b"
     close = ctrl+space
     close_all = ctrl+shift+space
