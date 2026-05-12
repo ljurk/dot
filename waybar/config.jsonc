@@ -38,7 +38,7 @@
   },
 
   "bluetooth": {
-    "format": " {status}",
+    "format": "",
     "format-connected": " {device_alias}",
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
@@ -86,8 +86,8 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", ""],
+    "format": "{icon}",
+    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩖", "󰌵"],
     "scroll-step": 5,
   },
 
@@ -141,20 +141,14 @@
       "warning": 30,
       "critical": 20,
     },
-    "format": "{icon}",
-    "format-charging": " {capacity}%",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
     "format-plugged": " {capacity}%",
-    "format-alt-click": "click-right",
-    "format-alt": "{icon} {capacity}%",
-    "states": {
-      "warning": 20,
-      "critical": 10,
-    },
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
   },
 
   "network": {
-    "format-wifi": " {essid} {ipaddr}",
+    "format-wifi": " {essid}",
     "format-ethernet": " {ipaddr}",
     "format-disconnected": "no network",
   },
