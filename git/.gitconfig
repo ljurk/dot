@@ -55,6 +55,7 @@
             echo \"not ok\"; \
         fi \
     '"
-    fixup-fzf = "!git log --oneline | fzf --ansi --preview 'git show --color=always {1}' | cut -d' ' -f1 | xargs -r git commit --fixup"
+    fixup-fzf = "!git log --oneline | fzf --reverse --ansi --preview 'git show --color=always {1}' | cut -d' ' -f1 | xargs -r git commit --fixup"
+    conflicts = "!nvim -q <(git diff --check --relative)"
 [init]
     defaultBranch = main
