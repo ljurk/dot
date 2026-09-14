@@ -4,8 +4,6 @@ mongodb-compass-bin
 aur/apachedirectorystudio
 
 libreoffice-fresh
-remmina
-freerdp
 libfido2
 yubikey-manager-qt
 yubioath-desktop
