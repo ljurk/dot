@@ -125,6 +125,114 @@ antigen bundle sparsick/ansible-zsh
 antigen apply
 
 ## aliases
+# Git worktree selector with fzf
+wt() {
+  local create=false
+  local delete=false
+  local sync=false
+  local name=""
+  local target=""
+
+  _wt_usage() {
+    cat <<USAGE
+Usage: wt [-c <name>] [-d [path]] [-s] [-h]
+
+Options:
+  -c <name>   Create a new worktree with branch name <name>
+  -d [path]   Delete a worktree (fuzzy select if no path given, use '.' for current)
+  -s          Pull all existing worktrees and remove stale ones
+  -h          Show this help message
+USAGE
+  }
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -c) create=true; name="$2"; shift 2 ;;
+      -d) delete=true; shift; [[ $# -gt 0 && ! "$1" =~ ^- ]] && { target="$1"; shift; } ;;
+      -s) sync=true; shift ;;
+      -h) _wt_usage; return 0 ;;
+      *) _wt_usage; return 1 ;;
+    esac
+  done
+
+  if ($create || $sync) && $delete; then
+    echo "Error: -c and -s are mutually exclusive with -d"
+    return 1
+  fi
+
+  if $create; then
+    [[ -z "$name" ]] && { echo "Error: -c requires a name"; return 1; }
+
+    local root=$(git rev-parse --show-toplevel)
+    local new_path="$root/.w/$name"
+
+    git fetch origin || return 1
+    if git show-ref --verify --quiet "refs/heads/$name"; then
+      echo "Using existing local branch: $name"
+      git worktree add "$new_path" "$name" || return 1
+    elif git show-ref --verify --quiet "refs/remotes/origin/$name"; then
+      echo "Creating branch $name from origin/$name"
+      git worktree add "$new_path" -b "$name" --track "origin/$name" || return 1
+    else
+      echo "Error: neither local branch '$name' nor remote branch 'origin/$name' exists"
+      return 1
+    fi
+
+    cd "$new_path"
+
+  elif $sync; then
+    local wt_path
+    local output
+    local state
+
+    git worktree list --porcelain |
+      awk '/^worktree /{print substr($0,10)}' |
+      while read -r wt_path; do
+        echo "==> $wt_path"
+
+        output=$(git -C "$wt_path" pull 2>&1)
+        state=$?
+
+        echo "$output"
+
+        if [[ $state -ne 0 ]] &&
+           echo "$output" | grep -q 'but no such ref was fetched\.'; then
+          echo "Removing stale worktree: $wt_path"
+          git worktree remove "$wt_path" || return 1
+        elif [[ $state -ne 0 ]]; then
+          echo "Error pulling $wt_path"
+          return $state
+        fi
+      done
+
+  elif $delete; then
+    local to_delete
+
+    if [[ -n "$target" ]]; then
+      to_delete=$(realpath "$target")
+    else
+      to_delete=$(git worktree list | fzf --height 40% --reverse | awk '{print $1}')
+    fi
+
+    [[ -z "$to_delete" ]] && return 0
+
+    local main_wt=$(git worktree list | head -1 | awk '{print $1}')
+
+    if [[ "$to_delete" == "$main_wt" ]]; then
+      echo "Error: cannot delete main worktree"
+      return 1
+    fi
+
+    [[ "$(realpath .)" == "$to_delete"* ]] && cd "$main_wt"
+    git worktree remove "$to_delete"
+
+  else
+    local selected=$(git worktree list | fzf --height 40% --reverse | awk '{print $1}')
+    [[ -n "$selected" ]] && cd "$selected"
+  fi
+}
+
+
 alias ls='ls --color=auto'
 alias gs='git status'
 alias grbroot='git rebase -i $(git log --reverse --ancestry-path $(git merge-base "$(git rev-parse --abbrev-ref origin/HEAD)" HEAD)..HEAD --pretty=format:%H | head -1)^'
@@ -224,6 +332,8 @@ alias idm-tools-db='mariadb -u idm-tools -p -h idm-tools-db.zih.tu-dresden.de --
 alias pw='pwgen -s 40 1'
 alias newrole='cookiecutter ~/private/cookiecutter-ansible-role'
 alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
+alias theme-light="gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
+alias theme-dark="gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 
 rmFromKnownHosts() {
     grep $1 ~/.ssh/known_hosts
@@ -335,6 +445,15 @@ alias gpop='git popbranch'
 alias gissue='glab issue view $(git rev-parse --abbrev-ref HEAD | cut -d - -f1)'
 alias gbranches='git branch -a | sed "s#remotes/origin/##g" | sort | uniq | fzf | xargs git checkout'
 alias gupmain="git checkout $(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@') && git pull && git checkout -"
+
+gdf() {
+  selected=$(git status -uno --short | fzf --reverse --preview-window=right:60% \
+    --preview 'file=$(echo {} | cut -c4-); git diff --color "$file"')
+  if [[ -n "$selected" ]]; then
+    file=$(echo "$selected" | cut -c4-)
+    git add "$file"
+  fi
+}
 
 stowy() {
    command stow $(ls -d */ | cut -d/ -f1 | grep -vE '^(mime|mail|packages|wifi|lightdm|grub)$') "$@"
