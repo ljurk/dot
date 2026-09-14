@@ -3,7 +3,7 @@ export GTK_THEME=Dracula
 export EDITOR=/usr/bin/nvim
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # fix "xdg-open fork-bomb" export your preferred browser from here
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/sbin/zen-browser
 export GOPATH="$HOME/go"
 export PATH="/usr/sbin:/sbin:/usr/games:$PATH:$HOME/.bin:/home/ljurk/.cargo/bin:$GOPATH/bin"
 
