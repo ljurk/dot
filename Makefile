@@ -1,6 +1,6 @@
 LN := ln -sfT
 CONFIG_DIR := $(HOME)/.config
-MODULES := alacritty dunst i3 kanshi keepassxc newsboat nvim rofi swaylock waybar wireplumber
+MODULES := alacritty batsignal dunst i3 kanshi keepassxc newsboat nvim rofi swaylock waybar wireplumber
 
 .PHONY: all $(MODULES) bin git zsh
 
@@ -37,6 +37,10 @@ nobeep:
 		echo "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf >/dev/null; \
 		echo "nobeep: added"; \
 	fi
+
+services:
+	systemctl --user enable --now dunst
+	systemctl --user enable --now batsignal
 
 pacman-nopasswd:
 	@echo "%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman" | \
