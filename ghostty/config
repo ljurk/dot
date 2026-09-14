@@ -1,0 +1,45 @@
+# theme = Catppuccin Latte
+font-family = DejaVu Sans Mono
+font-style = Bold
+font-family-bold = DejaVu Sans Mono
+font-style-bold = Bold
+font-family-italic = DejaVu Sans Mono
+font-style-italic = Italic
+font-family-bold-italic = DejaVu Sans Mono
+font-style-bold-italic = Bold Italic
+font-size = 16
+
+
+confirm-close-surface = false
+
+# Primary colors
+background = #fbf1c7
+background = #fbf1c7
+foreground = #3c3836
+
+# Normal colors
+palette = 0=#fbf1c7
+palette = 1=#cc241d
+palette = 2=#98971a
+palette = 3=#d79921
+palette = 4=#458588
+palette = 5=#b16286
+palette = 6=#689d6a
+palette = 7=#7c6f64
+
+# Bright colors
+palette = 8=#928374
+palette = 9=#9d0006
+palette = 10=#79740e
+palette = 11=#b57614
+palette = 12=#076678
+palette = 13=#8f3f71
+palette = 14=#427b58
+palette = 15=#3c3836
+selection-background = d8dae1
+selection-foreground = 4c4f69
+
+
+keybind = alt+shift+backspace=text:\x1b\x08
+copy-on-select = clipboard
+selection-clear-on-copy = true

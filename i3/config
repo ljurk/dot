@@ -21,7 +21,7 @@ bindsym $mod+space workspace back_and_forth
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+Return exec "alacritty --config-file ~/.config/alacritty/present.toml"
 
 # rofi

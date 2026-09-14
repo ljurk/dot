@@ -55,7 +55,7 @@ samba
 aur/pcloud-drive
 
 # default applications
-alacritty
+ghostty
 zsh
 tmux
 aur/antigen

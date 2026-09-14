@@ -1,6 +1,6 @@
 LN := ln -sfT
 CONFIG_DIR := $(HOME)/.config
-MODULES := alacritty batsignal dunst i3 kanshi keepassxc newsboat nvim rofi swaylock waybar wireplumber
+MODULES := batsignal dunst ghostty i3 kanshi keepassxc newsboat nvim rofi swaylock waybar wireplumber
 
 .PHONY: all $(MODULES) bin git zsh
 
