@@ -3,6 +3,7 @@ stylua
 ansible-language-server
 bash-language-server
 biome
+pyright
 aur/clang-format-static-bin
 extra/golangci-lint
 aur/golangci-lint-langserver-bin
@@ -11,6 +12,5 @@ extra/gopls
 extra/prettier
 extra/ruff
 extra/yamlfmt
-aur/python-xmlformatter
 extra/markdownlint
 extra/mypy
