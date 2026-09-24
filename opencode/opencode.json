@@ -1,0 +1,31 @@
+{
+  "plugin": [
+    "@mohak34/opencode-notifier@latest",
+    "@dietrichgebert/ponytail"
+  ],
+  "$schema": "https://opencode.ai/config.json",
+  "model": "OpenAI/GPT-5.6 Sol",
+  "provider": {
+    "local-model": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Scads.AI",
+      "options": {
+        "baseURL": "https://llm.scads.ai/v1"
+      },
+      "models": {
+        "moonshotai/Kimi-K2.6": {
+          "name": "moonshotai/Kimi-K2.6"
+        },
+        "MiniMaxAI/MiniMax-M2.7": {
+          "name": "MiniMaxAI/MiniMax-M3-MXFP8"
+        },
+        "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
+          "name": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+        },
+        "Qwen/Qwen3.8-27B": {
+            "name": "Qwen/Qwen3.8-27B"
+        }
+      }
+    }
+  }
+}
