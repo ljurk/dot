@@ -14,3 +14,4 @@ export ANSIBLE_VAULT_IDENTITY_LIST=grafana@vault-client.py,debian_repo@vault-cli
 
 export REGISTRY_AUTH_FILE="$HOME/containers/auth.json"
 export MAKEFLAGS="--jobs=$(nproc)"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
