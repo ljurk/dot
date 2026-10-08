@@ -1,6 +1,5 @@
 {
   "plugin": [
-    "@mohak34/opencode-notifier@latest",
     "@dietrichgebert/ponytail"
   ],
   "$schema": "https://opencode.ai/config.json",
