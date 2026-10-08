@@ -255,7 +255,7 @@ alias wifi='nmcli device wifi list | tail -n +2 | grep -v "^\*" | awk '\''{print
 # tmux
 tmux-ansible() {
   local session="ansible"
-  local workdir="$HOME/work/ansible"
+  local workdir="$HOME/w/a"
 
   # Check if session already exists
   if tmux has-session -t "$session" 2>/dev/null; then
@@ -328,7 +328,7 @@ cht() {
 
 alias ap='ansible-playbook --diff'
 # work
-alias idm-tools-db='mariadb -u idm-tools -p -h idm-tools-db.zih.tu-dresden.de --ssl-ca ~/work/idm/idm-tools-db/cert-ca.pem --ssl-cert ~/work/idm/idm-tools-db/cert-client.pem --ssl-key ~/work/idm/idm-tools-db/cert-client.nokey'
+alias idm-tools-db='mariadb -u idm-tools -p -h idm-tools-db.zih.tu-dresden.de --ssl-ca ~/w/idm/idm-tools-db/cert-ca.pem --ssl-cert ~/w/idm/idm-tools-db/cert-client.pem --ssl-key ~/w/idm/idm-tools-db/cert-client.nokey'
 alias pw='pwgen -s 40 1'
 alias newrole='cookiecutter ~/private/cookiecutter-ansible-role'
 alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
