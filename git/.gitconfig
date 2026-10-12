@@ -1,7 +1,7 @@
 [user]
     email = lukas.jurk@tu-dresden.de
     name = Lukas Jurk
-    signingkey = ~/.ssh/id_ed25519
+    signingkey = ~/.ssh/id_ed25519.pub
 
 [diff]
     tool = nvimdiff
