@@ -1,6 +1,6 @@
 LN := ln -sfT
 CONFIG_DIR := $(HOME)/.config
-MODULES := batsignal dunst ghostty i3 kanshi keepassxc newsboat nvim opencode rofi swaylock waybar wireplumber
+MODULES := batsignal dunst ghostty i3 kanshi keepassxc newsboat nvim opencode rofi swaylock systemd waybar wireplumber
 
 .PHONY: all $(MODULES) bin git zsh
 
@@ -41,6 +41,7 @@ nobeep:
 services:
 	systemctl --user enable --now dunst
 	systemctl --user enable --now batsignal
+	systemctl --user enable --now ssh-agent
 
 pacman-nopasswd:
 	@echo "%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman" | \
