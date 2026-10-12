@@ -1,5 +1,5 @@
 vim.pack.add({
-  "https://github.com/folke/tokyonight.nvim",
+  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-telescope/telescope.nvim",
   -- git
@@ -12,7 +12,7 @@ vim.pack.add({
   "https://github.com/stevearc/oil.nvim",
 })
 
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("catppuccin-nvim")
 
 -- conform
 require("conform").setup({
