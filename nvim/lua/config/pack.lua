@@ -9,7 +9,11 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.surround",
   "https://github.com/nvim-mini/mini-git",
   "https://github.com/nvim-mini/mini.statusline",
+  "https://github.com/nvim-mini/mini.icons",
+  "https://github.com/nvim-mini/mini.sessions",
   "https://github.com/stevearc/oil.nvim",
+  "https://github.com/benomahony/oil-git.nvim",
+  "https://github.com/CRAG666/code_runner.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-nvim")
@@ -42,6 +46,7 @@ require("conform").setup({
     lua = { "stylua" },
     go = { "goimports-reviser", "gofmt", "golangci-lint" },
     python = { "ruff_format", "ruff_fix", "ruff_organize_imports" },
+    markdown = { "markdownlint-cli2" },
     jsonc = { "prettier" },
     yaml = { "prettier" },
     html = { "prettier" },
@@ -56,7 +61,10 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[f]iles" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[g]rep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[b]uffers" })
 vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "[r]egisters" })
-vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, { desc = "[d]efinitions" })
+vim.keymap.set("n", "<leader>fe", builtin.diagnostics, { desc = "[e]rrors" })
+vim.keymap.set("n", "<leader>fd", function()
+  builtin.lsp_document_symbols({ symbols = { "Function", "Method" } })
+end, { desc = "[d]efinitions" })
 vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "[s]tatus" })
 
 vim.keymap.set("n", "<leader>fc", function()
@@ -78,6 +86,11 @@ require("telescope").setup({
 })
 
 -- mini
+require("mini.icons").setup()
+require("mini.sessions").setup({
+  autoread = true,
+  autowrite = true,
+})
 require("mini.surround").setup()
 require("mini.git").setup()
 require("mini.statusline").setup()
@@ -138,3 +151,19 @@ vim.api.nvim_set_keymap(
   [[<cmd>lua require("oil").toggle_float()<CR>]],
   { noremap = true, silent = true, desc = "Toggle Oil float" }
 )
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", {
+  desc = "Open parent directory",
+})
+require("oil-git").setup()
+
+-- code-runner
+require("code_runner").setup({
+  root_markers = {
+    { "pyproject.toml", "uv run python $fileName" },
+  },
+  filetype = {
+    python = "uv run python",
+  },
+})
+
+vim.keymap.set("n", "<leader>r", ":RunCode<CR>", { desc = "[r]un", noremap = true, silent = false })
