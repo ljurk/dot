@@ -107,6 +107,44 @@ require("mini.sessions").setup({
 })
 require("mini.surround").setup()
 require("mini.git").setup()
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitrebase",
+  callback = function(args)
+    local preview_win
+    vim.keymap.set("n", "<leader>gp", function()
+      local action, hash = vim.api.nvim_get_current_line():match("^%s*(%S+)%s+(%x+)")
+      local commit_actions = {
+        p = true,
+        pick = true,
+        r = true,
+        reword = true,
+        e = true,
+        edit = true,
+        s = true,
+        squash = true,
+        f = true,
+        fixup = true,
+        d = true,
+        drop = true,
+      }
+      if not commit_actions[action] or not hash then
+        return vim.notify("No commit on this rebase line", vim.log.levels.WARN)
+      end
+
+      if preview_win and vim.api.nvim_win_is_valid(preview_win) then
+        vim.api.nvim_win_close(preview_win, true)
+      end
+
+      local rebase_win = vim.api.nvim_get_current_win()
+      vim.cmd("vertical Git show " .. hash)
+      local output_win = vim.api.nvim_get_current_win()
+      if output_win ~= rebase_win then
+        preview_win = output_win
+        vim.api.nvim_set_current_win(rebase_win)
+      end
+    end, { buffer = args.buf, desc = "[p]review commit" })
+  end,
+})
 require("mini.statusline").setup()
 -- cursor location to LINE:COLUMN
 require("mini.statusline").section_location = function()
