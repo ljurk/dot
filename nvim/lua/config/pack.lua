@@ -14,7 +14,21 @@ vim.pack.add({
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/benomahony/oil-git.nvim",
   "https://github.com/CRAG666/code_runner.nvim",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/nickjvandyke/opencode.nvim",
 })
+
+require("snacks").setup({ input = { enabled = true } })
+
+vim.g.opencode_opts = {}
+
+vim.keymap.set({ "n", "x" }, "<leader>oa", function()
+  require("opencode").ask("@this: ")
+end, { desc = "Ask OpenCode" })
+
+vim.keymap.set({ "n", "x" }, "<leader>os", function()
+  require("opencode").select()
+end, { desc = "Select OpenCode" })
 
 vim.cmd.colorscheme("catppuccin-nvim")
 
