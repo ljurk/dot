@@ -8,5 +8,11 @@
     "scrollbar": true,
     "thinking": "hide"
   },
-  "animations": true
+  "animations": true,
+  "attention": {
+    "notifications": true
+  },
+  "theme": {
+    "name": "catppuccin"
+  }
 }
