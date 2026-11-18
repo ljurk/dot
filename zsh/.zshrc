@@ -332,8 +332,6 @@ alias idm-tools-db='mariadb -u idm-tools -p -h idm-tools-db.zih.tu-dresden.de --
 alias pw='pwgen -s 40 1'
 alias newrole='cookiecutter ~/private/cookiecutter-ansible-role'
 alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
-alias theme-light="gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
-alias theme-dark="gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 
 rmFromKnownHosts() {
     grep $1 ~/.ssh/known_hosts

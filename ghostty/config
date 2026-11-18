@@ -1,4 +1,4 @@
-theme = Catppuccin Latte
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
 font-family = DejaVu Sans Mono
 font-style = Bold
 font-family-bold = DejaVu Sans Mono

@@ -88,6 +88,7 @@
     "device": "intel_backlight",
     "format": "{icon}",
     "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩖", "󰌵"],
+    "on-click": "$HOME/.bin/theme-toggle",
     "scroll-step": 5,
   },
 
